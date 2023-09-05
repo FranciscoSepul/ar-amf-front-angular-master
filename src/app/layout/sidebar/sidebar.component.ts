@@ -25,42 +25,43 @@ export class SidebarComponent implements OnInit {
       { label: 'Undo', icon: 'pi pi-fw pi-refresh' }
     ];
 
-    const Dashboard = [{
+    const Dashboard = [
+      {
+        text: 'Actividades',
+        link: '/Test3',
+        icon: '../../../assets/Icon/helmet-safety-solid.svg'
+      },
+      {
       text: 'Usuarios',
       link: '/Usuarios',
-      icon: 'pi-check'
-    }, {
-      text: 'Test2',
+      icon: 'pi-users'
+    }
+    ,{
+      text: 'Vistas',
       link: '/Test2',
-      icon: 'pi-send',
-      submenu: [
-        {
-          text: 'SubmenuTest4',
-          link: '/Test2/SubmenuTest4'
-        },
-        {
-          text: 'SubmenuTest5',
-          link: '/Test2/SubmenuTest5'
-        },
-        {
-          text: 'SubmenuTest6',
-          link: '/Test2/SubmenuTest6'
-        },
-        {
-          text: 'SubmenuTest7',
-          link: '/Test2/SubmenuTest7'
-        },
-        {
-          text: 'SubmenuTest8',
-          link: '/Test2/SubmenuTest8'
-        }
-      ]
-    }, {
-      text: 'Test3',
+      icon: 'pi-send'
+    }
+    ,{
+      text: 'Empresa',
       link: '/Test3',
       icon: 'pi-user'
-    }
+    },{
+      text: 'Usuario',
+      link: '/Test3',
+      icon: 'pi-user'
+    },
+    {
+      text: 'Notificaciones',
+      link: '/Test3',
+      icon: 'pi-user'
+    },
+    {
+      text: 'Accidentes',
+      link: '/Test3',
+      icon: 'pi-user'
+    },
     ];
+
 
     this.menuservice.addMenu(Dashboard);
     this.menuArray = this.menuservice.getMenu();

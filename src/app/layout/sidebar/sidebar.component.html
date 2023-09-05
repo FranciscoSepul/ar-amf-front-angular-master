@@ -1,21 +1,17 @@
 <div class="bg-light border-right" id="sidebar-wrapper">
   <div id="logo-header-container">
-    <img src="../../../assets/images/amf-logo.png" width="200vh">
+    <img src="" width="200vh">
   </div>
 
 
   <ul class="list-group list-group-flush">
-
-
-
-
     <ng-template ngFor let-item [ngForOf]="menuArray">
       <div *ngIf="item.submenu; else elseBlock">
 
 
         <div>
           <button collapsible type="button" class="collapsible list-group-item-action bg-light">
-            <i class="pi {{item.icon}}"></i>
+            <img src="{{item.icon}}"/>
             {{item.text}}
           </button>
           <div class="content">
@@ -26,7 +22,7 @@
               routerLinkActive="active" role="item" (click)="selectedItem = i + item.text; "
               [ngClass]="{'active': selectedItem === i + item.text}">
               {{submen.text}}
-            
+
             </li>
 
 

@@ -1,7 +1,9 @@
 @import "../../../assets/partials/variables";
 
 
-
+.custom-icon {
+  background-image: '../../../assets/Icon/helmet-safety-solid.svg';
+}
 #logo-header-container {
   padding: 2vh;
 }
@@ -45,12 +47,12 @@
 }
 
 .list-group-item.active{
-  border-left: 5px solid white ; 
+  border-left: 5px solid white ;
   background-color: rgba($color: $HighLightColor, $alpha: 0.6)  !important;
   border-top: none;
   border-right: none;
   border-bottom: none;
-  
+
 }
 
 #sidebar-wrapper .list-group {
@@ -62,7 +64,7 @@
     color: white;
 
   }
- 
+
   button{
     cursor: pointer;
     background-color: $PrimaryColor !important;
@@ -74,7 +76,7 @@
     &:hover {
       background-color: rgba($color: $HighLightColor, $alpha: 0.6)  !important;
     }
-    
+
   }
 
   a{

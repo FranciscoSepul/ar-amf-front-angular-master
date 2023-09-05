@@ -7,6 +7,7 @@ import { EditarComponent } from './editar/editar.component';
 
 
 
+
 @NgModule({
   declarations: [
     UsuariosComponent,
