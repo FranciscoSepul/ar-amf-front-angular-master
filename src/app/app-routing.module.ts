@@ -3,16 +3,17 @@ import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
 import { LayoutComponent } from './layout/layout.component';
 import { MaintenanceComponent } from './shared/components/maintenance/maintenance.component';
 import { LoginCComponent } from './modules/login-mod/login-c/login-c.component';
+import {UsuariosComponent} from './modules/usuarios/usuarios.component'
 
 const routes: Routes = [
   {
     path: '',
     component: LayoutComponent,
     children: [
-       
+
         { path: 'home', loadChildren: () => import('./modules/home/home.module').then(m => m.HomeModule) },
         { path: 'abm', loadChildren: () => import('./modules/abm/abm.module').then(m => m.AbmModule) },
-
+        { path: 'Usuarios', loadChildren: () => import('./modules/usuarios/usuarios.module').then(m => m.UsuariosModule) },
     ]
   },
 
@@ -21,7 +22,7 @@ const routes: Routes = [
   { path: 'login', component: LoginCComponent },
 
   // Not found
- 
+
 ];
 
 @NgModule({

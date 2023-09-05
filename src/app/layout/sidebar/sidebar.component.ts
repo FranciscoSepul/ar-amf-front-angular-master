@@ -26,23 +26,9 @@ export class SidebarComponent implements OnInit {
     ];
 
     const Dashboard = [{
-      text: 'Test1',
-      link: '/Test1',
-      icon: 'pi-check',
-      submenu: [
-        {
-          text: 'SubmenuTest1',
-          link: '/Test1/SubmenuTest1'
-        },
-        {
-          text: 'SubmenuTest2',
-          link: '/Test1/SubmenuTest2'
-        },
-        {
-          text: 'SubmenuTest3',
-          link: '/Test2/SubmenuTest3'
-        }
-      ]
+      text: 'Usuarios',
+      link: '/Usuarios',
+      icon: 'pi-check'
     }, {
       text: 'Test2',
       link: '/Test2',
