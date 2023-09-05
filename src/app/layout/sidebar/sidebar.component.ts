@@ -62,10 +62,8 @@ export class SidebarComponent implements OnInit {
     },
     ];
 
-
     this.menuservice.addMenu(Dashboard);
     this.menuArray = this.menuservice.getMenu();
-    //console.log(this.menuservice.getMenu());
 
   }
 
