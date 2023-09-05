@@ -3,9 +3,9 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-    production: false,
-    authUrl: 'https://atlas.ultraport.cl',
-    developerURL: 'https://uportwadm.amf.cl/api'
+    production: true,
+    authUrl: '',
+    developerURL: 'http://localhost:5006/api'
 };
 
 /*

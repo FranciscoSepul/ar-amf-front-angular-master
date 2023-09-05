@@ -1,0 +1,27 @@
+
+.Position {
+  position: absolute;
+  top :40%;
+  left: center !important;
+  right: 40%;
+  background-color: white !important;
+}
+.Textstyle {
+  position: absolute;
+  top :20%;
+  left: center !important;
+  right: 40%;
+  background-color: white !important;
+}
+.loginBtn{
+  left: center !important;
+  right: -30% !important;
+}
+.BienvenidoStyle
+{
+color: brown;
+}
+.Backimage{
+  background-image: url("../../../assets/Icon/helmet-safety-solid.svg");
+}
+

@@ -4,8 +4,8 @@
 
 export const environment = {
     production: false,
-    authUrl: 'https://atlas.ultraport.cl',
-    developerURL: 'https://uportwadm.amf.cl/api'
+    authUrl: '',
+    developerURL: 'http://localhost:5006/api'
 };
 
 /*
