@@ -18,7 +18,7 @@ const routes: Routes = [
 
   // Not lazy-loaded routes
   { path: 'maintenance', component: MaintenanceComponent },
-  { path: 'Usuarios', component: UsuariosComponent }
+  //{ path: 'Usuarios', component: UsuariosComponent }
 
   // Not found
 

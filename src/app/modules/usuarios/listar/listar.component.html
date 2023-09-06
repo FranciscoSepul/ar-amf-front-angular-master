@@ -1,1 +1,52 @@
-<p>listar works!</p>
+<p class="title">CONFIGURACIÓN DE USUARIOS</p>
+<div class="appDate">
+    <app-date></app-date>
+</div>
+<!--<p-card>
+    <div class="flex card-container green-container p-0 cardHead">
+        <div class="flex-1 subTitle">
+            CONFIGURACIONES INGRESADAS
+        </div>
+        <div class="flex-1 ">
+
+        </div>
+        <div class="row">
+            <div class="flex-1 buttonContainer">
+                <div class="col">
+                    <ng-container *ngIf="!showLoader"><button pButton class="blueButton buttonText" (click)="exportar()">Exportar</button></ng-container>
+                    <ng-container *ngIf="!showLoader">
+                        <p-dropdown [options]="sortOptions" placeholder="{{rows}}" (onChange)="onSortChange($event)" styleClass="p-mb-2 p-mb-md-0"></p-dropdown>
+                    </ng-container>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <ng-container *ngIf="showLoader">
+        <h4>CARGANDO DATOS...</h4>
+        <p-progressBar mode="indeterminate" [style]="{'height': '16px'}"></p-progressBar>
+    </ng-container>
+
+    <ng-container *ngIf="!showLoader">
+        <p-table [value]="mensajes" styleClass="p-datatable-striped" [paginator]="true" [rows]="rows">
+            <ng-template pTemplate="header">
+                <tr>
+                    <th id="name" style="text-align: left !important;">TÍTULO</th>
+                    <th id="module" style="text-align: left !important;">MODULO</th>
+                    <th id="contract" style="text-align: left !important;">TIPO CONTRATO</th>
+                    <th id="instance" style="text-align: left !important;">INSTANCIA</th>
+                </tr>
+            </ng-template>
+
+            <ng-template pTemplate="body" let-men>
+                <tr>
+                    <td style="text-align: left !important; padding-left: 5px;"><span class="detailLink" (click)="seeMensaje(men.id)">{{men.name}}</span></td>
+                    <td style="text-align: left !important; padding-left: 5px;">{{men.moduleName}}</td>
+                    <td style="text-align: left !important; padding-left: 5px;">{{men.contractName}}</td>
+                    <td style="text-align: left !important; padding-left: 5px;">{{men.instance}}</td>
+                </tr>
+            </ng-template>
+        </p-table>
+    </ng-container>
+</p-card>
+-->

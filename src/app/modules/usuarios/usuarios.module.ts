@@ -4,19 +4,26 @@ import { UsuariosComponent } from '../usuarios/usuarios.component';
 import { ListarComponent } from './listar/listar.component';
 import { CrearComponent } from './crear/crear.component';
 import { EditarComponent } from './editar/editar.component';
-
-
-
+import { MessageModule } from 'primeng/message';
+import { ConfigMensajesRoutingModule } from './Usuarios-routing.module';
+import {DateComponent} from '../../shared/date/date.component';
 
 @NgModule({
   declarations: [
     UsuariosComponent,
     ListarComponent,
     CrearComponent,
-    EditarComponent
+    EditarComponent,
+    DateComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    MessageModule,
   ]
 })
-export class UsuariosModule { }
+export class UsuariosModule {
+  ngOnInit(): void {
+    console.log('en user');
+  }
+  
+}

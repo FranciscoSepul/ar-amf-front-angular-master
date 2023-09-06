@@ -15,8 +15,6 @@
             {{item.text}}
           </button>
           <div class="content">
-
-
             <li *ngFor="let submen of item.submenu; let i = index"
               class="list-group-item list-group-item-action bg-light collapsible nav-item" routerLink={{submen.link}}
               routerLinkActive="active" role="item" (click)="selectedItem = i + item.text; "
@@ -24,9 +22,6 @@
               {{submen.text}}
 
             </li>
-
-
-
           </div>
         </div>
       </div>

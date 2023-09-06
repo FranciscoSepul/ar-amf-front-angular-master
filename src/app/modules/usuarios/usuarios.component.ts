@@ -2,14 +2,18 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-usuarios',
-  templateUrl: './usuarios.component.html',
-  styleUrls: ['./usuarios.component.scss']
+  templateUrl: './usuarios.component.html'
 })
-export class UsuariosComponent implements OnInit {
+export class UsuariosComponent{
+  screen = "Listar";
+  idMensaje;
 
-  constructor() { }
+    modificar(id) {
+        this.screen = "modificar";
+        this.idMensaje = id;
+    }
 
-  ngOnInit(): void {
-  }
-
+    Listar() {
+        this.screen = "Listar";
+    }
 }
