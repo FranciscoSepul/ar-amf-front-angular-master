@@ -13,12 +13,17 @@ import { FormsModule } from "@angular/forms";
 import { CookieService } from 'ngx-cookie-service';
 import { SideMenuItemComponent } from "@shared/components/side-menu-item/side-menu-item.component";
 import { ToastModule } from 'primeng/toast';
-import { LoginModModule } from "@modules/login-mod/login-mod.module";
 import { UtilsModule } from './modules/utils/utils.module';
-
+import { LoginComponent } from '../app/modules/login/login.component';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import {MatCardModule} from '@angular/material/card';
 
 @NgModule({
-    declarations: [AppComponent],
+    declarations:
+    [AppComponent,
+     LoginComponent
+    ],
     imports: [
         HttpClientModule,
         BrowserModule,
@@ -29,8 +34,10 @@ import { UtilsModule } from './modules/utils/utils.module';
         SharedModule,
         FormsModule,
         ToastModule,
-        LoginModModule,
         UtilsModule,
+        MatFormFieldModule,
+        MatProgressSpinnerModule,
+        MatCardModule
     ],
     providers: [
         {
