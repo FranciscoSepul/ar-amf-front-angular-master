@@ -11,8 +11,8 @@ export class AppComponent {
   constructor(private login: AuthentificationService) {
 
   }
-  public isLoggedIn(): boolean {
-    console.log('hr ',this.login.habilitar());
+  public isLoggedIn(): boolean
+  {
     return this.login.habilitar();
   }
 }
