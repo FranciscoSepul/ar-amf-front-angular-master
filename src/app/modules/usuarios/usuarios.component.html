@@ -1,8 +1,6 @@
-<p class="title">CONFIGURACIÓN DE USUARIOS</p>
-
-<!--<div [ngSwitch]="screen">
-  <div *ngSwitchCase="'Listar'"><app-listar  (modificar)="modificar($event)"></app-listar></div>-->
+<div [ngSwitch]="screen">
+  <div *ngSwitchCase="'Listar'"><app-listar (crear)="crearUsuario()"   (modificar)="modificar($event)"></app-listar></div>
   <!--<div *ngSwitchCase="'Listar'"><app-listar (crear)="crearUsuario()" (modificar)="modificar($event)"></app-listar></div>
   <div *ngSwitchCase="'modificar'"><app-editar="idMensaje" (backTable)="backTable()"></app-editar></div>
   <div *ngSwitchCase="'Crear'"><app-crear [idMensaje]="idMensaje" (backTable)="backTable()" (modMensaje)="modMensaje($event)"></app-crear></div>-->
-<!--</div>-->
+</div>
