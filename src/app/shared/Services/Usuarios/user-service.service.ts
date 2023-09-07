@@ -5,9 +5,6 @@ import { HttpService } from '../Service/http.service';
   providedIn: 'root'
 })
 export class UserServiceService {
-  list() {
-    throw new Error('Method not implemented.');
-  }
 
   constructor(private httpService: HttpService) { }
 
@@ -18,5 +15,13 @@ export class UserServiceService {
   public async GetUserById(id){
     let url = `http://localhost:5006/api/User/List`
     return this.httpService.getJson<any>(url);
+  }
+  public async UserCreate(data:any){
+    let url = `http://localhost:5006/api/User/Create`
+    return this.httpService.postJson<any>(url,data);
+  }
+  public async UserUpdate(id:any,data:any){
+    let url = `http://localhost:5006/api/User/List`
+    return this.httpService.putJson<any>(url,data);
   }
 }

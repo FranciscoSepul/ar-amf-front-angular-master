@@ -16,8 +16,8 @@
         <div class="field">
           <div class="field">
             <label for="title">Nombre</label>
-            <input type="text" id="nombre" pInputText formControlName="nombre" placeholder="Nombre" />
-            <span class="form-text text-danger" *ngIf="campoInvalid('nombre')">
+            <input type="text" id="nom_usuario" pInputText formControlName="nom_usuario" placeholder="nom_usuario" />
+            <span class="form-text text-danger" *ngIf="campoInvalid('nom_usuario')">
               <p-message severity="error" text="Campo requerido"></p-message>
             </span>
           </div>
@@ -28,8 +28,8 @@
           <div class="field">
             <div class="field">
               <label for="title">Rut</label>
-              <input type="text" id="Rut" pInputText formControlName="Rut" placeholder="Rut" />
-              <span class="form-text text-danger" *ngIf="campoInvalid('Rut')">
+              <input type="text" id="run_usuario" pInputText formControlName="run_usuario" placeholder="Rut" />
+              <span class="form-text text-danger" *ngIf="campoInvalid('run_usuario')">
                 <p-message severity="error" text="Campo requerido"></p-message>
               </span>
             </div>
@@ -55,9 +55,9 @@
           <div class="field">
             <div class="field">
               <label for="title">Numero Telefonico</label>
-              <input type="text" id="numero" pInputText formControlName="numero"
+              <input type="text" id="fono_usuario" pInputText formControlName="fono_usuario"
                 placeholder="Numero Telefonico" />
-              <span class="form-text text-danger" *ngIf="campoInvalid('numero')">
+              <span class="form-text text-danger" *ngIf="campoInvalid('fono_usuario')">
                 <p-message severity="error" text="Campo requerido"></p-message>
               </span>
             </div>
@@ -65,15 +65,13 @@
         </div>
       </div>
     </div>
-  </form>
-  <form [formGroup]="form" autocomplete="off">
     <div class="flex my-5">
       <div class="flex-1">
         <div class="field">
           <div class="field">
             <label for="title">Tipo Contrato</label>
-            <input type="text" id="contrato" pInputText formControlName="contrato" placeholder="Tipo Contrato" />
-            <span class="form-text text-danger" *ngIf="campoInvalid('contrato')">
+            <input type="text" id="tipo_contrato" pInputText formControlName="tipo_contrato" placeholder="Tipo Contrato" />
+            <span class="form-text text-danger" *ngIf="campoInvalid('tipo_contrato')">
               <p-message severity="error" text="Campo requerido"></p-message>
             </span>
           </div>
@@ -84,8 +82,8 @@
           <div class="field">
             <div class="field">
               <label for="title">Funcion</label>
-              <input type="text" id="Funcion" pInputText formControlName="Funcion" placeholder="Funcion" />
-              <span class="form-text text-danger" *ngIf="campoInvalid('Funcion')">
+              <input type="text" id="funcion" pInputText formControlName="funcion" placeholder="Funcion" />
+              <span class="form-text text-danger" *ngIf="campoInvalid('cuenta')">
                 <p-message severity="error" text="Campo requerido"></p-message>
               </span>
             </div>
@@ -97,16 +95,16 @@
           <div class="field">
             <div class="field">
               <label for="title">Nacionalidad</label>
-              <input type="text" id="Nacionalidad" pInputText formControlName="Nacionalidad"
+              <input type="text" id="nacionalidad" pInputText formControlName="nacionalidad"
                 placeholder="Nacionalidad" />
-              <span class="form-text text-danger" *ngIf="campoInvalid('Nacionalidad')">
+              <span class="form-text text-danger" *ngIf="campoInvalid('nacionalidad')">
                 <p-message severity="error" text="Campo requerido"></p-message>
               </span>
             </div>
           </div>
         </div>
       </div>
-      <div class="flex-1">
+      <!--<div class="flex-1">
         <div class="field">
           <div class="field">
             <div class="field">
@@ -119,7 +117,7 @@
             </div>
           </div>
         </div>
-      </div>
+      </div>-->
       <div class="flex-1">
         <div class="field">
           <div class="field">
@@ -134,22 +132,24 @@
         </div>
       </div>
     </div>
-  </form>
-  <div>
-    <div class="containerDaD" appDnd (fileDropped)="onFileDropped($event)">
-        <input accept="image/*" type="file" #fileDropRef id="fileDropRef" (change)="fileBrowseHandler($event.target.files)" [disabled]="isEdit" />
+  <!--<div>
+      <div class="containerDaD" appDnd (fileDropped)="onFileDropped($event)">
+        <input accept="image/*" type="file" #fileDropRef id="fileDropRef"
+          (change)="fileBrowseHandler($event.target.files)" [disabled]="isEdit" />
         <ng-template [ngIf]="this.thumbnail_" [ngIfElse]="uploadFile">
-            <img id="myimage" alt="imageUpdate" [src]="thumbnail_" style="height:100%" />
+          <img id="myimage" alt="imageUpdate" [src]="thumbnail_" style="height:100%" />
         </ng-template>
 
         <ng-template #uploadFile>
-            <div class="DaDContent">
-                <em class="pi pi-camera" style="font-size: 2rem"></em>
-                <label for="fileDropRef">Visualización no disponible</label>
-            </div>
+          <div class="DaDContent">
+            <em class="pi pi-camera" style="font-size: 2rem"></em>
+            <label for="fileDropRef">Visualización no disponible</label>
+          </div>
         </ng-template>
+      </div>
     </div>
-</div>
+    -->
+  </form>
   <hr />
   <div>
     <div class="flex card-container green-container p-0">

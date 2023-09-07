@@ -1,6 +1,7 @@
 import { Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ConfirmationService, Message, MessageService } from 'primeng/api';
+import { UserServiceService } from '../../../shared/Services/Usuarios/user-service.service';
 
 @Component({
   selector: 'app-crear',
@@ -13,7 +14,7 @@ export class CrearComponent implements OnInit {
   @Input() isEdit: boolean;
   @Input() id: any;
 
-  form!: FormGroup;
+  form: FormGroup;
   functions;
   certificates;
   branchOfficeId;
@@ -35,14 +36,21 @@ export class CrearComponent implements OnInit {
   imgMsgError: string | null = null;
   @ViewChild("fileDropRef", { static: false }) fileDropEl: ElementRef;
 
-  constructor(fb: FormBuilder) {
-    this.form = fb.group({
-      name: ["", Validators.required]
+  constructor(private formbuilder: FormBuilder, private UserServiceService: UserServiceService) {
+    this.form = this.formbuilder.group({
+      nom_usuario: [null, [Validators.required]],
+      run_usuario: [null, [Validators.required]],
+      compania: [null, [Validators.required]],
+      fono_usuario: [0, [Validators.required]],
+      tipo_contrato: [null, [Validators.required]],
+      funcion: [null, [Validators.required]],
+      nacionalidad: [null, [Validators.required]],
+      cuenta: [null, [Validators.required]]
     });
-
   }
 
   ngOnInit(): void {
+
     this.loadOpcions();
   }
   loadOpcions() {
@@ -62,30 +70,30 @@ export class CrearComponent implements OnInit {
   backToTable() {
     this.backTable.emit();
   }
+
   sendFormulario() {
-    if (this.form.invalid) {
-      this.form.markAllAsTouched();
-      //this.addMessages();
-      return;
-    }
+    console.log('En el send');
     let data = this.form.getRawValue();
-    ///if(data?.diasAnticipacion === 0){
-    ///  this.confirmationService.confirm({
-    ///   message: '¿Está seguro que desea enviar 0 dias en dias de anticipacion?',
-    //header: 'Confirmacion',
-    //icon: 'pi pi-info-circle',
-    //accept: () => {
-    //    this.sendData(data);
-    /// },
-    /// reject: () => {
-    //   return;
-    // }
-    //});
-
-    //} else {
-    // this.sendData(data);
-    //}
-
+    console.log(data);
+    this.sendData(data);
+  }
+  async sendData(data) {
+    console.log('en sen data');
+    if (this.isEdit) {
+      //(await this.UserServiceService.UserUpdate(this.idNoticia.id, data))
+      //  .subscribe({
+      //    next: () => {
+      //      this.backTable.emit();
+      //}
+      //});
+    } else {
+      (await this.UserServiceService.UserCreate(data))
+        .subscribe({
+          next: () => {
+            this.backTable.emit();
+          }
+        })
+    }
   }
   onFileDropped($event) {
     if (!this.isEdit) {
