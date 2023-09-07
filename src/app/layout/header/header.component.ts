@@ -1,4 +1,5 @@
 import { Component } from "@angular/core";
+import { UserServiceService } from '../../shared/Services/Usuarios/user-service.service';
 
 @Component({
   selector: "app-header",
@@ -6,6 +7,10 @@ import { Component } from "@angular/core";
   styleUrls: ["./header.component.scss"],
 })
 export class HeaderComponent {
+  user: string;
+
+  constructor(private userServiceService: UserServiceService) {
+  }
   toogleMenu() {
     const element = document.getElementById("sidebar-wrapper");
     element.classList.toggle("toggled");
@@ -14,5 +19,15 @@ export class HeaderComponent {
     const element = document.getElementById("offsidebar-wrapper");
     element.classList.toggle("toggled");
   }
-  showNotification() {}
+  showNotification() { }
+
+  async getUser() {
+    let user =  sessionStorage.getItem('User');
+    (await this.userServiceService.GetUser(user)).subscribe(async (data) => {
+      this.user = data?.nom_usuario;
+    });
+  }
+  ngOnInit(): void {
+    this.getUser();
+  }
 }

@@ -17,6 +17,7 @@ export class AuthentificationService {
     console.log('Token ', sessionStorage.getItem('Token'));
     if (sessionStorage.getItem('Token') != null && sessionStorage.getItem('Token') != '') {
       console.log('en if');
+      sessionStorage.setItem('User', usuario);
       sessionStorage.setItem('IsLogin', 'true');
       sessionStorage.setItem('Token', this.UserToken);
     } else {

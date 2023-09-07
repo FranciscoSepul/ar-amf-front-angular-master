@@ -16,6 +16,10 @@ export class UserServiceService {
     let url = `http://localhost:5006/api/User/List`
     return this.httpService.getJson<any>(url);
   }
+  public async GetUser(user){
+    let url = `http://localhost:5006/api/User/GetWorkerInfo?UserName=${user}`
+    return this.httpService.getJson<any>(url);
+  }
   public async UserCreate(data:any){
     let url = `http://localhost:5006/api/User/Create`
     return this.httpService.postJson<any>(url,data);
