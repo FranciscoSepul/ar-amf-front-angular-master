@@ -1,1 +1,166 @@
-<p>crear works!</p>
+<ng-template [ngIf]="this.isEdit === false" [ngIfElse]="editComponent">
+  <p class="title">CREAR USUARIO</p>
+</ng-template>
+<ng-template #editComponent>
+  <p class="title">EDITAR USUARIO</p>
+</ng-template>
+<div class="appDate">
+  <app-date></app-date>
+</div>
+<p-card>
+  <hr />
+  <p-messages [(value)]="msgs1" [enableService]="false"></p-messages>
+  <form [formGroup]="form" autocomplete="off">
+    <div class="flex my-5">
+      <div class="flex-1">
+        <div class="field">
+          <div class="field">
+            <label for="title">Nombre</label>
+            <input type="text" id="nombre" pInputText formControlName="nombre" placeholder="Nombre" />
+            <span class="form-text text-danger" *ngIf="campoInvalid('nombre')">
+              <p-message severity="error" text="Campo requerido"></p-message>
+            </span>
+          </div>
+        </div>
+      </div>
+      <div class="flex-1">
+        <div class="field">
+          <div class="field">
+            <div class="field">
+              <label for="title">Rut</label>
+              <input type="text" id="Rut" pInputText formControlName="Rut" placeholder="Rut" />
+              <span class="form-text text-danger" *ngIf="campoInvalid('Rut')">
+                <p-message severity="error" text="Campo requerido"></p-message>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="flex-1">
+        <div class="field">
+          <div class="field">
+            <div class="field">
+              <label for="title">Compañia</label>
+              <input type="text" id="compania" pInputText formControlName="compania"
+                placeholder="compania" />
+              <span class="form-text text-danger" *ngIf="campoInvalid('compania')">
+                <p-message severity="error" text="Campo requerido"></p-message>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="flex-1">
+        <div class="field">
+          <div class="field">
+            <div class="field">
+              <label for="title">Numero Telefonico</label>
+              <input type="text" id="numero" pInputText formControlName="numero"
+                placeholder="Numero Telefonico" />
+              <span class="form-text text-danger" *ngIf="campoInvalid('numero')">
+                <p-message severity="error" text="Campo requerido"></p-message>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+  <form [formGroup]="form" autocomplete="off">
+    <div class="flex my-5">
+      <div class="flex-1">
+        <div class="field">
+          <div class="field">
+            <label for="title">Tipo Contrato</label>
+            <input type="text" id="contrato" pInputText formControlName="contrato" placeholder="Tipo Contrato" />
+            <span class="form-text text-danger" *ngIf="campoInvalid('contrato')">
+              <p-message severity="error" text="Campo requerido"></p-message>
+            </span>
+          </div>
+        </div>
+      </div>
+      <div class="flex-1">
+        <div class="field">
+          <div class="field">
+            <div class="field">
+              <label for="title">Funcion</label>
+              <input type="text" id="Funcion" pInputText formControlName="Funcion" placeholder="Funcion" />
+              <span class="form-text text-danger" *ngIf="campoInvalid('Funcion')">
+                <p-message severity="error" text="Campo requerido"></p-message>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="flex-1">
+        <div class="field">
+          <div class="field">
+            <div class="field">
+              <label for="title">Nacionalidad</label>
+              <input type="text" id="Nacionalidad" pInputText formControlName="Nacionalidad"
+                placeholder="Nacionalidad" />
+              <span class="form-text text-danger" *ngIf="campoInvalid('Nacionalidad')">
+                <p-message severity="error" text="Campo requerido"></p-message>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="flex-1">
+        <div class="field">
+          <div class="field">
+            <div class="field">
+              <label for="title">Correo Electronico</label>
+              <input type="text" id="Correo Electronico" pInputText formControlName="Correo Electronico"
+                placeholder="Correo Electronico" />
+              <span class="form-text text-danger" *ngIf="campoInvalid('Correo Electronico')">
+                <p-message severity="error" text="Campo requerido"></p-message>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="flex-1">
+        <div class="field">
+          <div class="field">
+            <div class="field">
+              <label for="title">Tipo de cuenta</label>
+              <input type="text" id="cuenta" pInputText formControlName="cuenta" placeholder="Tipo de cuenta" />
+              <span class="form-text text-danger" *ngIf="campoInvalid('cuenta')">
+                <p-message severity="error" text="Campo requerido"></p-message>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+  <div>
+    <div class="containerDaD" appDnd (fileDropped)="onFileDropped($event)">
+        <input accept="image/*" type="file" #fileDropRef id="fileDropRef" (change)="fileBrowseHandler($event.target.files)" [disabled]="isEdit" />
+        <ng-template [ngIf]="this.thumbnail_" [ngIfElse]="uploadFile">
+            <img id="myimage" alt="imageUpdate" [src]="thumbnail_" style="height:100%" />
+        </ng-template>
+
+        <ng-template #uploadFile>
+            <div class="DaDContent">
+                <em class="pi pi-camera" style="font-size: 2rem"></em>
+                <label for="fileDropRef">Visualización no disponible</label>
+            </div>
+        </ng-template>
+    </div>
+</div>
+  <hr />
+  <div>
+    <div class="flex card-container green-container p-0">
+      <div class="flex-1">
+      </div>
+      <div class="flex-1">
+      </div>
+      <div class="flex-1 buttonContainer">
+        <button pButton class="redButton" (click)="backToTable()">Cancelar</button>
+        <button pButton class="blueButton" (click)="sendFormulario()">Guardar</button>
+      </div>
+    </div>
+  </div>
+</p-card>

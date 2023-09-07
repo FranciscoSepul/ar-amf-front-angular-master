@@ -4,19 +4,28 @@ import { Component, OnInit } from '@angular/core';
   selector: 'app-usuarios',
   templateUrl: './usuarios.component.html'
 })
-export class UsuariosComponent implements OnInit {
+export class UsuariosComponent {
   screen = "Listar";
-  idMensaje;
+  idUser = 0;
+  isEdit = false;
 
-  modificar(id) {
+  modificar() {
     this.screen = "modificar";
-    this.idMensaje = id;
+    this.isEdit = true;
   }
-
+  public crearUsuario() {
+    console.log('segundo 2 aca ');
+    this.screen = "Crear";
+    this.isEdit = false;
+  }
   Listar() {
     this.screen = "Listar";
   }
-  ngOnInit(): void {
-    console.log('en user');
+  detailUser(id) {
+    this.screen = "Detail";
+    this.idUser = id;
+  }
+  backTable() {
+    this.screen = "Listar";
   }
 }

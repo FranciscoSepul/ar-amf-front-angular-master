@@ -1,6 +1,6 @@
 <div [ngSwitch]="screen">
-  <div *ngSwitchCase="'Listar'"><app-listar (crear)="crearUsuario()"   (modificar)="modificar($event)"></app-listar></div>
-  <!--<div *ngSwitchCase="'Listar'"><app-listar (crear)="crearUsuario()" (modificar)="modificar($event)"></app-listar></div>
-  <div *ngSwitchCase="'modificar'"><app-editar="idMensaje" (backTable)="backTable()"></app-editar></div>
-  <div *ngSwitchCase="'Crear'"><app-crear [idMensaje]="idMensaje" (backTable)="backTable()" (modMensaje)="modMensaje($event)"></app-crear></div>-->
+  <div *ngSwitchCase="'Listar'"><app-listar (crearUsuario)="crearUsuario()"  (modificar)="detailUser($event)"></app-listar></div>
+  <div *ngSwitchCase="'Crear'"><app-crear  [isEdit]="isEdit" (backTable)="backTable()"></app-crear></div>
+  <div *ngSwitchCase="'Detail'"><app-editar [id]="idUser" (backTable)="backTable()" (modificar)="modificar()"></app-editar></div>
 </div>
+
