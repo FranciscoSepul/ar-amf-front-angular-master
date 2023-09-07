@@ -9,9 +9,11 @@ import { SharedModule } from "../shared/shared.module";
 import { RouterModule } from "@angular/router";
 import { MenuService } from "@core/menu/menu.service";
 import { BrowserModule } from "@angular/platform-browser";
+import { ImageModule } from 'primeng/image';
+import {ContextMenuModule} from 'primeng/contextmenu';
 
 @NgModule({
-  imports: [SharedModule, RouterModule, BrowserModule],
+  imports: [SharedModule, RouterModule, BrowserModule,ImageModule,ContextMenuModule],
   declarations: [
     LayoutComponent,
     SidebarComponent,

@@ -29,36 +29,36 @@ export class SidebarComponent implements OnInit {
       {
         text: 'Actividades',
         link: '',
-        icon: '../../../assets/Icon/helmet-safety-solid.svg'
+        icon: 'helmet-safety-solid.svg'
       },
       {
       text: 'Usuarios',
       link: '/Usuarios',
-      icon: 'pi-users'
+      icon: 'users-solid.svg'
     }
     ,{
-      text: 'Vistas',
+      text: 'Visitas',
       link: '',
-      icon: 'pi-send'
+      icon: 'business-time-solid.svg'
     }
     ,{
       text: 'Empresa',
       link: '',
-      icon: 'pi-user'
+      icon: 'building-solid.svg'
     },{
       text: 'Usuario',
       link: '',
-      icon: 'pi-user'
+      icon: 'user-solid.svg'
     },
     {
       text: 'Notificaciones',
       link: '',
-      icon: 'pi-user'
+      icon: 'bell-regular.svg'
     },
     {
       text: 'Accidentes',
       link: '',
-      icon: 'pi-user'
+      icon: 'person-falling-burst-solid.svg'
     },
     ];
 

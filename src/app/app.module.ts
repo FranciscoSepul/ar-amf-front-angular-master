@@ -18,6 +18,7 @@ import { LoginComponent } from '../app/modules/login/login.component';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatCardModule} from '@angular/material/card';
+import { ImageModule } from 'primeng/image';
 
 @NgModule({
     declarations:
@@ -37,7 +38,8 @@ import {MatCardModule} from '@angular/material/card';
         UtilsModule,
         MatFormFieldModule,
         MatProgressSpinnerModule,
-        MatCardModule
+        MatCardModule,
+        ImageModule
     ],
     providers: [
         {

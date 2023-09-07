@@ -1,6 +1,5 @@
 @import "../../../assets/partials/variables";
 
-
 .custom-icon {
   background-image: '../../../assets/Icon/helmet-safety-solid.svg';
 }
@@ -10,6 +9,7 @@
 }
 .bacGroundCollor{
   background: #01242A !important;
+
 }
 
 #sidebar-wrapper {
@@ -57,7 +57,8 @@
   border-top: none;
   border-right: none;
   border-bottom: none;
-
+  width: 50%;
+  height: 50%;
 }
 
 #sidebar-wrapper .list-group {
