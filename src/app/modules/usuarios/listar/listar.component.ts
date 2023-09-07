@@ -12,7 +12,7 @@ import { sortOptions } from '../../../core/common/constants';
 export class ListarComponent implements OnInit {
 
   usuarios: any[];
-  rows = 10;
+  rows = 5;
   showLoader = false;
   sortOptions: SelectItem[];
   @Output() crearUsuario: EventEmitter<any> = new EventEmitter();

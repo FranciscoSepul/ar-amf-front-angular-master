@@ -1,29 +1,31 @@
-<div class="Backimage">
-  <div class="Textstyle">
-    <h1 class="BienvenidoStyle">Bienvenido</h1>
+<body background="../../../assets/images/macos-monterey-stock-green-dark-mode-layers-5k-4480x2520-5890.jpg">
+
+  <div >
+    <h1 class="BienvenidoStyle">¡Bienvenido!</h1>
     <p>&nbsp;</p>
-    <h3>Inicie sesión para continuar</h3>
+    <h3 class="SubText">Inicie sesión para continuar</h3>
   </div>
   <div class="Position">
     <form class="example-form">
-      <table class="example-full-width" cellspacing="0">
+      <table cellspacing="0">
         <tr>
           <td>
-            <mat-form-field class="example-full-width">
-              <input matInput placeholder="Username" [(ngModel)]="username" name="username" required>
+            <mat-form-field class="Imput" >
+              <input class="Imput" matInput placeholder="Ingrese su RUT sin puntos ni guión" [(ngModel)]="username" name="username" required>
             </mat-form-field>
           </td>
         </tr>
         <tr>
-          <td><mat-form-field class="example-full-width">
-              <input matInput placeholder="Password" [(ngModel)]="password" type="password" name="password" required>
+          <td>
+            <mat-form-field class="Imput">
+              <input class="Imput" matInput placeholder="Ingrese su contraseña" [(ngModel)]="password" type="password" name="password" required>
             </mat-form-field></td>
         </tr>
       </table>
     </form>
     <mat-spinner [style.display]="showSpinner ? 'block' : 'none'"></mat-spinner>
-    <mat-card-actions>
-      <button class="loginBtn" mat-raised-button (click)="login()" color="primary">Login</button>
-    </mat-card-actions>
   </div>
-</div>
+  <div class="flex-1 buttonContainer">
+    <button pButton class="blueButton" mat-raised-button (click)="login()" color="primary">Login</button>
+  </div>
+</body>

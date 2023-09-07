@@ -1,24 +1,52 @@
-
 .Position {
   position: absolute;
-  top :40%;
+  top: 40%;
   left: center !important;
-  right: 40%;
-  background-color: white !important;
-}
-.Textstyle {
-  position: absolute;
-  top :20%;
-  left: center !important;
-  right: 40%;
-  background-color: white !important;
-}
-.loginBtn{
-  left: center !important;
-  right: -30% !important;
-}
-.BienvenidoStyle
-{
-color: brown;
+  right: 43%;
 }
 
+.Textstyle {
+  position: absolute;
+  top: 20%;
+  left: center !important;
+  right: 40%;
+}
+.Imput{
+  border-radius: 10px;
+  color: white !important;
+  width: 400px;
+  height: 40px;
+  left: 33% !important;
+}
+
+.blueButton {
+  background-color: #001A41;
+  border-color: #001A41;
+  margin-right: 2vh;
+  border-radius: 5px;
+  position: absolute;
+  top: 60%;
+  left: center !important;
+  right: 40%;
+  width: 200px;
+  height: 40px;
+  color: white !important;
+  font-family: 'Roboto';font-size: 22px;
+}
+
+.BienvenidoStyle {
+  position: absolute;
+  top: 20%;
+  left: 33% !important;
+  right: 70% !important;
+  font-size: 100px;
+  color: white !important;
+}
+
+.SubText {
+  position: absolute;
+  top: 30%;
+  font-size: 50px;
+  left: 30% !important;
+  color: white !important;
+}

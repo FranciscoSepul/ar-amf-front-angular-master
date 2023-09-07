@@ -18,9 +18,6 @@ export class LoginComponent {
   username!: string;
   password!: string;
 
-  ngOnInit() {
-  }
-
   login(): void {
     if (!this.log.LogIn(this.username,this.password))
     {
