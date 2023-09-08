@@ -67,6 +67,7 @@ export class ListarComponent implements OnInit {
   }
 
   async seeEditar(id) {
+    console.log('see editar ');
     this.details = this.usuarios.filter(x => x.run_usuario == id);
     this.detailUser.emit(this.details[0]);
   }

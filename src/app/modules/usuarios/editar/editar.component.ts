@@ -11,13 +11,15 @@ import { Dropdown } from 'primeng/dropdown';
 })
 export class EditarComponent implements OnInit {
   @Output() backTable: EventEmitter<any> = new EventEmitter();
+  @Output() modificar: EventEmitter<any> = new EventEmitter();
   @ViewChild('dropContract') dropContract: Dropdown;
   @ViewChild('dropFunction') dropFunction: Dropdown;
   @ViewChild('dropCompany') dropCompany: Dropdown;
   @ViewChild('dropNacionalidad') dropNacionalidad: Dropdown;
 
   @Input() isEdit: boolean;
-  @Input() id: any;
+  @Input() idUser: any;
+  details:any;
 
   form: FormGroup;
   certificates;
@@ -55,52 +57,82 @@ export class EditarComponent implements OnInit {
     });
   }
   ngOnInit(): void {
-    this.loadOpcions();
+    this.details = this.idUser;
+    //this.loadOpcions();
   }
-  loadOpcions() {
-    this.loadCompany();
-    this.loadFunctions();
-    this.loadContract();
-    this.loadNacionalidad();
-  }
-  loadAlert() {
-    this.form.setValue({
-      titulo: this.id.titulo,
-      mensaje: this.id.mensaje,
-      funcionId: this.id.funcionId,
-      certificadoId: this.id.certificadoId,
-      diasAnticipacion: this.id.diasAnticipacion
-    });
-  }
-  async loadCompany(){
-    (await this.UserServiceService.CompanyList()).subscribe({
-      next: data => {
-        this.compania = data
-      }
-    })
-  }
-  async loadFunctions(){
-    (await this.UserServiceService.FunctionList()).subscribe({
-      next: data => {
-        this.function = data
-      }
-    })
-  }
-  async loadContract(){
-    (await this.UserServiceService.ContractList()).subscribe({
-      next: data => {
-        this.contrato = data
-      }
-    })
-  }
-  async loadNacionalidad(){
-    (await this.UserServiceService.NationalityList()).subscribe({
-      next: data => {
-        this.nacionalidad = data
-      }
-    })
-  }
+ // loadOpcions() {
+   // if (this.isEdit) {
+    //  this.loadUser();
+  //  }
+   // this.loadCompany();
+  //  this.loadFunctions();
+  //  this.loadContract();
+  //  this.loadNacionalidad();
+ // }
+
+  //loadUser() {
+    //this.form.setValue({
+   //   nom_usuario: 'a',
+   //   run_usuario: 'a',
+    //  idempresa:'a' ,
+   //   fono_usuario:'a' ,
+    //  tipo_contrato: 'a',
+   //   idtipocuenta: 'a',
+    //  nacionalidad:'ew' ,
+   //  correo: 'a',
+  //  });
+ // }
+  //async loadCompany(){
+  //  (await this.UserServiceService.CompanyList()).subscribe({
+   //   next: data => {
+    //    this.compania = data
+    //  }
+    //})
+  //}
+  //async loadFunctions(){
+  //  (await this.UserServiceService.FunctionList()).subscribe({
+  //    next: data => {
+  //      this.function = data
+   //   }
+   // })
+ // }
+ // async loadContract(){
+  //  (await this.UserServiceService.ContractList()).subscribe({
+   //   next: data => {
+    //    this.contrato = data
+     // }
+    //})
+ // }
+ // async loadNacionalidad(){
+  //  (await this.UserServiceService.NationalityList()).subscribe({
+   //   next: data => {
+    //    this.nacionalidad = data
+     // }
+    //})
+  //}
   backToTable() {
     this.backTable.emit();
   }
+  //sendFormulario() {
+   // let data = this.form.getRawValue();
+  //  this.sendData(data);
+  //}
+
+  editTypeBack(_type: string, _data: any) {
+    this.modificar.emit();
+}
+
+ // async sendData(data) {
+  //  console.log(this.isEdit)
+   // if (this.isEdit) {
+    //  console.log('en edit');
+    //} else {
+      //(await this.UserServiceService.UserCreate(data))
+        //.subscribe({
+          //next: () => {
+            //this.backTable.emit();
+          //}
+        //})
+  //  }
+  //}
 }

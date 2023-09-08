@@ -18,7 +18,7 @@ export class CrearComponent implements OnInit {
   @ViewChild('dropNacionalidad') dropNacionalidad: Dropdown;
 
   @Input() isEdit: boolean;
-  @Input() id: any;
+  @Input() idUser: any;
 
   form: FormGroup;
   certificates;
@@ -27,7 +27,7 @@ export class CrearComponent implements OnInit {
   compania;
   function;
   contrato;
-  nacionalidad;
+  nacionalidades;
   nombre: string;
   description: string;
   selectedTipo: number;
@@ -62,48 +62,59 @@ export class CrearComponent implements OnInit {
     this.loadOpcions();
   }
   loadOpcions() {
-    if (this.isEdit) {
-      this.loadAlert();
-    }
+
     this.loadCompany();
     this.loadFunctions();
     this.loadContract();
     this.loadNacionalidad();
+    if (this.isEdit) {
+      this.loadAlert();
+      console.log('id 1 ' + this.idUser);
+      console.log('id 2 ' + this.idUser.run_usuario);
+      console.log('id 3 ' + this.idUser.tipo_contrato);
+      console.log('log error');
+    }
   }
+
   loadAlert() {
+    console.log('lad ' + this.idUser.run_usuario)
     this.form.setValue({
-      titulo: this.id.titulo,
-      mensaje: this.id.mensaje,
-      funcionId: this.id.funcionId,
-      certificadoId: this.id.certificadoId,
-      diasAnticipacion: this.id.diasAnticipacion
+      nom_usuario: this.idUser.nom_usuario,
+      run_usuario: this.idUser.run_usuario,
+      idempresa: 'a',//this.idUser.idempresa,
+      fono_usuario: this.idUser.fono_usuario,
+      tipo_contrato: this.idUser.tipo_contrato,
+      idtipocuenta: 'a',//this.idUser.idtipocuenta,
+      nacionalidad: this.idUser.nacionalidad,
+      correo: this.idUser.correo,
     });
   }
-  async loadCompany(){
+
+  async loadCompany() {
     (await this.UserServiceService.CompanyList()).subscribe({
       next: data => {
         this.compania = data
       }
     })
   }
-  async loadFunctions(){
+  async loadFunctions() {
     (await this.UserServiceService.FunctionList()).subscribe({
       next: data => {
         this.function = data
       }
     })
   }
-  async loadContract(){
+  async loadContract() {
     (await this.UserServiceService.ContractList()).subscribe({
       next: data => {
         this.contrato = data
       }
     })
   }
-  async loadNacionalidad(){
+  async loadNacionalidad() {
     (await this.UserServiceService.NationalityList()).subscribe({
       next: data => {
-        this.nacionalidad = data
+        this.nacionalidades = data
       }
     })
   }
@@ -158,8 +169,8 @@ export class CrearComponent implements OnInit {
   }
   campoInvalid(campo: string) {
     //return (this.form.controls[campo].errors)
-     // && (this.form.controls[campo].touched || this.form.controls[campo].dirty)
-     // && this.form.invalid;
+    // && (this.form.controls[campo].touched || this.form.controls[campo].dirty)
+    // && this.form.invalid;
   }
   fileBrowseHandler(files) {
     let counter: boolean = false

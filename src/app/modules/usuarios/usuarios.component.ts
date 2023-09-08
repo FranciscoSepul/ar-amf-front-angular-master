@@ -6,23 +6,28 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UsuariosComponent {
   screen = "Listar";
-  idUser = 0;
+  idUser :any;
   isEdit = false;
 
-  modificar() {
-    this.screen = "modificar";
-    this.isEdit = true;
-  }
-  public crearUsuario() {
+  //modificar(idUser) {
+   // console.log('modificar');
+    //this.screen = "Crear";
+    //this.idUser = idUser;
+    //this.isEdit = true;
+ // }
+  crearUsuario() {
     this.screen = "Crear";
     this.isEdit = false;
   }
   Listar() {
     this.screen = "Listar";
   }
-  detailUser(id) {
-    this.screen = "Detail";
-    this.idUser = id;
+  detailUser(idUser) {
+    console.log('Detail user');
+    console.log('aa '+idUser.run_usuario);
+    this.screen = "Crear";
+    this.idUser = idUser;
+    this.isEdit = true;
   }
   backTable() {
     this.screen = "Listar";
