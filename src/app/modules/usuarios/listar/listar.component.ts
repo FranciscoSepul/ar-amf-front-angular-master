@@ -1,8 +1,9 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
-import { SelectItem, MessageService } from 'primeng/api';
+import { SelectItem, MessageService,ConfirmationService } from 'primeng/api';
 import { UserServiceService } from '../../../shared/Services/Usuarios/user-service.service';
 import { sortOptions } from '../../../core/common/constants';
+
 
 @Component({
   selector: 'app-listar',
@@ -19,11 +20,12 @@ export class ListarComponent implements OnInit {
   @Output() detail: EventEmitter<number> = new EventEmitter();
 
   constructor
-    (private UserServiceService: UserServiceService,private router:Router) { }
+    (private UserServiceService: UserServiceService, private router: Router) { }
 
   ngOnInit(): void {
     this.showLoader = true;
     this.sortOptions = [...sortOptions];
+    console.log('antes de llamar');
     this.getAllUsers();
 
   }
@@ -35,13 +37,35 @@ export class ListarComponent implements OnInit {
   async getAllUsers() {
     (await this.UserServiceService.UserList()).subscribe({
       next: data => {
-        console.log(data.items[1].run_usuario);
-        this.usuarios = data.items;
+        console.log(data.run_usuario);
+        this.usuarios = data;
       },
       error(e) {
         this.helpers.checkPermission(this.messageService, e);
       }
     })
+  }
+  confirmAction(id, name, isDisabled) {
+    const accion = isDisabled ? 'Activar' : 'Desactivar';
+    this.active(id, !isDisabled);
+  }
+
+  async active(id: number, activation: boolean) {
+    try {
+      let alert = this.usuarios.find(x => x.id == id)
+      if (alert) {
+        alert.isDisabled = activation
+        delete alert.auditCreateDate
+        delete alert.auditLastUpdateDate
+        ;(await this.UserServiceService.UserUpdate(id, alert)).subscribe({
+          next: () => {
+            this.ngOnInit()
+          }
+        });
+      }
+    } catch (error) {
+      console.log(error);
+    }
   }
   onSortChange(event) {
     this.rows = event.value;

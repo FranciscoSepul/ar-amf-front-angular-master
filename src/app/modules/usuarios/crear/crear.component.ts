@@ -2,6 +2,7 @@ import { Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild }
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ConfirmationService, Message, MessageService } from 'primeng/api';
 import { UserServiceService } from '../../../shared/Services/Usuarios/user-service.service';
+import { Dropdown } from 'primeng/dropdown';
 
 @Component({
   selector: 'app-crear',
@@ -11,15 +12,22 @@ import { UserServiceService } from '../../../shared/Services/Usuarios/user-servi
 export class CrearComponent implements OnInit {
 
   @Output() backTable: EventEmitter<any> = new EventEmitter();
+  @ViewChild('dropContract') dropContract: Dropdown;
+  @ViewChild('dropFunction') dropFunction: Dropdown;
+  @ViewChild('dropCompany') dropCompany: Dropdown;
+  @ViewChild('dropNacionalidad') dropNacionalidad: Dropdown;
+
   @Input() isEdit: boolean;
   @Input() id: any;
 
   form: FormGroup;
-  functions;
   certificates;
   branchOfficeId;
   msgs1: Message[];
-
+  compania;
+  function;
+  contrato;
+  nacionalidad;
   nombre: string;
   description: string;
   selectedTipo: number;
@@ -34,29 +42,33 @@ export class CrearComponent implements OnInit {
   imgMsgErrorFinal: any;
   files: any[] = [];
   imgMsgError: string | null = null;
+
   @ViewChild("fileDropRef", { static: false }) fileDropEl: ElementRef;
 
   constructor(private formbuilder: FormBuilder, private UserServiceService: UserServiceService) {
     this.form = this.formbuilder.group({
       nom_usuario: [null, [Validators.required]],
       run_usuario: [null, [Validators.required]],
-      compania: [null, [Validators.required]],
+      idempresa: [null, [Validators.required]],
       fono_usuario: [0, [Validators.required]],
       tipo_contrato: [null, [Validators.required]],
-      funcion: [null, [Validators.required]],
+      idtipocuenta: [null, [Validators.required]],
       nacionalidad: [null, [Validators.required]],
-      cuenta: [null, [Validators.required]]
+      correo: [null, [Validators.required]],
     });
   }
 
   ngOnInit(): void {
-
     this.loadOpcions();
   }
   loadOpcions() {
     if (this.isEdit) {
       this.loadAlert();
     }
+    this.loadCompany();
+    this.loadFunctions();
+    this.loadContract();
+    this.loadNacionalidad();
   }
   loadAlert() {
     this.form.setValue({
@@ -67,25 +79,49 @@ export class CrearComponent implements OnInit {
       diasAnticipacion: this.id.diasAnticipacion
     });
   }
+  async loadCompany(){
+    (await this.UserServiceService.CompanyList()).subscribe({
+      next: data => {
+        this.compania = data
+      }
+    })
+  }
+  async loadFunctions(){
+    (await this.UserServiceService.FunctionList()).subscribe({
+      next: data => {
+        this.function = data
+      }
+    })
+  }
+  async loadContract(){
+    (await this.UserServiceService.ContractList()).subscribe({
+      next: data => {
+        this.contrato = data
+        console.log(this.contrato[1].contract)
+      }
+    })
+  }
+  async loadNacionalidad(){
+    (await this.UserServiceService.NationalityList()).subscribe({
+      next: data => {
+        this.nacionalidad = data
+        console.log(this.contrato[1].contract)
+      }
+    })
+  }
+
   backToTable() {
     this.backTable.emit();
   }
 
   sendFormulario() {
-    console.log('En el send');
     let data = this.form.getRawValue();
     console.log(data);
     this.sendData(data);
   }
+
   async sendData(data) {
-    console.log('en sen data');
     if (this.isEdit) {
-      //(await this.UserServiceService.UserUpdate(this.idNoticia.id, data))
-      //  .subscribe({
-      //    next: () => {
-      //      this.backTable.emit();
-      //}
-      //});
     } else {
       (await this.UserServiceService.UserCreate(data))
         .subscribe({
@@ -95,6 +131,7 @@ export class CrearComponent implements OnInit {
         })
     }
   }
+
   onFileDropped($event) {
     if (!this.isEdit) {
       this.prepareFilesList($event);
@@ -123,9 +160,9 @@ export class CrearComponent implements OnInit {
     this.fileDropEl.nativeElement.value = "";
   }
   campoInvalid(campo: string) {
-    return (this.form.controls[campo].errors)
-      && (this.form.controls[campo].touched || this.form.controls[campo].dirty)
-      && this.form.invalid;
+    //return (this.form.controls[campo].errors)
+     // && (this.form.controls[campo].touched || this.form.controls[campo].dirty)
+     // && this.form.invalid;
   }
   fileBrowseHandler(files) {
     let counter: boolean = false

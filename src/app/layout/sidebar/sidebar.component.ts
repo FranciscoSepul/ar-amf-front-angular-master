@@ -28,7 +28,7 @@ export class SidebarComponent implements OnInit {
     const Dashboard = [
       {
         text: 'Actividades',
-        link: '/Usuarios1',
+        link: '',
         icon: 'helmet-safety-solid.svg'
       },
       {
@@ -38,26 +38,26 @@ export class SidebarComponent implements OnInit {
     }
     ,{
       text: 'Visitas',
-      link: '/Usuarios2',
+      link: '',
       icon: 'business-time-solid.svg'
     }
     ,{
       text: 'Empresa',
-      link: '/Usuarios3',
+      link: '',
       icon: 'building-solid.svg'
     },{
       text: 'Usuario',
-      link: '/Usuarios4',
+      link: '',
       icon: 'user-solid.svg'
     },
     {
       text: 'Notificaciones',
-      link: '/Usuarios5',
+      link: '',
       icon: 'bell-regular.svg'
     },
     {
       text: 'Accidentes',
-      link: '/Usuarios6',
+      link: '',
       icon: 'person-falling-burst-solid.svg'
     },
     ];

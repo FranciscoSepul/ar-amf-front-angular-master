@@ -15,6 +15,7 @@ import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { MessagesModule } from 'primeng/messages';
 import { InputNumberModule } from "primeng/inputnumber";
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { InputSwitchModule } from 'primeng/inputswitch';
 
 @NgModule({
   declarations: [
@@ -36,12 +37,11 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     MessagesModule,
     InputNumberModule,
     FormsModule,
-    ReactiveFormsModule
-
+    ReactiveFormsModule,
+    ConfirmDialogModule,
+    InputSwitchModule
   ]
 })
 export class UsuariosModule {
-  ngOnInit(): void {
-  }
-
+ 
 }

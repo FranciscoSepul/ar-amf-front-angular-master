@@ -12,6 +12,22 @@ export class UserServiceService {
     let url = `http://localhost:5006/api/User/List`
     return this.httpService.getJson<any>(url);
   }
+  public async CompanyList(){
+    let url = `http://localhost:5006/api/Company/GetAllCompany`
+    return this.httpService.getJson<any>(url);
+  }
+  public async ContractList(){
+    let url = `http://localhost:5006/api/User/GetTipoContrato`
+    return this.httpService.getJson<any>(url);
+  }
+  public async NationalityList(){
+    let url = `http://localhost:5006/api/User/GetPaises`
+    return this.httpService.getJson<any>(url);
+  }
+  public async FunctionList(){
+    let url = `http://localhost:5006/api/User/ListFunction`
+    return this.httpService.getJson<any>(url);
+  }
   public async GetUserById(id){
     let url = `http://localhost:5006/api/User/List`
     return this.httpService.getJson<any>(url);

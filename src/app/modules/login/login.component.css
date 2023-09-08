@@ -13,10 +13,10 @@
 }
 .Imput{
   border-radius: 10px;
-  color: white !important;
   width: 400px;
   height: 40px;
   left: 33% !important;
+  color: black !important;
 }
 
 .blueButton {
