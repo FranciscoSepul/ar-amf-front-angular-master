@@ -1,6 +1,6 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
-import { SelectItem, MessageService,ConfirmationService } from 'primeng/api';
+import { SelectItem, MessageService, ConfirmationService } from 'primeng/api';
 import { UserServiceService } from '../../../shared/Services/Usuarios/user-service.service';
 import { sortOptions } from '../../../core/common/constants';
 
@@ -15,10 +15,11 @@ export class ListarComponent implements OnInit {
   usuarios: any[];
   rows = 5;
   showLoader = false;
-  isDisabled= false;
+  isDisabled = false;
+  details: any;
   sortOptions: SelectItem[];
   @Output() crearUsuario: EventEmitter<any> = new EventEmitter();
-  @Output() detail: EventEmitter<number> = new EventEmitter();
+  @Output() detailUser: EventEmitter<any> = new EventEmitter();
 
   constructor
     (private UserServiceService: UserServiceService, private router: Router) { }
@@ -55,11 +56,11 @@ export class ListarComponent implements OnInit {
       let alert = this.usuarios.find(x => x.run_usuario == id)
       if (alert) {
         alert.isdelete = 1
-        ;(await this.UserServiceService.UserUpdate(alert)).subscribe({
-          next: () => {
-            this.ngOnInit()
-          }
-        });
+          ; (await this.UserServiceService.UserUpdate(alert)).subscribe({
+            next: () => {
+              this.ngOnInit()
+            }
+          });
       }
     } catch (error) {
       console.log(error);
@@ -70,13 +71,8 @@ export class ListarComponent implements OnInit {
   }
 
   async seeEditar(id) {
-    (await this.UserServiceService.GetUserById(id)).subscribe({
-      next: () => {
-        this.detail.emit(id);
-      },
-      error(e) {
-        this.helpers.checkPermission(this.messageService, e);
-      }
-    })
+    console.log('see '+id);
+    this.details = this.usuarios.filter(x => x.run_usuario == id);
+    this.detailUser.emit(this.details[0]);
   }
 }
