@@ -42,7 +42,7 @@
             <div class="field">
               <div class="row field col-12 md:col-3">
                 <label for="use1" class="block fw-title mg-bt-label">Compañia </label>
-                <p-dropdown #dropCompany [options]="compania" [disabled]="rut || block" formControlName="idempresa" optionLabel="nom_empresa" optionValue="id_empresa" [placeholder]="'SELECCIONE CONTRATO'" emptyMessage="No existen compañias disponibles"></p-dropdown>
+                <p-dropdown #dropCompany [options]="compania" [disabled]="rut || block" formControlName="idempresa" optionLabel="nom_empresa" optionValue="id_empresa" [placeholder]="'SELECCIONE COMPAÑIA'" emptyMessage="No existen compañias disponibles"></p-dropdown>
                 <span class="form-text text-danger" *ngIf="campoInvalid('id_empresa')">
                 </span>
               </div>
@@ -100,7 +100,7 @@
             <div class="field">
               <div class="row field col-12 md:col-3">
                 <label for="use1" class="block fw-title mg-bt-label">Nacionalidad </label>
-                <p-dropdown #dropNacionalidad [options]="nacionalidad" [disabled]="rut || block" formControlName="nacionalidad" optionLabel="contract" optionValue="contract" [placeholder]="'SELECCIONE CONTRATO'" emptyMessage="No existen contratos disponibles"></p-dropdown>
+                <p-dropdown #dropNacionalidad [options]="nacionalidad" [disabled]="rut || block" formControlName="nacionalidad" optionLabel="contract" optionValue="contract" [placeholder]="'SELECCIONE NACIONALIDAD'" emptyMessage="No existen NACIONALIDADES disponibles"></p-dropdown>
                 <span class="form-text text-danger" *ngIf="campoInvalid('contract')">
                 </span>
               </div>

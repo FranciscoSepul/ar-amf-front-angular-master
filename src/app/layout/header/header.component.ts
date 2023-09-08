@@ -22,7 +22,7 @@ export class HeaderComponent {
   showNotification() { }
 
   async getUser() {
-    let user =  sessionStorage.getItem('User');
+    let user = sessionStorage.getItem('User');
     (await this.userServiceService.GetUser(user)).subscribe(async (data) => {
       this.user = data?.nom_usuario;
     });

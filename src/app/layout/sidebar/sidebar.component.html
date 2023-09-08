@@ -5,7 +5,7 @@
 
 
   <ul class="list-group list-group-flush">
-    <ng-template ngFor let-item [ngForOf]="menuArray">
+    <ng-template ngFor let-item [ngForOf]="menuArray"  >
       <div *ngIf="item.submenu; else elseBlock">
         <div>
           <button collapsible type="button" class="collapsible list-group-item-action bg-light">
