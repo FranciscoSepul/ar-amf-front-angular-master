@@ -36,7 +36,7 @@ export class SidebarComponent implements OnInit {
       },
       {
         text: 'Usuarios',
-        link: '',
+        link: '/Usuarios',
         icon: 'users-solid.svg',
         user: ((this.Usuarios == "1") ? 1 : 2),
       }
@@ -75,7 +75,7 @@ export class SidebarComponent implements OnInit {
   }
 
   @HostListener('click', ['$event.target']) onClick(e: { nextElementSibling: any; }) {
-   
+  
   }
 
 }
