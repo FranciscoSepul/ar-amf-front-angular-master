@@ -15,6 +15,7 @@ export class ListarComponent implements OnInit {
   usuarios: any[];
   rows = 5;
   showLoader = false;
+  isDisabled= false;
   sortOptions: SelectItem[];
   @Output() crearUsuario: EventEmitter<any> = new EventEmitter();
   @Output() detail: EventEmitter<number> = new EventEmitter();
@@ -37,7 +38,6 @@ export class ListarComponent implements OnInit {
   async getAllUsers() {
     (await this.UserServiceService.UserList()).subscribe({
       next: data => {
-        console.log(data.run_usuario);
         this.usuarios = data;
       },
       error(e) {
@@ -46,18 +46,16 @@ export class ListarComponent implements OnInit {
     })
   }
   confirmAction(id, name, isDisabled) {
-    const accion = isDisabled ? 'Activar' : 'Desactivar';
     this.active(id, !isDisabled);
   }
 
   async active(id: number, activation: boolean) {
+    console.log('update');
     try {
-      let alert = this.usuarios.find(x => x.id == id)
+      let alert = this.usuarios.find(x => x.run_usuario == id)
       if (alert) {
-        alert.isDisabled = activation
-        delete alert.auditCreateDate
-        delete alert.auditLastUpdateDate
-        ;(await this.UserServiceService.UserUpdate(id, alert)).subscribe({
+        alert.isdelete = 1
+        ;(await this.UserServiceService.UserUpdate(alert)).subscribe({
           next: () => {
             this.ngOnInit()
           }

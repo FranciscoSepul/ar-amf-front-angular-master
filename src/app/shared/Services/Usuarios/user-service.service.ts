@@ -40,8 +40,8 @@ export class UserServiceService {
     let url = `http://localhost:5006/api/User/Create`
     return this.httpService.postJson<any>(url,data);
   }
-  public async UserUpdate(id:any,data:any){
-    let url = `http://localhost:5006/api/User/List`
+  public async UserUpdate(data:any){
+    let url = `http://localhost:5006/api/User/Update`
     return this.httpService.putJson<any>(url,data);
   }
 }
