@@ -1,6 +1,6 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
-import { SelectItem, MessageService, ConfirmationService } from 'primeng/api';
+import { SelectItem} from 'primeng/api';
 import { UserServiceService } from '../../../shared/Services/Usuarios/user-service.service';
 import { sortOptions } from '../../../core/common/constants';
 

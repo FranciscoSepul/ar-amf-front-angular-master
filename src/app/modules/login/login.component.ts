@@ -1,7 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, NgModule, OnInit } from '@angular/core';
 import { Router, CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree } from "@angular/router";
 import { Observable } from 'rxjs';
 import { AuthentificationService } from 'src/app/shared/Services/LogIn/authentification.service';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { NgModel } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -14,6 +17,12 @@ export class LoginComponent {
 
   constructor(private router: Router,private log: AuthentificationService) {
   }
+  @NgModule({
+    imports:[
+      MatFormFieldModule,
+      MatInputModule
+    ]
+  })
 
   username!: string;
   password!: string;

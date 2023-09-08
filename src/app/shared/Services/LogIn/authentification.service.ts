@@ -44,7 +44,6 @@ export class AuthentificationService {
         sessionStorage.setItem('IdTipoCuenta',  response.idtipocuenta);
       }
     ).catch((error: any) => {
-      console.log(error);
     });
   }
 }

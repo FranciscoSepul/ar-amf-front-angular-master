@@ -19,6 +19,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatCardModule} from '@angular/material/card';
 import { ImageModule } from 'primeng/image';
+import { MatInputModule } from '@angular/material/input';
 
 @NgModule({
     declarations:
@@ -39,7 +40,8 @@ import { ImageModule } from 'primeng/image';
         MatFormFieldModule,
         MatProgressSpinnerModule,
         MatCardModule,
-        ImageModule
+        ImageModule,
+        MatInputModule
     ],
     providers: [
         {

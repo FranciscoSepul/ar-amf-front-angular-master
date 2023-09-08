@@ -8,13 +8,11 @@ import { Component, OnInit } from '@angular/core';
 export class EditComponent implements OnInit {
   action: string;
   element: any;
-  
+
   constructor() { }
 
   ngOnInit(): void {
     this.action = history.state.action;
     this.element = history.state.data;
-    console.log(this.action);
-    console.log(this.element);
   }
 }

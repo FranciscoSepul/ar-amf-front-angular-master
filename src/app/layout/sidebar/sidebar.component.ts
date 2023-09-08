@@ -36,7 +36,7 @@ export class SidebarComponent implements OnInit {
       },
       {
         text: 'Usuarios',
-        link: '/Usuarios',
+        link: '',
         icon: 'users-solid.svg',
         user: ((this.Usuarios == "1") ? 1 : 2),
       }
@@ -74,13 +74,8 @@ export class SidebarComponent implements OnInit {
     this.menuArray = this.menuservice.getMenu();
   }
 
-  @HostListener('click', ['$event.target']) onClick(e) {
-    var content = e.nextElementSibling;
-    if (content.style.maxHeight) {
-      content.style.maxHeight = null;
-    } else {
-      content.style.maxHeight = content.scrollHeight + "px";
-    }
+  @HostListener('click', ['$event.target']) onClick(e: { nextElementSibling: any; }) {
+   
   }
 
 }

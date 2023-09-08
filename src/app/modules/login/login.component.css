@@ -2,7 +2,7 @@
   position: absolute;
   top: 40%;
   left: center !important;
-  right: 43%;
+  right: 50%;
 }
 
 .Textstyle {
@@ -13,10 +13,10 @@
 }
 .Imput{
   border-radius: 10px;
-  width: 400px;
-  height: 40px;
-  left: 33% !important;
-  color: black !important;
+  width: 250%;
+  height: 40%;
+  color: white !important;
+
 }
 
 .blueButton {

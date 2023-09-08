@@ -16,7 +16,8 @@ import { MessagesModule } from 'primeng/messages';
 import { InputNumberModule } from "primeng/inputnumber";
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { InputSwitchModule } from 'primeng/inputswitch';
-
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from "@angular/material/form-field";
 @NgModule({
   declarations: [
     UsuariosComponent,
@@ -39,9 +40,11 @@ import { InputSwitchModule } from 'primeng/inputswitch';
     FormsModule,
     ReactiveFormsModule,
     ConfirmDialogModule,
-    InputSwitchModule
+    InputSwitchModule,
+    MatInputModule,
+    MatFormFieldModule
   ]
 })
 export class UsuariosModule {
- 
+
 }
