@@ -27,13 +27,11 @@ export class ListarComponent implements OnInit {
   ngOnInit(): void {
     this.showLoader = true;
     this.sortOptions = [...sortOptions];
-    console.log('antes de llamar');
     this.getAllUsers();
 
   }
 
   Crear() {
-    console.log('dentro del create');
     this.crearUsuario.emit();
   }
   async getAllUsers() {
@@ -51,7 +49,6 @@ export class ListarComponent implements OnInit {
   }
 
   async active(id: number, activation: boolean) {
-    console.log('update');
     try {
       let alert = this.usuarios.find(x => x.run_usuario == id)
       if (alert) {
@@ -63,7 +60,6 @@ export class ListarComponent implements OnInit {
           });
       }
     } catch (error) {
-      console.log(error);
     }
   }
   onSortChange(event) {
@@ -71,7 +67,6 @@ export class ListarComponent implements OnInit {
   }
 
   async seeEditar(id) {
-    console.log('see '+id);
     this.details = this.usuarios.filter(x => x.run_usuario == id);
     this.detailUser.emit(this.details[0]);
   }

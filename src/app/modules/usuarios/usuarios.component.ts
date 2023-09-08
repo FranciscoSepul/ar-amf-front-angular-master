@@ -14,7 +14,6 @@ export class UsuariosComponent {
     this.isEdit = true;
   }
   public crearUsuario() {
-    console.log('segundo 2 aca ');
     this.screen = "Crear";
     this.isEdit = false;
   }

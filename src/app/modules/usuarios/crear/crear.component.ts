@@ -97,7 +97,6 @@ export class CrearComponent implements OnInit {
     (await this.UserServiceService.ContractList()).subscribe({
       next: data => {
         this.contrato = data
-        console.log(this.contrato[1].contract)
       }
     })
   }
@@ -105,7 +104,6 @@ export class CrearComponent implements OnInit {
     (await this.UserServiceService.NationalityList()).subscribe({
       next: data => {
         this.nacionalidad = data
-        console.log(this.contrato[1].contract)
       }
     })
   }
@@ -116,7 +114,6 @@ export class CrearComponent implements OnInit {
 
   sendFormulario() {
     let data = this.form.getRawValue();
-    console.log(data);
     this.sendData(data);
   }
 

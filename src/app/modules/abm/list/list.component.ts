@@ -39,7 +39,6 @@ export class ListComponent implements OnInit {
   }
 
   goToView(editEnabled: boolean) {
-    console.log(`View, edit enabled = ${editEnabled}`);
   }
 
   openModalConfirm(elemento: Empleado) {

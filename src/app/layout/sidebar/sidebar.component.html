@@ -13,8 +13,8 @@
           </button>
         </div>
       </div>
-      <ng-template #elseBlock class="ImageSize">
-        <li class=" list-group-item list-group-item-action bg-light nav-item" routerLink={{item.link}}
+      <ng-template #elseBlock class="ImageSize" >
+        <li *ngIf="item.user!=2"  class=" list-group-item list-group-item-action bg-light nav-item" routerLink={{item.link}}
           routerLinkActive="active" role="item" (click)="selectedItem =item.text; "
           [ngClass]="{'active': selectedItem === item.text}">
           <img src='../../../assets/images/{{item.icon}}' alt="{{item.text}}" title="{{item.text}}" />

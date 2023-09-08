@@ -90,7 +90,6 @@ export class EditarComponent implements OnInit {
     (await this.UserServiceService.ContractList()).subscribe({
       next: data => {
         this.contrato = data
-        console.log(this.contrato[1].contract)
       }
     })
   }
@@ -98,7 +97,6 @@ export class EditarComponent implements OnInit {
     (await this.UserServiceService.NationalityList()).subscribe({
       next: data => {
         this.nacionalidad = data
-        console.log(this.contrato[1].contract)
       }
     })
   }
