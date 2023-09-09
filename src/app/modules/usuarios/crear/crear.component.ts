@@ -61,27 +61,28 @@ export class CrearComponent implements OnInit {
   ngOnInit(): void {
     this.loadOpcions();
   }
+
   loadOpcions() {
 
     this.loadCompany();
     this.loadFunctions();
     this.loadContract();
     this.loadNacionalidad();
+
     if (this.isEdit) {
       this.loadAlert();
-      console.log('id 1 ' + this.idUser);
-      console.log('id 2 ' + this.idUser.run_usuario);
       console.log('id 3 ' + this.idUser.tipo_contrato);
       console.log('log error');
     }
   }
 
+
   loadAlert() {
-    console.log('lad ' + this.idUser.run_usuario)
+    console.log('lad ' + this.idUser.nacionalidad)
     this.form.setValue({
       nom_usuario: this.idUser.nom_usuario,
       run_usuario: this.idUser.run_usuario,
-      idempresa: 'a',//this.idUser.idempresa,
+      idempresa: this.idUser.empresa,
       fono_usuario: this.idUser.fono_usuario,
       tipo_contrato: this.idUser.tipo_contrato,
       idtipocuenta: 'a',//this.idUser.idtipocuenta,

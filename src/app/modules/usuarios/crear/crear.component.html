@@ -32,9 +32,9 @@
         <div class="row field col-12 md:col-3">
           <label for="use1" class="block fw-title mg-bt-label">Compañia </label>
           <p-dropdown #dropCompany [options]="compania" formControlName="idempresa" optionLabel="nom_empresa"
-            optionValue="id_empresa" [placeholder]="'SELECCIONE'"
+            optionValue="nom_empresa" [placeholder]="'SELECCIONE'"
             emptyMessage="No existen compañias disponibles"></p-dropdown>
-          <span class="form-text text-danger" *ngIf="campoInvalid('id_empresa')">
+          <span class="form-text text-danger" *ngIf="campoInvalid('nom_empresa')">
           </span>
         </div>
 
@@ -66,7 +66,7 @@
         </div>
         <div class="row field col-12 md:col-3">
           <label for="use1" class="block fw-title mg-bt-label">Nacionalidad </label>
-          <p-dropdown #dropNacionalidad [options]="nacionalidad" formControlName="nacionalidad" optionLabel="contract"
+          <p-dropdown #dropNacionalidad [options]="nacionalidades" formControlName="nacionalidad" optionLabel="contract"
             optionValue="contract" [placeholder]="'SELECCIONE'"
             emptyMessage="No existen NACIONALIDADES disponibles"></p-dropdown>
           <span class="form-text text-danger" *ngIf="campoInvalid('contract')">
