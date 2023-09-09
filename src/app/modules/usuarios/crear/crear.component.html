@@ -32,7 +32,7 @@
         <div class="row field col-12 md:col-3">
           <label for="use1" class="block fw-title mg-bt-label">Compañia </label>
           <p-dropdown #dropCompany [options]="compania" formControlName="idempresa" optionLabel="nom_empresa"
-            optionValue="nom_empresa" [placeholder]="'SELECCIONE'"
+            optionValue="id_empresa" [placeholder]="'SELECCIONE'"
             emptyMessage="No existen compañias disponibles"></p-dropdown>
           <span class="form-text text-danger" *ngIf="campoInvalid('nom_empresa')">
           </span>
@@ -58,10 +58,10 @@
         </div>
         <div class="row field col-12 md:col-3">
           <label for="use1" class="block fw-title mg-bt-label">Funcion </label>
-          <p-dropdown #dropFunction [options]="function" formControlName="idtipocuenta" optionLabel="nom_fun"
+          <p-dropdown #dropFunction [options]="function" formControlName="funcion" optionLabel="nom_fun"
             optionValue="id_fun" [placeholder]="'SELECCIONE'"
             emptyMessage="No existen funciones disponibles"></p-dropdown>
-          <span class="form-text text-danger" *ngIf="campoInvalid('id_fun')">
+          <span class="form-text text-danger" *ngIf="campoInvalid('nom_fun')">
           </span>
         </div>
         <div class="row field col-12 md:col-3">

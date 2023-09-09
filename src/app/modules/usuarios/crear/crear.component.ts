@@ -40,6 +40,7 @@ export class CrearComponent implements OnInit {
   thumbnail_: any;
   fileType: any;
   imgMsgErrorFinal: any;
+  idCuenta=0;
   files: any[] = [];
   imgMsgError: string | null = null;
 
@@ -52,7 +53,7 @@ export class CrearComponent implements OnInit {
       idempresa: [null, [Validators.required]],
       fono_usuario: [0, [Validators.required]],
       tipo_contrato: [null, [Validators.required]],
-      idtipocuenta: [null, [Validators.required]],
+      funcion: [null, [Validators.required]],
       nacionalidad: [null, [Validators.required]],
       correo: [null, [Validators.required]],
     });
@@ -68,29 +69,37 @@ export class CrearComponent implements OnInit {
     this.loadFunctions();
     this.loadContract();
     this.loadNacionalidad();
-
     if (this.isEdit) {
+      this.TipoCuenta();
       this.loadAlert();
-      console.log('id 3 ' + this.idUser.tipo_contrato);
-      console.log('log error');
     }
   }
 
 
   loadAlert() {
-    console.log('lad ' + this.idUser.nacionalidad)
+    console.log('lad ' + this.idUser.tipocuenta)
     this.form.setValue({
       nom_usuario: this.idUser.nom_usuario,
       run_usuario: this.idUser.run_usuario,
       idempresa: this.idUser.empresa,
       fono_usuario: this.idUser.fono_usuario,
       tipo_contrato: this.idUser.tipo_contrato,
-      idtipocuenta: 'a',//this.idUser.idtipocuenta,
+      funcion:this.idCuenta,
       nacionalidad: this.idUser.nacionalidad,
       correo: this.idUser.correo,
     });
   }
 
+  TipoCuenta(){
+    console.log('tipo de cta '+this.idUser.tipocuenta);
+    if(this.idUser.tipocuenta == 'Administrador'){
+      this.idCuenta=1;
+    }if(this.idUser.tipocuenta == 'Profesional'){
+      this.idCuenta=2;
+    }if(this.idUser.tipocuenta == 'Empresa'){
+      this.idCuenta=3;
+    }
+  }
   async loadCompany() {
     (await this.UserServiceService.CompanyList()).subscribe({
       next: data => {
