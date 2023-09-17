@@ -53,7 +53,7 @@ export class ListarComponent implements OnInit {
       let alert = this.usuarios.find(x => x.run_usuario == id)
       if (alert) {
         alert.isdelete = 1
-          ; (await this.UserServiceService.UserUpdate(alert)).subscribe({
+          ; (await this.UserServiceService.UserDisable(alert)).subscribe({
             next: () => {
               this.ngOnInit()
             }
@@ -67,7 +67,6 @@ export class ListarComponent implements OnInit {
   }
 
   async seeEditar(id) {
-    console.log('see editar ');
     this.details = this.usuarios.filter(x => x.run_usuario == id);
     this.detailUser.emit(this.details[0]);
   }

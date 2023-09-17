@@ -44,4 +44,8 @@ export class UserServiceService {
     let url = `http://localhost:5006/api/User/Update`
     return this.httpService.putJson<any>(url,data);
   }
+  public async UserDisable(data:any){
+    let url = `http://localhost:5006/api/User/Disable`
+    return this.httpService.putJson<any>(url,data);
+  }
 }
