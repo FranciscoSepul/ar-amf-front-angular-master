@@ -159,9 +159,10 @@ export class CrearComponent implements OnInit {
 
   async sendData(data) {
     if (this.isEdit) {
+      console.log('data '+data.id_empresa);
       (await this.UserServiceService.UserUpdate(data)).subscribe({
         next: () => {
-          this.ngOnInit()
+          this.backTable.emit();
         }
       });
     } else {
