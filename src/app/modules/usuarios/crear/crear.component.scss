@@ -103,8 +103,15 @@
 .p-inputtext {
   border: none;
   border-bottom: 1px solid #575c61;
+  
 }
-
+button, input, optgroup, select, textarea{
+  width: 40% !important;
+}
+.firstType 
+{
+  width: 25% !important;
+}
 .firstType {
   display: flex;
   flex-direction: column;
@@ -120,4 +127,12 @@
 
 label {
   color: #284773;
+}
+
+#texto{
+left: 10% !important;
+}
+
+.grid{
+  margin-left: 2.5rem !important;
 }
