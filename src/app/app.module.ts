@@ -25,8 +25,7 @@ import { CompanyComponent } from './modules/company/company.component';
 @NgModule({
     declarations:
     [AppComponent,
-     LoginComponent,
-     CompanyComponent
+     LoginComponent     
     ],
     imports: [
         HttpClientModule,

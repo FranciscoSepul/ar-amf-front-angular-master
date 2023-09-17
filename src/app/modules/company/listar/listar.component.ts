@@ -1,8 +1,8 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { SelectItem} from 'primeng/api';
-import { UserServiceService } from '../../../shared/Services/Usuarios/user-service.service';
 import { sortOptions } from '../../../core/common/constants';
+import { UserServiceService } from '../../../shared/Services/Usuarios/user-service.service';
 
 
 @Component({
@@ -11,45 +11,46 @@ import { sortOptions } from '../../../core/common/constants';
   styleUrls: ['./listar.component.scss']
 })
 export class ListarComponent implements OnInit {
-
-  usuarios: any[];
-  rows = 5;
-  showLoader = false;
-  isDisabled = false;
-  details: any;
+  showLoader: boolean;
   sortOptions: SelectItem[];
+  company: any[];
+  details: any;
+  rows = 5;
+
   @Output() crearUsuario: EventEmitter<any> = new EventEmitter();
   @Output() detailUser: EventEmitter<any> = new EventEmitter();
 
   constructor
     (private UserServiceService: UserServiceService, private router: Router) { }
 
+
   ngOnInit(): void {
-    this.showLoader = true;
+    this.showLoader = false;
     this.sortOptions = [...sortOptions];
     this.getAllUsers();
-  }
-
-  Crear() {
-    this.crearUsuario.emit();
   }
   async getAllUsers() {
     (await this.UserServiceService.UserList()).subscribe({
       next: data => {
-        this.usuarios = data;
+        this.company = data;
+        this.showLoader=true;
       },
       error(e) {
         this.helpers.checkPermission(this.messageService, e);
       }
     })
   }
+  Crear() {
+    this.crearUsuario.emit();
+  }
+
   confirmAction(id, name, isDisabled) {
     this.active(id, !isDisabled);
   }
 
   async active(id: number, activation: boolean) {
     try {
-      let alert = this.usuarios.find(x => x.run_usuario == id)
+      let alert = this.company.find(x => x.run_usuario == id)
       if (alert) {
         alert.isdelete = 1
           ; (await this.UserServiceService.UserDisable(alert)).subscribe({
@@ -61,12 +62,13 @@ export class ListarComponent implements OnInit {
     } catch (error) {
     }
   }
+
   onSortChange(event) {
     this.rows = event.value;
   }
 
   async seeEditar(id) {
-    this.details = this.usuarios.filter(x => x.run_usuario == id);
+    this.details = this.company.filter(x => x.run_usuario == id);
     this.detailUser.emit(this.details[0]);
   }
 }

@@ -4,11 +4,25 @@ import { Component, OnInit } from '@angular/core';
   selector: 'app-company',
   templateUrl: './company.component.html'
 })
-export class CompanyComponent implements OnInit {
+export class CompanyComponent{
+  screen = "Listar";
+  idUser :any;
+  isEdit = false;
 
-  constructor() { }
-
-  ngOnInit(): void {
+  crearUsuario() {
+    this.screen = "Crear";
+    this.isEdit = false;
+  }
+  Listar() {
+    this.screen = "Listar";
+  }
+  detailUser(idUser) {
+    this.screen = "Crear";
+    this.idUser = idUser;
+    this.isEdit = true;
+  }
+  backTable() {
+    this.screen = "Listar";
   }
 
 }

@@ -15,10 +15,20 @@ import { InputSwitchModule } from 'primeng/inputswitch';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from "@angular/material/form-field";
 import { CompanyRoutingModule } from './company-routing.module';
+import { ListarComponent } from './listar/listar.component';
+import { EditarComponent } from './editar/editar.component';
+import { CrearComponent } from './crear/crear.component';
+import {CompanyComponent} from './company.component';
 
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    ListarComponent,
+    EditarComponent,
+    CrearComponent,
+    CompanyComponent,
+    DateComponent
+  ],
   imports: [
     CommonModule,
     CompanyRoutingModule,
