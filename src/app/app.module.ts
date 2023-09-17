@@ -20,11 +20,13 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatCardModule} from '@angular/material/card';
 import { ImageModule } from 'primeng/image';
 import { MatInputModule } from '@angular/material/input';
+import { CompanyComponent } from './modules/company/company.component';
 
 @NgModule({
     declarations:
     [AppComponent,
-     LoginComponent
+     LoginComponent,
+     CompanyComponent
     ],
     imports: [
         HttpClientModule,

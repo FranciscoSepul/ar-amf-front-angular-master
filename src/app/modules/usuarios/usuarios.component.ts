@@ -4,17 +4,12 @@ import { Component, OnInit } from '@angular/core';
   selector: 'app-usuarios',
   templateUrl: './usuarios.component.html'
 })
+
 export class UsuariosComponent {
   screen = "Listar";
   idUser :any;
   isEdit = false;
 
-  //modificar(idUser) {
-   // console.log('modificar');
-    //this.screen = "Crear";
-    //this.idUser = idUser;
-    //this.isEdit = true;
- // }
   crearUsuario() {
     this.screen = "Crear";
     this.isEdit = false;
@@ -23,8 +18,6 @@ export class UsuariosComponent {
     this.screen = "Listar";
   }
   detailUser(idUser) {
-    console.log('Detail user');
-    console.log('aa '+idUser.run_usuario);
     this.screen = "Crear";
     this.idUser = idUser;
     this.isEdit = true;

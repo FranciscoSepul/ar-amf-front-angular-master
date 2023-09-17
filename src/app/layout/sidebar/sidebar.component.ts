@@ -3,6 +3,7 @@ import { MenuItem } from 'primeng/api';
 import { MenuService } from "@core/menu/menu.service";
 import { UserServiceService } from '../../shared/Services/Usuarios/user-service.service';
 
+
 @Component({
   selector: "app-sidebar",
   templateUrl: "./sidebar.component.html",
@@ -14,13 +15,14 @@ export class SidebarComponent implements OnInit {
   menuArray;
   items: MenuItem[];
   selectedItem = "0";
-  Usuarios="";
+  Usuarios = "";
 
   constructor(public menuservice: MenuService, public myElement: ElementRef, private userServiceService: UserServiceService) {
   }
 
   ngOnInit() {
     this.Usuarios = sessionStorage.getItem('IdTipoCuenta');
+
     this.items = [
       { label: 'New', icon: 'pi pi-fw pi-plus' },
       { label: 'Open', icon: 'pi pi-fw pi-download' },
@@ -40,18 +42,21 @@ export class SidebarComponent implements OnInit {
         icon: 'users-solid.svg',
         user: ((this.Usuarios == "1") ? 1 : 2),
       }
-      , {
+      ,
+      {
         text: 'Visitas',
         link: '',
         icon: 'business-time-solid.svg',
         user: 1
       }
-      , {
-        text: 'Empresa',
-        link: '',
+      ,
+      {
+        text: 'Empresas',
+        link: '/Company',
         icon: 'building-solid.svg',
-        user: 1
-      }, {
+        user: ((this.Usuarios == "1") ? 1 : 2)
+      },
+      {
         text: 'Usuario',
         link: '',
         icon: 'user-solid.svg',
@@ -75,7 +80,7 @@ export class SidebarComponent implements OnInit {
   }
 
   @HostListener('click', ['$event.target']) onClick(e: { nextElementSibling: any; }) {
-  
+
   }
 
 }
