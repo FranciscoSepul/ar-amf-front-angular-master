@@ -2,14 +2,28 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-notificaciones',
-  templateUrl: './notificaciones.component.html',
-  styleUrls: ['./notificaciones.component.scss']
+  templateUrl: './notificaciones.component.html'
 })
-export class NotificacionesComponent implements OnInit {
+export class NotificacionesComponent  {
 
-  constructor() { }
+  screen = "Listar";
+  idUser :any;
+  isEdit = false;
 
-  ngOnInit(): void {
+  crearUsuario() {
+    this.screen = "Crear";
+    this.isEdit = false;
+  }
+  Listar() {
+    this.screen = "Listar";
+  }
+  detailUser(idUser) {
+    this.screen = "Crear";
+    this.idUser = idUser;
+    this.isEdit = true;
+  }
+  backTable() {
+    this.screen = "Listar";
   }
 
 }

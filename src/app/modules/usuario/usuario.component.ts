@@ -2,14 +2,26 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-usuario',
-  templateUrl: './usuario.component.html',
-  styleUrls: ['./usuario.component.scss']
+  templateUrl: './usuario.component.html'
 })
-export class UsuarioComponent implements OnInit {
+export class UsuarioComponent  {
+  screen = "Listar";
+  idUser :any;
+  isEdit = false;
 
-  constructor() { }
-
-  ngOnInit(): void {
+  crearUsuario() {
+    this.screen = "Crear";
+    this.isEdit = false;
   }
-
+  Listar() {
+    this.screen = "Listar";
+  }
+  detailUser(idUser) {
+    this.screen = "Crear";
+    this.idUser = idUser;
+    this.isEdit = true;
+  }
+  backTable() {
+    this.screen = "Listar";
+  }
 }
