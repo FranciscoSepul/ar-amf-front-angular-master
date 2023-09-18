@@ -53,7 +53,7 @@ export class CrearComponent implements OnInit {
       run_usuario: [0, [Validators.required]],
       fono_usuario: [0, [Validators.required]],
       tipo_contrato: [null, [Validators.required]],
-      compania:[null,],
+      compania:[null,[Validators.required]],
       funcion: [null, [Validators.required]],
       nacionalidad: [null, [Validators.required]],
       correo: [null, [Validators.required]],

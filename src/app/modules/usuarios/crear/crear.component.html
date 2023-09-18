@@ -26,8 +26,6 @@
           <p-dropdown #dropCompany [options]="compania" formControlName="compania" optionLabel="nom_empresa"
             optionValue="id_empresa" [placeholder]="'SELECCIONE'"
             emptyMessage="No existen compañias disponibles"></p-dropdown>
-          <span class="form-text text-danger" *ngIf="campoInvalid('nom_empresa')">
-          </span>
           </div>
         </div>
         <div class="field firstType">
