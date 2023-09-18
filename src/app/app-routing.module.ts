@@ -5,7 +5,6 @@ import { MaintenanceComponent } from './shared/components/maintenance/maintenanc
 import {UsuariosComponent} from './modules/usuarios/usuarios.component';
 import {CompanyComponent} from './modules/company/company.component';
 
-
 const routes: Routes = [
   {
     path: '',
@@ -16,6 +15,11 @@ const routes: Routes = [
         { path: 'abm', loadChildren: () => import('./modules/abm/abm.module').then(m => m.AbmModule) },
         { path: 'Usuarios', loadChildren: () => import('./modules/usuarios/usuarios.module').then(m => m.UsuariosModule) },
         { path: 'Company', loadChildren: () => import('./modules/company/company.module').then(m => m.CompanyModule) },
+        { path: 'Accidentes', loadChildren: () => import('./modules/accidentes/accidentes.module').then(m => m.AccidentesModule) },
+        { path: 'Actividades', loadChildren: () => import('./modules/actividades/actividades.module').then(m => m.ActividadesModule) },
+        { path: 'Notificaciones', loadChildren: () => import('./modules/notificaciones/notificaciones.module').then(m => m.NotificacionesModule) },
+        { path: 'Visitas', loadChildren: () => import('./modules/visitas/visitas.module').then(m => m.VisitasModule) },
+        { path: 'Usuario', loadChildren: () => import('./modules/usuario/usuario.module').then(m => m.UsuarioModule) },
     ]
   },
 
