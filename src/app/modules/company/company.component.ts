@@ -9,14 +9,15 @@ export class CompanyComponent{
   idUser :any;
   isEdit = false;
 
-  crearUsuario() {
+  crearCompany() {
     this.screen = "Crear";
     this.isEdit = false;
   }
   Listar() {
     this.screen = "Listar";
   }
-  detailUser(idUser) {
+  detailCompany(idUser) {
+    console.log('id user '+idUser);
     this.screen = "Crear";
     this.idUser = idUser;
     this.isEdit = true;

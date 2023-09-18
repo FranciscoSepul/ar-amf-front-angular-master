@@ -1,1 +1,72 @@
-<p>crear works!</p>
+<ng-template [ngIf]="this.isEdit === false" [ngIfElse]="editComponent">
+    <p class="title">CREAR EMPRESA</p>
+  </ng-template>
+  <ng-template #editComponent>
+    <p class="title">EDITAR EMPRESA</p>
+  </ng-template>
+  <div class="appDate">
+    <app-date></app-date>
+  </div>
+  <p-card>
+    <p-messages [(value)]="msgs1" [enableService]="false"></p-messages>
+    <div class="card section">
+      <form [formGroup]="form" autocomplete="off">
+        <div class="formgrid grid">
+          <div class="field firstType">
+            <label for="title">Nombre</label>
+            <input type="text" id="nom_empresa" pInputText formControlName="nom_empresa" placeholder="Nombre" />
+          </div>
+          <div class="field firstTypeRut">
+            <label for="title">Rut</label>
+            <input type="text" id="rut" pInputText formControlName="rut" placeholder="Rut" />
+          </div>
+          <div class="field firstTypeDate">
+            <label for="fechaFinContrato">Fecha Fin Contrato</label>
+            <input type="text" id="fechaFinContrato" pInputText formControlName="fechaFinContrato"
+              placeholder="fecha Creación" />
+          </div>
+        </div>
+        <div class="formgrid grid">
+          <div class="flex-1">
+            <div class="field">
+              <label for="id_region" class="block fw-title mg-bt-label">Region </label>
+              <p-dropdown (onChange)="cambioRegion($event)"  #dropFunction [options]="region" formControlName="region" optionLabel="nom_reg"
+                optionValue="id_region" [placeholder]="'SELECCIONE'"
+                emptyMessage="No existen funciones disponibles"></p-dropdown>
+            </div>
+          </div>
+          <div class="flex-1">
+            <div class="field">
+              <label for="id_comuna" class="block fw-title mg-bt-label">Comuna </label>
+              <p-dropdown #dropFunction [options]="comuna" formControlName="comuna" optionLabel="nombre_comuna"
+                optionValue="id_comuna" [placeholder]="'SELECCIONE'"
+                emptyMessage="No existen funciones disponibles"></p-dropdown>
+            </div>
+          </div>
+          <div class="field firstTypeDirection">
+            <label for="direccion">Direccion</label>
+            <input type="text" id="direccion" pInputText formControlName="direccion" placeholder="direccion" />
+          </div>
+        </div>
+        <div class="formgrid grid">
+          <div class="field firstTypeCorreo">
+            <label for="correo">Correo Electronico</label>
+            <input type="text" id="correo" pInputText formControlName="correo" placeholder="correo" />
+          </div>
+        </div>
+      </form>
+    </div>
+    <hr />
+    <div>
+      <div class="flex card-container green-container p-0">
+        <div class="flex-1">
+        </div>
+        <div class="flex-1">
+        </div>
+        <div class="flex-1 buttonContainer">
+          <button pButton class="redButton" (click)="backToTable()">Cancelar</button>
+          <button pButton class="blueButton" (click)="sendFormulario()">Guardar</button>
+        </div>
+      </div>
+    </div>
+  </p-card>

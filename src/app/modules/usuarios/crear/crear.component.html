@@ -15,16 +15,10 @@
         <div class="field firstType">
           <label for="title">Nombre</label>
           <input type="text" id="nom_usuario" pInputText formControlName="nom_usuario" placeholder="Nombre" />
-          <span class="form-text text-danger" *ngIf="campoInvalid('nom_usuario')">
-            <p-message severity="error" text="Campo requerido"></p-message>
-          </span>
         </div>
         <div class="field firstType">
           <label for="title">Rut</label>
           <input type="text" id="run_usuario" pInputText formControlName="run_usuario" placeholder="Rut" />
-          <span class="form-text text-danger" *ngIf="campoInvalid('run_usuario')">
-            <p-message severity="error" text="Campo requerido"></p-message>
-          </span>
         </div>
         <div class="flex-1">
           <div class="field">
@@ -40,9 +34,6 @@
           <label for="fono_usuario">Numero Telefonico</label>
           <input type="text" id="fono_usuario" pInputText formControlName="fono_usuario"
             placeholder="Numero Telefonico" />
-          <span class="form-text text-danger" *ngIf="campoInvalid('fono_usuario')">
-            <p-message severity="error" text="Campo requerido"></p-message>
-          </span>
         </div>
       </div>
       <div class="formgrid grid">
@@ -52,8 +43,6 @@
             <p-dropdown #dropContract [options]="contrato" formControlName="tipo_contrato" optionLabel="contract"
               optionValue="contract" [placeholder]="'SELECCIONE'"
               emptyMessage="No existen contratos disponibles"></p-dropdown>
-            <span class="form-text text-danger" *ngIf="campoInvalid('contract')">
-            </span>
           </div>
         </div>
         <div class="flex-1">
@@ -62,8 +51,6 @@
             <p-dropdown #dropFunction [options]="function" formControlName="funcion" optionLabel="nom_fun"
               optionValue="id_fun" [placeholder]="'SELECCIONE'"
               emptyMessage="No existen funciones disponibles"></p-dropdown>
-            <span class="form-text text-danger" *ngIf="campoInvalid('nom_fun')">
-            </span>
           </div>
         </div>
         <div class="flex-1">
@@ -72,16 +59,11 @@
             <p-dropdown #dropNacionalidad [options]="nacionalidades" formControlName="nacionalidad"
               optionLabel="contract" optionValue="contract" [placeholder]="'SELECCIONE'"
               emptyMessage="No existen NACIONALIDADES disponibles"></p-dropdown>
-            <span class="form-text text-danger" *ngIf="campoInvalid('contract')">
-            </span>
           </div>
         </div>
         <div class="field firstType">
           <label for="correo">Correo Electronico</label>
           <input type="text" id="correo" pInputText formControlName="correo" placeholder="correo" />
-          <span class="form-text text-danger" *ngIf="campoInvalid('correo')">
-            <p-message severity="error" text="Campo requerido"></p-message>
-          </span>
         </div>
       </div>
     </form>

@@ -18,6 +18,7 @@ export class UsuariosComponent {
     this.screen = "Listar";
   }
   detailUser(idUser) {
+    console.log('id user us '+idUser);
     this.screen = "Crear";
     this.idUser = idUser;
     this.isEdit = true;

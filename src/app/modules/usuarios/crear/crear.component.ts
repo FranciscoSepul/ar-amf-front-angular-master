@@ -95,7 +95,6 @@ export class CrearComponent implements OnInit {
   Compania() {
     let compa = this.companys.find(x => x.nom_empresa == this.idUser.empresa)
     if(compa){
-      console.log(compa.id_empresa);
       this.idCompania = compa.id_empresa;
       this.loadAlert();
     }
@@ -159,7 +158,6 @@ export class CrearComponent implements OnInit {
 
   async sendData(data) {
     if (this.isEdit) {
-      console.log('data '+data.id_empresa);
       (await this.UserServiceService.UserUpdate(data)).subscribe({
         next: () => {
           this.backTable.emit();
@@ -174,12 +172,4 @@ export class CrearComponent implements OnInit {
         })
     }
   }
-
-
-  campoInvalid(campo: string) {
-    //return (this.form.controls[campo].errors)
-    // && (this.form.controls[campo].touched || this.form.controls[campo].dirty)
-    // && this.form.invalid;
-  }
-
 }

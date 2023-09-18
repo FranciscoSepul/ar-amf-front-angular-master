@@ -17,8 +17,8 @@ export class ListarComponent implements OnInit {
   details: any;
   rows = 5;
 
-  @Output() crearUsuario: EventEmitter<any> = new EventEmitter();
-  @Output() detailUser: EventEmitter<any> = new EventEmitter();
+  @Output() crearCompany: EventEmitter<any> = new EventEmitter();
+  @Output() detailCompany: EventEmitter<any> = new EventEmitter();
 
   constructor
     (private CompanyService: CompanyService, private router: Router) { }
@@ -41,7 +41,7 @@ export class ListarComponent implements OnInit {
     })
   }
   Crear() {
-    this.crearUsuario.emit();
+    this.crearCompany.emit();
   }
 
   confirmAction(id, name, isDisabled) {
@@ -68,7 +68,7 @@ export class ListarComponent implements OnInit {
   }
 
   async seeEditar(id) {
-    this.details = this.company.filter(x => x.run_usuario == id);
-    this.detailUser.emit(this.details[0]);
+    this.details = this.company.filter(x => x.nom_empresa == id);
+    this.detailCompany.emit(this.details[0]);
   }
 }
