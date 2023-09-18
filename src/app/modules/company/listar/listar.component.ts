@@ -2,7 +2,7 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { SelectItem} from 'primeng/api';
 import { sortOptions } from '../../../core/common/constants';
-import { UserServiceService } from '../../../shared/Services/Usuarios/user-service.service';
+import { CompanyService } from '../../../shared/Services/Company/company.service';
 
 
 @Component({
@@ -21,7 +21,7 @@ export class ListarComponent implements OnInit {
   @Output() detailUser: EventEmitter<any> = new EventEmitter();
 
   constructor
-    (private UserServiceService: UserServiceService, private router: Router) { }
+    (private CompanyService: CompanyService, private router: Router) { }
 
 
   ngOnInit(): void {
@@ -30,7 +30,7 @@ export class ListarComponent implements OnInit {
     this.getAllUsers();
   }
   async getAllUsers() {
-    (await this.UserServiceService.UserList()).subscribe({
+    (await this.CompanyService.CompanyList()).subscribe({
       next: data => {
         this.company = data;
         this.showLoader=true;
@@ -53,7 +53,7 @@ export class ListarComponent implements OnInit {
       let alert = this.company.find(x => x.run_usuario == id)
       if (alert) {
         alert.isdelete = 1
-          ; (await this.UserServiceService.UserDisable(alert)).subscribe({
+          ; (await this.CompanyService.UserDisable(alert)).subscribe({
             next: () => {
               this.ngOnInit()
             }
