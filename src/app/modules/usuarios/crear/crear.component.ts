@@ -53,7 +53,7 @@ export class CrearComponent implements OnInit {
       run_usuario: [0, [Validators.required]],
       fono_usuario: [0, [Validators.required]],
       tipo_contrato: [null, [Validators.required]],
-      compania:[null,[Validators.required]],
+      id_empresa:[null, [Validators.required]],
       funcion: [null, [Validators.required]],
       nacionalidad: [null, [Validators.required]],
       correo: [null, [Validators.required]],
@@ -61,7 +61,6 @@ export class CrearComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.loadCompanys();
     this.loadOpcions();
   }
 
@@ -70,6 +69,7 @@ export class CrearComponent implements OnInit {
     this.loadFunctions();
     this.loadContract();
     this.loadNacionalidad();
+    console.log('user '+this.isEdit);
     if (this.isEdit) {
       this.CargarEditar();
     }
@@ -84,7 +84,7 @@ export class CrearComponent implements OnInit {
     this.form.setValue({
       nom_usuario: this.idUser.nom_usuario,
       run_usuario: this.idUser.run_usuario,
-      compania :this.idCompania,
+      id_empresa :this.idCompania,
       fono_usuario: this.idUser.fono_usuario,
       tipo_contrato: this.idUser.tipo_contrato,
       funcion: this.idCuenta,
@@ -92,7 +92,7 @@ export class CrearComponent implements OnInit {
       correo: this.idUser.correo,
     });
   }
-  Compania() {
+  CompaniaLoad() {
     let compa = this.companys.find(x => x.nom_empresa == this.idUser.empresa)
     if(compa){
       this.idCompania = compa.id_empresa;
@@ -121,7 +121,7 @@ export class CrearComponent implements OnInit {
     (await this.UserServiceService.CompanyList()).subscribe({
       next: data => {
         this.companys = data;
-        this.Compania();
+        this.CompaniaLoad();
       }
     })
   }

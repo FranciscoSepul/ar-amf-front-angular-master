@@ -18,12 +18,17 @@
         </div>
         <div class="field firstType">
           <label for="title">Rut</label>
-          <input type="text" id="run_usuario" pInputText formControlName="run_usuario" placeholder="Rut" />
+          <ng-template [ngIf]="this.isEdit === false" [ngIfElse]="editRut">
+            <input  type="text" id="run_usuario" pInputText formControlName="run_usuario" placeholder="Rut"/>
+          </ng-template>
+          <ng-template #editRut>
+            <input  type="text" id="run_usuario" pInputText formControlName="run_usuario" placeholder="Rut" disabled/>
+          </ng-template>
         </div>
         <div class="flex-1">
           <div class="field">
-          <label for="id_empresa" class="block fw-title mg-bt-label">Compañia </label>
-          <p-dropdown #dropCompany [options]="compania" formControlName="compania" optionLabel="nom_empresa"
+          <label for="id_empresa" class="block fw-title mg-bt-label">Compañia</label>
+          <p-dropdown #dropCompany [options]="compania" formControlName="id_empresa" optionLabel="nom_empresa"
             optionValue="id_empresa" [placeholder]="'SELECCIONE'"
             emptyMessage="No existen compañias disponibles"></p-dropdown>
           </div>
