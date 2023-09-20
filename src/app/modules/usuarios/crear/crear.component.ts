@@ -21,24 +21,10 @@ export class CrearComponent implements OnInit {
   @Input() idUser: any;
 
   form: FormGroup;
-  certificates;
-  branchOfficeId;
-  msgs1: Message[];
   compania;
   function;
   contrato;
   nacionalidades;
-  nombre: string;
-  description: string;
-  selectedTipo: number;
-  fecha: Date;
-  hora: Date;
-  fileName: string;
-  extension: string;
-  thumbnail: any;
-  thumbnail_: any;
-  fileType: any;
-  imgMsgErrorFinal: any;
   idCuenta = 0;
   idCompania = 0
   files: any[] = [];

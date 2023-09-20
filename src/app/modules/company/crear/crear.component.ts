@@ -27,22 +27,6 @@ export class CrearComponent implements OnInit {
   msgs1: Message[];
   region;
   comuna;
-  nombre: string;
-  description: string;
-  selectedTipo: number;
-  fecha: Date;
-  hora: Date;
-  fileName: string;
-  extension: string;
-  thumbnail: any;
-  thumbnail_: any;
-  fileType: any;
-  imgMsgErrorFinal: any;
-  idCuenta = 0;
-  idCompania = 0
-  files: any[] = [];
-  companys: any[] = [];
-  imgMsgError: string | null = null;
 
   @ViewChild("fileDropRef", { static: false }) fileDropEl: ElementRef;
 
@@ -65,9 +49,9 @@ export class CrearComponent implements OnInit {
 
   loadOpcions() {
     this.Region();
-    //this.Comuna();
     if (this.isEdit) {
-      this.CargarEditar();
+      this.ComunaByRegion(this.idUser.region);
+      
     }
   }
 
@@ -83,15 +67,22 @@ export class CrearComponent implements OnInit {
     })
   }
 
+ async ComunaByRegion(id){
+    (await this.DirectionService.GetComunaByRegion(id)).subscribe({
+      next: data => {
+        this.comuna = data;
+        this.CargarEditar();
+      }
+    })
+  }
+
   async cambioRegion(event) {
-    console.log('cambio ' + event.value);
     (await this.DirectionService.GetComunaByRegion(event.value)).subscribe({
       next: data => {
         this.comuna = data
       }
     })
   }
-
   loadCompany() {
     console.log('nom user ' + this.idUser.rut + '-' + this.idUser.dvRut);
     this.form.setValue({
@@ -101,6 +92,8 @@ export class CrearComponent implements OnInit {
       fechaFinContrato: this.idUser.fechaFinContrato,
       correo: this.idUser.correo,
       direccion: this.idUser.direccion,
+      comuna: this.idUser.comuna,
+      region: this.idUser.region,
     });
   }
 
