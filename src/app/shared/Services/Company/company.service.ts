@@ -12,6 +12,10 @@ export class CompanyService {
     let url = `http://localhost:5006/api/Company/GetAllCompany`
     return this.httpService.getJson<any>(url);
   }
+  public async CompanyListNotDisable(){
+    let url = `http://localhost:5006/api/Company/GetAllCompanyNotDisable`
+    return this.httpService.getJson<any>(url);
+  }
   public async CompanyCreate(data: any) {
     let url = `http://localhost:5006/api/Company/Create`
     return this.httpService.postJson<any>(url, data);

@@ -2,6 +2,7 @@ import { Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild }
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ConfirmationService, Message, MessageService } from 'primeng/api';
 import { UserServiceService } from '../../../shared/Services/Usuarios/user-service.service';
+import { CompanyService } from '../../../shared/Services/Company/company.service';
 import { Dropdown } from 'primeng/dropdown';
 
 @Component({
@@ -32,7 +33,7 @@ export class CrearComponent implements OnInit {
   imgMsgError: string | null = null;
 
 
-  constructor(private formbuilder: FormBuilder, private UserServiceService: UserServiceService) {
+  constructor(private formbuilder: FormBuilder, private UserServiceService: UserServiceService,private CompanyService :CompanyService) {
     this.form = this.formbuilder.group({
       nom_usuario: [null, [Validators.required]],
       run_usuario: [0, [Validators.required]],
@@ -50,13 +51,15 @@ export class CrearComponent implements OnInit {
   }
 
   loadOpcions() {
-    this.loadCompany();
+    
     this.loadFunctions();
     this.loadContract();
     this.loadNacionalidad();
-    console.log('user '+this.isEdit);
+    
     if (this.isEdit) {
       this.CargarEditar();
+    }else{
+      this.loadCompany();
     }
   }
 
@@ -80,6 +83,10 @@ export class CrearComponent implements OnInit {
   CompaniaLoad() {
     let compa = this.companys.find(x => x.nom_empresa == this.idUser.empresa)
     if(compa){
+      let compaValidate = this.compania.find((x: { nom_empresa: any; }) => x.nom_empresa == this.idUser.empresa)
+      if(!compaValidate){
+        this.compania.push(compa); 
+      }
       this.idCompania = compa.id_empresa;
       this.loadAlert();
     }
@@ -95,18 +102,25 @@ export class CrearComponent implements OnInit {
     }
   }
   async loadCompany() {
-    (await this.UserServiceService.CompanyList()).subscribe({
+    (await this.CompanyService.CompanyListNotDisable()).subscribe({
       next: data => {
-        this.compania = data,
-        this.companys = data
+        this.compania = data
+      }
+    })
+  }
+  async loadCompanyEdit() {
+    (await this.CompanyService.CompanyListNotDisable()).subscribe({
+      next: data => {
+        this.compania = data;
+        this.CompaniaLoad();
       }
     })
   }
   async loadCompanys() {
-    (await this.UserServiceService.CompanyList()).subscribe({
+    (await this.CompanyService.CompanyList()).subscribe({
       next: data => {
         this.companys = data;
-        this.CompaniaLoad();
+        this.loadCompanyEdit();
       }
     })
   }
