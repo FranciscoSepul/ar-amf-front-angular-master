@@ -19,7 +19,7 @@ import { ListarComponent } from './listar/listar.component';
 import { EditarComponent } from './editar/editar.component';
 import { CrearComponent } from './crear/crear.component';
 import {CompanyComponent} from './company.component';
-
+import { CalendarModule } from 'primeng/calendar';
 
 @NgModule({
   declarations: [
@@ -45,7 +45,8 @@ import {CompanyComponent} from './company.component';
     ConfirmDialogModule,
     InputSwitchModule,
     MatInputModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    CalendarModule
   ]
 })
 export class CompanyModule { }

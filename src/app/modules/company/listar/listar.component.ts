@@ -1,6 +1,6 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
-import { SelectItem} from 'primeng/api';
+import { SelectItem } from 'primeng/api';
 import { sortOptions } from '../../../core/common/constants';
 import { CompanyService } from '../../../shared/Services/Company/company.service';
 
@@ -33,7 +33,7 @@ export class ListarComponent implements OnInit {
     (await this.CompanyService.CompanyList()).subscribe({
       next: data => {
         this.company = data;
-        this.showLoader=true;
+        this.showLoader = true;
       },
       error(e) {
         this.helpers.checkPermission(this.messageService, e);
@@ -50,10 +50,11 @@ export class ListarComponent implements OnInit {
 
   async active(id: number, activation: boolean) {
     try {
-      let alert = this.company.find(x => x.run_usuario == id)
+      console.log('id '+id);
+      let alert = this.company.find(x => x.id_empresa == id)
       if (alert) {
         alert.isdelete = 1
-          ; (await this.CompanyService.UserDisable(alert)).subscribe({
+          ; (await this.CompanyService.CompanyDisable(alert)).subscribe({
             next: () => {
               this.ngOnInit()
             }

@@ -2,6 +2,7 @@ import { Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild }
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ConfirmationService, Message, MessageService } from 'primeng/api';
 import { DirectionService } from '../../../shared/Services/direccion/direction.service';
+import { CompanyService } from '../../../shared/Services/Company/company.service';
 import { Dropdown } from 'primeng/dropdown';
 
 @Component({
@@ -28,9 +29,7 @@ export class CrearComponent implements OnInit {
   region;
   comuna;
 
-  @ViewChild("fileDropRef", { static: false }) fileDropEl: ElementRef;
-
-  constructor(private formbuilder: FormBuilder, private DirectionService: DirectionService) {
+  constructor(private formbuilder: FormBuilder, private DirectionService: DirectionService,private CompanyService : CompanyService ) {
     this.form = this.formbuilder.group({
       nom_empresa: [null, [Validators.required]],
       rut: [null, [Validators.required]],
@@ -40,6 +39,7 @@ export class CrearComponent implements OnInit {
       direccion: [null, [Validators.required]],
       comuna: [null, [Validators.required]],
       region: [null, [Validators.required]],
+      id_empresa:[null,[Validators.required]],
     });
   }
 
@@ -51,7 +51,7 @@ export class CrearComponent implements OnInit {
     this.Region();
     if (this.isEdit) {
       this.ComunaByRegion(this.idUser.region);
-      
+
     }
   }
 
@@ -67,7 +67,7 @@ export class CrearComponent implements OnInit {
     })
   }
 
- async ComunaByRegion(id){
+  async ComunaByRegion(id) {
     (await this.DirectionService.GetComunaByRegion(id)).subscribe({
       next: data => {
         this.comuna = data;
@@ -84,16 +84,16 @@ export class CrearComponent implements OnInit {
     })
   }
   loadCompany() {
-    console.log('nom user ' + this.idUser.rut + '-' + this.idUser.dvRut);
     this.form.setValue({
       nom_empresa: this.idUser.nom_empresa,
       rut: this.idUser.rut + '-' + this.idUser.dvRut,
       fechaCreacion: this.idUser.fechaCreacion,
-      fechaFinContrato: this.idUser.fechaFinContrato,
+      fechaFinContrato: new Date(this.idUser.fechaFinContrato),
       correo: this.idUser.correo,
       direccion: this.idUser.direccion,
       comuna: this.idUser.comuna,
       region: this.idUser.region,
+      id_empresa:this.idUser.id_empresa
     });
   }
 
@@ -108,19 +108,19 @@ export class CrearComponent implements OnInit {
 
   async sendData(data) {
     if (this.isEdit) {
-      console.log('data ' + data.id_empresa);
-      //(await this.UserServiceService.UserUpdate(data)).subscribe({
-      // next: () => {
-      //  this.backTable.emit();
-      // }
-      //});
-      //} else {
-      // (await this.UserServiceService.UserCreate(data))
-      //  .subscribe({
-      //    next: () => {
-      //     this.backTable.emit();
-      //   }
-      // })
+      console.log('data ' + data.nom_empresa);
+      (await this.CompanyService.CompanyUpdate(data)).subscribe({
+        next: () => {
+        this.backTable.emit();
+       }
+      });
+      } else {
+       (await this.CompanyService.CompanyCreate(data))
+        .subscribe({
+          next: () => {
+           this.backTable.emit();
+         }
+      })
     }
   }
 

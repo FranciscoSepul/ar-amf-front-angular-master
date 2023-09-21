@@ -31,7 +31,6 @@ export class CrearComponent implements OnInit {
   companys: any[]=[];
   imgMsgError: string | null = null;
 
-  @ViewChild("fileDropRef", { static: false }) fileDropEl: ElementRef;
 
   constructor(private formbuilder: FormBuilder, private UserServiceService: UserServiceService) {
     this.form = this.formbuilder.group({

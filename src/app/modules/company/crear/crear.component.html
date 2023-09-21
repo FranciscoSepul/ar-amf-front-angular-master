@@ -22,8 +22,8 @@
           </div>
           <div class="field firstTypeDate">
             <label for="fechaFinContrato">Fecha Fin Contrato</label>
-            <input type="text" id="fechaFinContrato" pInputText formControlName="fechaFinContrato"
-              placeholder="fecha Creación" />
+            <p-calendar [(ngModel)]="date" id="fechaFinContrato" pInputText formControlName="fechaFinContrato" placeholder="fecha Creación">
+            </p-calendar>
           </div>
         </div>
         <div class="formgrid grid">
