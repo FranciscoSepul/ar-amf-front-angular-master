@@ -5,9 +5,9 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './usuario.component.html'
 })
 export class UsuarioComponent  {
-  screen = "Listar";
+  screen = "Crear";
   idUser :any;
-  isEdit = false;
+  isEdit = (sessionStorage.getItem('IdTipoCuenta')=="1")?true:false;
 
   crearUsuario() {
     this.screen = "Crear";
