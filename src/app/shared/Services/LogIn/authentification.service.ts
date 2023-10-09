@@ -12,39 +12,27 @@ export class AuthentificationService {
   constructor(private http: HttpClient,private userServiceService: UserServiceService) { }
   private ingresar: boolean = false
   private UserToken: any;
-  public async LogIn(usuario: any, password: any): Promise<boolean> {
 
-    sessionStorage.setItem('User', usuario);
-    this.getUser();
-    this.LoginToBackend(usuario, password);
-
-    if (sessionStorage.getItem('Token') != null && sessionStorage.getItem('Token') != '') {
-      sessionStorage.setItem('IsLogin', 'true');
-      sessionStorage.setItem('Token', this.UserToken);
-    } else {
-      sessionStorage.setItem('IsLogin', 'false');
-    }
-    return (sessionStorage.getItem('IsLogin') == 'true' &&  sessionStorage.getItem('IdTipoCuenta') !='null')  ? true : false;
+  public async LogIn(usuario: any, password: any){
+      
+     (await this.userServiceService.GetUser(usuario)).subscribe({
+      next:data =>{
+        sessionStorage.setItem('User', usuario);
+        sessionStorage.setItem('IdTipoCuenta',  data.idtipocuenta);
+        sessionStorage.setItem('IsLogin', 'true');
+        this.http.get<any>(`https://backsecurity.azurewebsites.net/api/User?user=${usuario}&pass=${password}`).subscribe(data => {
+        sessionStorage.setItem('Token', data.token);
+        });
+      },
+      error(e) {
+        sessionStorage.setItem('IsLogin', 'false');
+      }
+     })
+     return (sessionStorage.getItem('IsLogin') == 'true' &&  sessionStorage.getItem('IdTipoCuenta') !='null')  ? true : false;
   }
+
   public habilitar() {
     return sessionStorage.getItem('IsLogin') == 'true' ? true : false;
-  }
-  LoginToBackend(user: string, pass: string) {
-    this.http.get<any>(`http://localhost:5006/api/User?user=${user}&pass=${pass}`).subscribe(data => {
-      sessionStorage.setItem('Token', data.token);
-      return data.Token;
-    });
-  }
-
-  async getUser() {
-    let user = sessionStorage.getItem('User');
-    const promise = (await this.userServiceService.GetUser(user)).toPromise();
-    return promise.then(
-      (response: any) => {
-        sessionStorage.setItem('IdTipoCuenta',  response.idtipocuenta);
-      }
-    ).catch((error: any) => {
-    });
   }
 }
 

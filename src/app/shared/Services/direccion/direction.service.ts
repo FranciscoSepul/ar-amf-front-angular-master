@@ -9,12 +9,12 @@ export class DirectionService {
   constructor(private httpService: HttpService) { }
 
   public async RegionList() {
-    let url = `http://localhost:5006/api/Direccion/GetAllRegion`
+    let url = `https://backsecurity.azurewebsites.net/api/Direccion/GetAllRegion`
     return this.httpService.getJson<any>(url);
   }
 
   public async GetComunaByRegion(id) {
-    let url = `http://localhost:5006/api/Direccion/GetComunaByRegion?id=${id}`
+    let url = `https://backsecurity.azurewebsites.net/api/Direccion/GetComunaByRegion?id=${id}`
     return this.httpService.getJson<any>(url);
   }
  

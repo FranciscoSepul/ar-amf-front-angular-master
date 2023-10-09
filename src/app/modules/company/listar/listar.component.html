@@ -44,9 +44,10 @@
           <td style="text-align: left !important; padding-left: 5px;">{{men.rut}}-{{men.dvRut}}</td>
           <td style="text-align: left !important; padding-left: 5px;">{{men.fechaCreacion}}</td>
           <td style="text-align: left !important; padding-left: 5px;">{{men.fechaFinContrato}}</td>
-          <td class="states">
-            <div [ngStyle]="{'background-color':men.haxColor} " class="inasistencia"><span class="stateTextP">{{men.eliminado| uppercase}}</span></div>
-        </td>
+          <td class="text-align">
+            <div [ngStyle]="{'background-color':men.haxColor} " class="inasistencia"><span
+                class="stateTextP">{{men.eliminado| uppercase}}</span></div>
+          </td>
           <td style="text-align: center !important;">
             <p-inputSwitch [(ngModel)]="!men.isDisabled"
               (click)="confirmAction(men.id_empresa, men.nom_empresa, men.isDisabled)">
