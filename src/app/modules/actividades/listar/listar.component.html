@@ -26,12 +26,13 @@
     <p-progressBar mode="indeterminate" [style]="{'height': '16px'}"></p-progressBar>
   </ng-container>
   <ng-container>
-    <p-table [value]="usuarios" styleClass="p-datatable-striped" [paginator]="true" [rows]="rows">
+    <p-table [value]="activity" styleClass="p-datatable-striped" [paginator]="true" [rows]="rows">
       <ng-template pTemplate="header">
         <tr>
           <th id="name" style="text-align: left !important;">ID</th>
           <th id="module" style="text-align: left !important;">TEMA</th>
           <th id="module" style="text-align: left !important;">EMPRESA</th>
+          <th id="module" style="text-align: left !important;">PROFESIONAL</th>
           <th id="contract" style="text-align: left !important;">F/H CAPACITACIÓN</th>
           <th id="instance" style="text-align: left !important;">ESTADO</th>
           <th id="instance" style="text-align: left !important;">ACCIÓN</th>
@@ -41,12 +42,11 @@
       <ng-template pTemplate="body" let-men>
         <tr>
           <td style="text-align: left !important; padding-left: 5px;"><span class="detailLink"
-              (click)="seeEditar(men.run_usuario)">{{men.ID}}</span></td>
+              (click)="seeEditar(men.id)">{{men.id}}</span></td>
           <td style="text-align: left !important; padding-left: 5px;">{{men.tema}}</td>
-          <td style="text-align: left !important; padding-left: 5px;">{{men.empresa}}</td>
-          <td style="text-align: left !important; padding-left: 5px;">{{men.tipocuenta}}</td>
-          <td style="text-align: left !important; padding-left: 5px;">{{men.tipo_contrato}}</td>
-          <td style="text-align: left !important; padding-left: 5px;">{{men.fechacreacion}}</td>
+          <td style="text-align: left !important; padding-left: 5px;">{{men.company}}</td>
+          <td style="text-align: left !important; padding-left: 5px;">{{men.profesionalacargo}}</td>
+          <td style="text-align: left !important; padding-left: 5px;">{{men.fechaprogramacionyHora}}</td>
           <td class="states">
             <div [ngStyle]="{'background-color':men.haxColor} " class="inasistencia"><span class="stateTextP">{{men.eliminado| uppercase}}</span></div>
         </td>

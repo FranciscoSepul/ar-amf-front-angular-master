@@ -1,1 +1,67 @@
-<p>crear works!</p>
+<ng-template [ngIf]="this.isEdit === false" [ngIfElse]="editComponent">
+    <p class="title">CREAR Capacitacion</p>
+</ng-template>
+<ng-template #editComponent>
+    <p class="title">EDITAR Capacitacion</p>
+</ng-template>
+<div class="appDate">
+    <app-date></app-date>
+</div>
+<p-card> 
+    <p-messages [(value)]="msgs1" [enableService]="false"></p-messages>
+    <div class="card section">
+        <form [formGroup]="form" autocomplete="off">
+            <div class="formgrid grid">
+                <div class="field firstTypeRut">
+                    <label for="id_empresa" class="block fw-title mg-bt-label">Empresa </label>
+                    <p-dropdown (onChange)="getAllUsersByCompany($event)" #dropFunction [options]="companys" formControlName="idcompany" optionLabel="nom_empresa"
+                        optionValue="id_empresa" [placeholder]="'SELECCIONE'"
+                        emptyMessage="No existen empresas disponibles"></p-dropdown>
+                </div>
+                <div class="field firstTypeRut">
+                    <label for="id_usuario" class="block fw-title mg-bt-label">Profesional </label>
+                    <p-dropdown #dropFunction [options]="usuarios" formControlName="idprofesionalacargo" optionLabel="nom_usuario"
+                        optionValue="id_usuario" [placeholder]="'SELECCIONE'"
+                        emptyMessage="No existen profesionales disponibles para la empresa seleccionada"></p-dropdown>
+                </div>
+                <div class="field firstTypeRut">
+                    <label for="idcapacitacion" class="block fw-title mg-bt-label">Tema </label>
+                    <p-dropdown #dropFunction [options]="temas"
+                        formControlName="tema" optionLabel="capacitacion" optionValue="idcapacitacion"
+                        [placeholder]="'SELECCIONE'" emptyMessage="No existen temas disponibles"></p-dropdown>
+                </div>
+            </div>
+            <div class="formgrid grid">
+                <div class="field firstTypeRut">
+                    <label for="title">Hora de Programacion</label>
+                    <input type="text" id="horaprogramacion" pInputText formControlName="horaprogramacion" placeholder="hh:mm" />
+                </div>
+                <div class="field firstTypeDate">
+                    <label for="fechaprogramacion">Fecha Capacitación</label>
+                    <p-calendar [(ngModel)]="date" id="fechaprogramacion" pInputText formControlName="fechaprogramacion"
+                        placeholder="fecha Creación">
+                    </p-calendar>
+                </div>
+            </div>
+            <div class="formgrid">
+                <div class="field firstTypeCorreo">
+                    <label for="descripcion">Descripcion</label>
+                    <input class="firstTypeCorreoLabel" type="text" id="descripcion" pInputText formControlName="descripcion" placeholder="" />
+                </div>
+            </div>
+        </form>
+    </div>
+    <hr />
+    <div>
+        <div class="flex card-container green-container p-0">
+            <div class="flex-1">
+            </div>
+            <div class="flex-1">
+            </div>
+            <div class="flex-1 buttonContainer">
+                <button pButton class="redButton" (click)="backToTable()">Cancelar</button>
+                <button pButton class="blueButton" (click)="sendFormulario()">Guardar</button>
+            </div>
+        </div>
+    </div>
+</p-card>

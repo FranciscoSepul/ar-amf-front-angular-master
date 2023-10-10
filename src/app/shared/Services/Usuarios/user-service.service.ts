@@ -12,6 +12,10 @@ export class UserServiceService {
     let url = `https://backsecurity.azurewebsites.net/api/User/List`
     return this.httpService.getJson<any>(url);
   }
+  public async ProfesionalList(id){
+    let url = `http://localhost:5006/api/User/ProfesionalList?id=${id}`
+    return this.httpService.getJson<any>(url);
+  }
   public async CompanyList(){
     let url = `https://backsecurity.azurewebsites.net/api/Company/GetAllCompany`
     return this.httpService.getJson<any>(url);
