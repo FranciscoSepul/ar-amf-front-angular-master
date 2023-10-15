@@ -10,14 +10,14 @@ export class AccidentesComponent  {
   idUser :any;
   isEdit = false;
 
-  crearUsuario() {
+  crearAccidente() {
     this.screen = "Crear";
     this.isEdit = false;
   }
   Listar() {
     this.screen = "Listar";
   }
-  detailUser(idUser) {
+  detailAccident(idUser) {
     this.screen = "Crear";
     this.idUser = idUser;
     this.isEdit = true;

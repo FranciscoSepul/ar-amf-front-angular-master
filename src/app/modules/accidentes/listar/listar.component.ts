@@ -1,7 +1,7 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { SelectItem} from 'primeng/api';
-import { UserServiceService } from '../../../shared/Services/Usuarios/user-service.service';
+import { AccidentsService } from '../../../shared/Services/Accidents/accidents.service';
 import { sortOptions } from '../../../core/common/constants';
 
 
@@ -12,17 +12,17 @@ import { sortOptions } from '../../../core/common/constants';
 })
 export class ListarComponent implements OnInit {
 
-  usuarios: any[];
+  Accidentes: any[];
   rows = 5;
   showLoader = false;
   isDisabled = false;
   details: any;
   sortOptions: SelectItem[];
-  @Output() crearUsuario: EventEmitter<any> = new EventEmitter();
-  @Output() detailUser: EventEmitter<any> = new EventEmitter();
+  @Output() crearAccidente: EventEmitter<any> = new EventEmitter();
+  @Output() detailAccident: EventEmitter<any> = new EventEmitter();
 
   constructor
-    (private UserServiceService: UserServiceService, private router: Router) { }
+    (private AccidentsService: AccidentsService, private router: Router) { }
 
   ngOnInit(): void {
     this.showLoader = true;
@@ -31,43 +31,43 @@ export class ListarComponent implements OnInit {
   }
 
   Crear() {
-    this.crearUsuario.emit();
+    this.crearAccidente.emit();
   }
   async getAllUsers() {
-    (await this.UserServiceService.UserList()).subscribe({
+    (await this.AccidentsService.List()).subscribe({
       next: data => {
-        this.usuarios = data;
+        this.Accidentes = data;
       },
       error(e) {
         this.helpers.checkPermission(this.messageService, e);
       }
     })
   }
-  confirmAction(id, name, isDisabled) {
-    this.active(id, !isDisabled);
-  }
+  //confirmAction(id, name, isDisabled) {
+   // this.active(id, !isDisabled);
+ // }
 
-  async active(id: number, activation: boolean) {
-    try {
-      let alert = this.usuarios.find(x => x.run_usuario == id)
-      if (alert) {
-        alert.isdelete = 1
-          ; (await this.UserServiceService.UserDisable(alert)).subscribe({
-            next: () => {
-              this.ngOnInit()
-            }
-          });
-      }
-    } catch (error) {
-    }
-  }
+  //async active(id: number, activation: boolean) {
+   // try {
+    //  let alert = this.Accidentes.find(x => x.run_usuario == id)
+    //  if (alert) {
+     //   alert.isdelete = 1
+     //     ; (await this.UserServiceService.UserDisable(alert)).subscribe({
+     //       next: () => {
+     //         this.ngOnInit()
+     //       }
+     //     });
+     // }
+    //} catch (error) {
+   // }
+ // }
   onSortChange(event) {
     this.rows = event.value;
   }
 
   async seeEditar(id) {
-    this.details = this.usuarios.filter(x => x.run_usuario == id);
-    this.detailUser.emit(this.details[0]);
+    this.details = this.Accidentes.filter(x => x.id == id);
+    this.detailAccident.emit(this.details[0]);
   }
 }
 

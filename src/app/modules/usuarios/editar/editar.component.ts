@@ -19,7 +19,7 @@ export class EditarComponent implements OnInit {
 
   @Input() isEdit: boolean;
   @Input() idUser: any;
-  details:any;
+  details: any;
 
   form: FormGroup;
   certificates;
@@ -44,7 +44,7 @@ export class EditarComponent implements OnInit {
   files: any[] = [];
   imgMsgError: string | null = null;
 
-  constructor(private formbuilder: FormBuilder,private UserServiceService: UserServiceService) {
+  constructor(private formbuilder: FormBuilder, private UserServiceService: UserServiceService) {
     this.form = this.formbuilder.group({
       nom_usuario: [null, [Validators.required]],
       run_usuario: [null, [Validators.required]],
@@ -58,81 +58,15 @@ export class EditarComponent implements OnInit {
   }
   ngOnInit(): void {
     this.details = this.idUser;
-    //this.loadOpcions();
   }
- // loadOpcions() {
-   // if (this.isEdit) {
-    //  this.loadUser();
-  //  }
-   // this.loadCompany();
-  //  this.loadFunctions();
-  //  this.loadContract();
-  //  this.loadNacionalidad();
- // }
+ 
 
-  //loadUser() {
-    //this.form.setValue({
-   //   nom_usuario: 'a',
-   //   run_usuario: 'a',
-    //  idempresa:'a' ,
-   //   fono_usuario:'a' ,
-    //  tipo_contrato: 'a',
-   //   idtipocuenta: 'a',
-    //  nacionalidad:'ew' ,
-   //  correo: 'a',
-  //  });
- // }
-  //async loadCompany(){
-  //  (await this.UserServiceService.CompanyList()).subscribe({
-   //   next: data => {
-    //    this.compania = data
-    //  }
-    //})
-  //}
-  //async loadFunctions(){
-  //  (await this.UserServiceService.FunctionList()).subscribe({
-  //    next: data => {
-  //      this.function = data
-   //   }
-   // })
- // }
- // async loadContract(){
-  //  (await this.UserServiceService.ContractList()).subscribe({
-   //   next: data => {
-    //    this.contrato = data
-     // }
-    //})
- // }
- // async loadNacionalidad(){
-  //  (await this.UserServiceService.NationalityList()).subscribe({
-   //   next: data => {
-    //    this.nacionalidad = data
-     // }
-    //})
-  //}
   backToTable() {
     this.backTable.emit();
   }
-  //sendFormulario() {
-   // let data = this.form.getRawValue();
-  //  this.sendData(data);
-  //}
 
   editTypeBack(_type: string, _data: any) {
     this.modificar.emit();
-}
+  }
 
- // async sendData(data) {
-  //  console.log(this.isEdit)
-   // if (this.isEdit) {
-    //  console.log('en edit');
-    //} else {
-      //(await this.UserServiceService.UserCreate(data))
-        //.subscribe({
-          //next: () => {
-            //this.backTable.emit();
-          //}
-        //})
-  //  }
-  //}
 }
