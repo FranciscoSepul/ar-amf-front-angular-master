@@ -28,4 +28,6 @@ export class CompanyService {
     let url = `https://backsecurity.azurewebsites.net/api/Company/Disable`
     return this.httpService.putJson<any>(url, data);
   }
+
+
 }

@@ -19,28 +19,34 @@
                         emptyMessage="No existen empresas disponibles"></p-dropdown>
                 </div>
                 <div class="field firstTypeRut">
+                    <label for="run" class="block fw-title mg-bt-label">Asistentes</label>
+                    <p-dropdown  #dropFunction [options]="trabajador" formControlName="id" optionLabel="run"
+                        optionValue="run" [placeholder]="'SELECCIONE'"
+                        emptyMessage="No existen empresas disponibles"></p-dropdown>
+                </div>
+                <div class="field firstTypeRut">
                     <label for="id_usuario" class="block fw-title mg-bt-label">Profesional </label>
                     <p-dropdown #dropFunction [options]="usuarios" formControlName="idprofesionalacargo" optionLabel="nom_usuario"
                         optionValue="id_usuario" [placeholder]="'SELECCIONE'"
                         emptyMessage="No existen profesionales disponibles para la empresa seleccionada"></p-dropdown>
                 </div>
+            </div>
+            <div class="formgrid grid">
                 <div class="field firstTypeRut">
                     <label for="idcapacitacion" class="block fw-title mg-bt-label">Tema </label>
                     <p-dropdown #dropFunction [options]="temas"
                         formControlName="tema" optionLabel="capacitacion" optionValue="idcapacitacion"
                         [placeholder]="'SELECCIONE'" emptyMessage="No existen temas disponibles"></p-dropdown>
                 </div>
-            </div>
-            <div class="formgrid grid">
-                <div class="field firstTypeRut">
-                    <label for="title">Hora de Programacion</label>
-                    <input type="text" id="horaprogramacion" pInputText formControlName="horaprogramacion" placeholder="hh:mm" />
-                </div>
                 <div class="field firstTypeDate">
                     <label for="fechaprogramacion">Fecha Capacitación</label>
                     <p-calendar [(ngModel)]="date" id="fechaprogramacion" pInputText formControlName="fechaprogramacion"
                         placeholder="fecha Creación">
                     </p-calendar>
+                </div>
+                <div class="field firstTypeRut">
+                    <label for="title">Hora de Programacion</label>
+                    <input type="text" id="horaprogramacion" pInputText formControlName="horaprogramacion" placeholder="hh:mm" />
                 </div>
             </div>
             <div class="formgrid">

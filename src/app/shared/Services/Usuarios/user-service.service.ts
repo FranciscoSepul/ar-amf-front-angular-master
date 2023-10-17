@@ -52,4 +52,8 @@ export class UserServiceService {
     let url = `https://backsecurity.azurewebsites.net/api/User/Disable`
     return this.httpService.putJson<any>(url,data);
   }
+  public async GetJobByCompany(id) {
+    let url = `http://localhost:5006/api/Accidentes/GetJobByCompany?id=${id}`
+    return this.httpService.getJson<any>(url);
+  }
 }

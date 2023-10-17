@@ -29,6 +29,7 @@ export class CrearComponent implements OnInit {
   companys;
   temas;
   usuarios;
+  trabajador;
 
   constructor(private formbuilder: FormBuilder, private ActivityService: ActivityService,private CompanyService : CompanyService,private UserServiceService:UserServiceService ) {
     this.form = this.formbuilder.group({
@@ -37,7 +38,8 @@ export class CrearComponent implements OnInit {
       horaprogramacion: [null, [Validators.required]],
       idcompany: [null, [Validators.required]],
       idprofesionalacargo: [null, [Validators.required]],
-      tema: [null, [Validators.required]]
+      tema: [null, [Validators.required]],
+      trabajador:[null,[Validators.required]]
     });
   }
 
@@ -57,18 +59,28 @@ export class CrearComponent implements OnInit {
       }
     })
   }
+  async UserByCompany(id) {
+    (await this.UserServiceService.GetJobByCompany(id)).subscribe({
+      next: data => {
+        this.trabajador = data;
+      }
+    })
+  }
 
   async loadCompanys() {
     (await this.CompanyService.CompanyListNotDisable()).subscribe({
       next: data => {
         this.companys = data;
+        
       }
     })
   }
   async getAllUsersByCompany(event) {
+    console.log('en get all');
     (await this.UserServiceService.ProfesionalList(event.value)).subscribe({
       next: data => {
         this.usuarios = data;
+        this.UserByCompany(event.value);
       },
       error(e) {
         this.helpers.checkPermission(this.messageService, e);
