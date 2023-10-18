@@ -30,6 +30,7 @@ export class CrearComponent implements OnInit {
   temas;
   usuarios;
   trabajador;
+  implementos;
 
   constructor(private formbuilder: FormBuilder, private ActivityService: ActivityService,private CompanyService : CompanyService,private UserServiceService:UserServiceService ) {
     this.form = this.formbuilder.group({
@@ -39,7 +40,8 @@ export class CrearComponent implements OnInit {
       idcompany: [null, [Validators.required]],
       idprofesionalacargo: [null, [Validators.required]],
       tema: [null, [Validators.required]],
-      trabajador:[null,[Validators.required]]
+      idtrabajador:[null,[Validators.required]],
+      idimplementos :[null,[Validators.required]]
     });
   }
 
@@ -50,6 +52,15 @@ export class CrearComponent implements OnInit {
   loadOpcions() {
     this.tema();
     this.loadCompanys();
+    this.Implementos();
+  }
+
+  async Implementos() {
+    (await this.ActivityService.Implementos()).subscribe({
+      next: data => {
+        this.implementos = data
+      }
+    })
   }
 
   async tema() {

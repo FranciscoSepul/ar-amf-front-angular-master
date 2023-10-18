@@ -16,6 +16,10 @@ export class ActivityService {
     let url = `http://localhost:5006/api/Actividades/GetAllTemas`
     return this.httpService.getJson<any>(url);
   }
+  public async Implementos(){
+    let url = `http://localhost:5006/api/Actividades/GetAllImplementos`
+    return this.httpService.getJson<any>(url);
+  }
   public async Create(data: any) {
     let url = `http://localhost:5006/api/Actividades/Create`
     return this.httpService.postJson<any>(url, data);

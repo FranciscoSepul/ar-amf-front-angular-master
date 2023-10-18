@@ -19,9 +19,9 @@
                         emptyMessage="No existen empresas disponibles"></p-dropdown>
                 </div>
                 <div class="field firstTypeRut">
-                    <label for="run" class="block fw-title mg-bt-label">Asistentes</label>
-                    <p-dropdown  #dropFunction [options]="trabajador" formControlName="id" optionLabel="run"
-                        optionValue="run" [placeholder]="'SELECCIONE'"
+                    <label for="id" class="block fw-title mg-bt-label">Asistentes</label>
+                    <p-dropdown  #dropFunction [options]="trabajador" formControlName="idtrabajador" optionLabel="run"
+                        optionValue="id" [placeholder]="'SELECCIONE'"
                         emptyMessage="No existen empresas disponibles"></p-dropdown>
                 </div>
                 <div class="field firstTypeRut">
@@ -33,10 +33,10 @@
             </div>
             <div class="formgrid grid">
                 <div class="field firstTypeRut">
-                    <label for="idcapacitacion" class="block fw-title mg-bt-label">Tema </label>
-                    <p-dropdown #dropFunction [options]="temas"
-                        formControlName="tema" optionLabel="capacitacion" optionValue="idcapacitacion"
-                        [placeholder]="'SELECCIONE'" emptyMessage="No existen temas disponibles"></p-dropdown>
+                    <label for="id" class="block fw-title mg-bt-label">Implementos </label>
+                    <p-dropdown #dropFunction [options]="implementos" formControlName="idimplementos" optionLabel="nombre"
+                        optionValue="id" [placeholder]="'SELECCIONE'"
+                        emptyMessage="No existen implementos disponibles"></p-dropdown>
                 </div>
                 <div class="field firstTypeDate">
                     <label for="fechaprogramacion">Fecha Capacitación</label>
@@ -46,7 +46,13 @@
                 </div>
                 <div class="field firstTypeRut">
                     <label for="title">Hora de Programacion</label>
-                    <input type="text" id="horaprogramacion" pInputText formControlName="horaprogramacion" placeholder="hh:mm" />
+                    <input type="time" id="horaprogramacion" pInputText formControlName="horaprogramacion" placeholder="hh:mm" />
+                </div>
+                <div class="field firstTypeRut">
+                    <label for="idcapacitacion" class="block fw-title mg-bt-label">Tema </label>
+                    <p-dropdown #dropFunction [options]="temas"
+                        formControlName="tema" optionLabel="capacitacion" optionValue="idcapacitacion"
+                        [placeholder]="'SELECCIONE'" emptyMessage="No existen temas disponibles"></p-dropdown>
                 </div>
             </div>
             <div class="formgrid">
