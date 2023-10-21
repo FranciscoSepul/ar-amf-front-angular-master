@@ -1,6 +1,7 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { SelectItem} from 'primeng/api';
+import { NotificationsService } from '../../../shared/Services/Notifications/notifications.service';
 import { UserServiceService } from '../../../shared/Services/Usuarios/user-service.service';
 import { sortOptions } from '../../../core/common/constants';
 
@@ -21,19 +22,19 @@ export class ListarComponent implements OnInit {
   @Output() detailUser: EventEmitter<any> = new EventEmitter();
 
   constructor
-    (private UserServiceService: UserServiceService, private router: Router) { }
+    (private NotificationsService: NotificationsService,private UserServiceService:UserServiceService, private router: Router) { }
 
   ngOnInit(): void {
     this.showLoader = true;
     this.sortOptions = [...sortOptions];
-    this.getAllUsers();
+    this.getAllNotification();
   }
 
   Crear() {
     this.crearUsuario.emit();
   }
-  async getAllUsers() {
-    (await this.UserServiceService.UserList()).subscribe({
+  async getAllNotification() {
+    (await this.NotificationsService.List()).subscribe({
       next: data => {
         this.usuarios = data;
       },

@@ -56,4 +56,8 @@ export class UserServiceService {
     let url = `http://localhost:5006/api/Accidentes/GetJobByCompany?id=${id}`
     return this.httpService.getJson<any>(url);
   }
+  public async GetTrabajadoresByCompany(id) {
+    let url = `http://localhost:5006/api/User/TrabajadoresList?id=${id}`
+    return this.httpService.getJson<any>(url);
+  }
 }

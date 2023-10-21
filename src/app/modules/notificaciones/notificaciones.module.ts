@@ -20,6 +20,7 @@ import { InputSwitchModule } from 'primeng/inputswitch';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from "@angular/material/form-field";
 import { MessageModule } from 'primeng/message';
+import { CalendarModule } from 'primeng/calendar';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import { MessageModule } from 'primeng/message';
     ConfirmDialogModule,
     InputSwitchModule,
     MatInputModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    CalendarModule
   ]
 })
 export class NotificacionesModule { }

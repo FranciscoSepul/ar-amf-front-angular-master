@@ -28,6 +28,14 @@ export class CompanyService {
     let url = `https://backsecurity.azurewebsites.net/api/Company/Disable`
     return this.httpService.putJson<any>(url, data);
   }
-
-
+  //
+  public async NotificationCreate(data: any) {
+  let url = `http://localhost:5006/api/Notificaciones/Create`
+  return this.httpService.postJson<any>(url, data);
+  }
+  public async ListTipoNotificacion(){
+    let url = `http://localhost:5006/api/Notificaciones/GetAllTipoNotification`
+    return this.httpService.getJson<any>(url);
+  }
 }
+
