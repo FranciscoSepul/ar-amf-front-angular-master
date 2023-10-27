@@ -1,185 +1,222 @@
 <ng-template [ngIf]="this.isEdit === false" [ngIfElse]="editComponent">
-    <p class="title">USUARIO</p>
-  </ng-template>
-  <ng-template #editComponent>
-    <p class="title">Detalle Accidente</p>
-  </ng-template>
-  <div class="appDate">
-    <app-date></app-date>
-  </div>
-  <p-card>
-    <p-messages [(value)]="msgs1" [enableService]="false"></p-messages>
-    <div class="card section">
-      <div class="subTitle">
-        Accidente
-      </div>
-      <div>&nbsp;</div>
-      <form [formGroup]="form" autocomplete="off">
-        <div class="formgrid grid">
-          <div class="field firstType">
-            <label for="title">Tipo de accidente</label>
-            <ng-template [ngIf]="this.isEdit === true" [ngIfElse]="editName">
-              <input type="text" id="tipoaccidente" pInputText formControlName="tipoaccidente"  />
-            </ng-template>
-            <ng-template #editName>
-              <input type="text" id="tipoaccidente" pInputText formControlName="tipoaccidente" 
-                disabled />
-            </ng-template>
-          </div>
-          <div class="field firstType">
-            <label for="title">Gravedad</label>
-            <ng-template [ngIf]="this.isEdit === true" [ngIfElse]="editRut">
-              <input type="text" id="gravedad" pInputText formControlName="gravedad" placeholder="Rut" />
-            </ng-template>
-            <ng-template #editRut>
-              <input type="text" id="gravedad" pInputText formControlName="gravedad" placeholder="Rut" disabled />
-            </ng-template>
-          </div>
-          <div class="field firstType">
-            <label for="fechaaccidente">Fecha Accidente</label>
-            <ng-template [ngIf]="this.isEdit === true" [ngIfElse]="editCellphone">
-              <input type="text" id="fechaaccidente" pInputText formControlName="fechaaccidente"
-                placeholder="Numero Telefonico" />
-            </ng-template>
-            <ng-template #editCellphone>
-              <input type="text" id="fechaaccidente" pInputText formControlName="fechaaccidente"
+  <p class="title">USUARIO</p>
+</ng-template>
+<ng-template #editComponent>
+  <p class="title">Detalle Accidente</p>
+</ng-template>
+<div class="appDate">
+  <app-date></app-date>
+</div>
+<p-card>
+  <p-messages [(value)]="msgs1" [enableService]="false"></p-messages>
+  <div class="card section">
+    <div class="subTitle">
+      Identificacion del Empleador
+    </div>
+    <div>&nbsp;</div>
+    <form [formGroup]="form" autocomplete="off">
+      <div class="formgrid grid">
+        <div class="field firstType">
+          <label for="empresa">Nombre</label>
+          <input type="text" id="empresa" pInputText formControlName="empresa" disabled/>
+        </div>
+        <div class="field firstType">
+          <label for="empresaRut">Rut</label>
+          <ng-template [ngIf]="this.isEdit === true" [ngIfElse]="editRut">
+            <input type="text" id="empresaRut" pInputText formControlName="empresaRut" placeholder="Rut" disabled/>
+          </ng-template>
+        </div>
+
+        <div class="field firstType">
+          <label for="direccionEmpresa">Dirección</label>
+          <ng-template [ngIf]="this.isEdit === true" [ngIfElse]="editRut">
+            <input type="text" id="direccionEmpresa" pInputText formControlName="direccionEmpresa" placeholder="Rut" disabled/>
+          </ng-template>
+        </div>
+        <div class="field firstType">
+          <label for="comunaEmpresa">Comuna</label>
+          <ng-template [ngIf]="this.isEdit === true" [ngIfElse]="editName">
+            <input type="text" id="comunaEmpresa" pInputText formControlName="comunaEmpresa" disabled/>
+          </ng-template>
+        </div>
+        <div class="field firstType">
+          <label for="regionEmpresa">Region</label>
+          <ng-template [ngIf]="this.isEdit === true" [ngIfElse]="editCorreo">
+            <input type="text" id="regionEmpresa" pInputText formControlName="regionEmpresa" placeholder="correo" disabled/>
+          </ng-template>
+        </div>
+        <div class="field firstType">
+          <label for="correoEmpresa">Número Teléfono</label>
+          <ng-template [ngIf]="this.isEdit === true" [ngIfElse]="editCellphone">
+            <input type="text" id="correoEmpresa" pInputText formControlName="correoEmpresa"
               placeholder="Numero Telefonico" disabled/>
-            </ng-template>
+          </ng-template>
+        </div>
+        <div class="field firstType">
+          <label for="correoEmpresa">Correo Empresa</label>
+          <ng-template [ngIf]="this.isEdit === true" [ngIfElse]="editCellphone">
+            <input type="text" id="correoEmpresa" pInputText formControlName="correoEmpresa"
+              placeholder="Numero Telefonico" disabled/>
+          </ng-template>
+        </div>
+        <div class="field firstType">
+          <label for="correoEmpresa">Actividad Económica</label>
+          <ng-template [ngIf]="this.isEdit === true" [ngIfElse]="editCellphone">
+            <input type="text" id="correoEmpresa" pInputText formControlName="correoEmpresa"
+              placeholder="Numero Telefonico" disabled/>
+          </ng-template>
+        </div>
+        <div class="field firstType">
+          <label for="correoEmpresa">Propiedad de la Empresa</label>
+          <ng-template [ngIf]="this.isEdit === true" [ngIfElse]="editCellphone">
+            <input type="text" id="correoEmpresa" pInputText formControlName="correoEmpresa"
+              placeholder="Numero Telefonico" disabled/>
+          </ng-template>
+        </div>
+        <div class="field firstType">
+          <label for="correoEmpresa">Tipo de empresa</label>
+          <ng-template [ngIf]="this.isEdit === true" [ngIfElse]="editCellphone">
+            <input type="text" id="correoEmpresa" pInputText formControlName="correoEmpresa"
+              placeholder="Numero Telefonico" disabled/>
+          </ng-template>
+        </div>
+        <div>
+          <div class="a">
+            <label for="correoEmpresa">N° Trabajadores</label>
           </div>
-          <div class="field firstType">
-            <label for="descripcion">Descripcion</label>
-            <ng-template [ngIf]="this.isEdit === true" [ngIfElse]="editCorreo">
-              <input type="text" id="descripcion" pInputText formControlName="descripcion" placeholder="correo" />
-            </ng-template>
-            <ng-template #editCorreo>
-              <input type="text" id="descripcion" pInputText formControlName="descripcion" placeholder="correo" disabled/>
-            </ng-template>
+          <div class="b">
+            <label  style="margin-right: 10px;">Hombres</label>
+            <label >Mujeres</label>
+            <div class="b">
+              <ng-template [ngIf]="this.isEdit === true" [ngIfElse]="editName" >
+                <input class="Cantidad" style="margin-right: 35px;" type="text" id="comunaEmpresa" pInputText formControlName="comunaEmpresa" disabled/>
+              </ng-template>
+              
+              <ng-template [ngIf]="this.isEdit === true" [ngIfElse]="editName">
+                <input class="Cantidad" type="text" id="comunaEmpresa" pInputText formControlName="comunaEmpresa" disabled/>
+              </ng-template>
+            </div>
           </div>
         </div>
-      </form>
-      <div class="subTitle">
-        Empresa
+        
       </div>
-      <div>&nbsp;</div>
-      <form [formGroup]="form" autocomplete="off">
-        <div class="formgrid grid">
-          <div class="field firstType">
-            <label for="empresa">Nombre</label>
-            <ng-template [ngIf]="this.isEdit === true" [ngIfElse]="editName">
-              <input type="text" id="empresa" pInputText formControlName="empresa"  />
-            </ng-template>
-       
-          </div>
-          <div class="field firstType">
-            <label for="empresaRut">Rut</label>
-            <ng-template [ngIf]="this.isEdit === true" [ngIfElse]="editRut">
-              <input type="text" id="empresaRut" pInputText formControlName="empresaRut" placeholder="Rut" />
-            </ng-template>
-          </div>
-          <div class="field firstType">
-            <label for="correoEmpresa">Correo Empresa</label>
-            <ng-template [ngIf]="this.isEdit === true" [ngIfElse]="editCellphone">
-              <input type="text" id="correoEmpresa" pInputText formControlName="correoEmpresa"
-                placeholder="Numero Telefonico" />
-            </ng-template>
-          </div>
-          <div class="field firstType">
-            <label for="regionEmpresa">Region</label>
-            <ng-template [ngIf]="this.isEdit === true" [ngIfElse]="editCorreo">
-              <input type="text" id="regionEmpresa" pInputText formControlName="regionEmpresa" placeholder="correo" />
-            </ng-template>
-          </div>
-        </div>
-        <div class="formgrid grid">
-          <div class="field firstType">
-            <label for="comunaEmpresa">Comuna</label>
-            <ng-template [ngIf]="this.isEdit === true" [ngIfElse]="editName">
-              <input type="text" id="comunaEmpresa" pInputText formControlName="comunaEmpresa"  />
-            </ng-template>
-       
-          </div>
-          <div class="field firstType">
-            <label for="direccionEmpresa">Direccion</label>
-            <ng-template [ngIf]="this.isEdit === true" [ngIfElse]="editRut">
-              <input type="text" id="direccionEmpresa" pInputText formControlName="direccionEmpresa" placeholder="Rut" />
-            </ng-template>
-          </div>
-        </div>
-      </form>
-      <div class="subTitle">
-        Profesional A Cargo
-      </div>
-      <div>&nbsp;</div>
-      <form [formGroup]="form" autocomplete="off">
-        <div class="formgrid grid">
-          <div class="field firstType">
-            <label for="nombreProfesional">Nombre</label>
-            <ng-template [ngIf]="this.isEdit === true" [ngIfElse]="editName">
-              <input type="text" id="nombreProfesional" pInputText formControlName="nombreProfesional"  />
-            </ng-template>
-          </div>
-          <div class="field firstType">
-            <label for="apellidofesional">Apellido</label>
-            <ng-template [ngIf]="this.isEdit === true" [ngIfElse]="editRut">
-              <input type="text" id="apellidofesional" pInputText formControlName="apellidofesional" placeholder="Rut" />
-            </ng-template>
-          </div>
-          <div class="field firstType">
-            <label for="rutProfesional">Rut</label>
-            <ng-template [ngIf]="this.isEdit === true" [ngIfElse]="editCellphone">
-              <input type="text" id="rutProfesional" pInputText formControlName="rutProfesional"
-                placeholder="Numero Telefonico" />
-            </ng-template>
-          </div>
-          <div class="field firstType">
-            <label for="celProfesional">Cel</label>
-            <ng-template [ngIf]="this.isEdit === true" [ngIfElse]="editCorreo">
-              <input type="text" id="celProfesional" pInputText formControlName="celProfesional" placeholder="correo" />
-            </ng-template>
-          </div>
-        </div>
-      </form>
-      <div class="subTitle">
-        Empleado
-      </div>
-      <div>&nbsp;</div>
-      <form [formGroup]="form" autocomplete="off">
-        <div class="formgrid grid">
-          <div class="field firstType">
-            <label for="rutTrabajador">Rut</label>
-            <ng-template [ngIf]="this.isEdit === true" [ngIfElse]="editName">
-              <input type="text" id="rutTrabajador" pInputText formControlName="rutTrabajador"  />
-            </ng-template>
-          </div>
-          <div class="field firstType">
-            <label for="empleadoNombre">Nombre</label>
-            <ng-template [ngIf]="this.isEdit === true" [ngIfElse]="editRut">
-              <input type="text" id="empleadoNombre" pInputText formControlName="empleadoNombre" placeholder="" />
-            </ng-template>
-          </div>
-          <div class="field firstType">
-            <label for="numeroContactoEmnpleado">Numero de contacto</label>
-            <ng-template [ngIf]="this.isEdit === true" [ngIfElse]="editCellphone">
-              <input type="text" id="numeroContactoEmnpleado" pInputText formControlName="numeroContactoEmnpleado"
-                placeholder="Numero Telefonico" />
-            </ng-template>
-          </div>
-          <div class="field firstType">
-            <label for="correoEmpleado">Correo</label>
-            <ng-template [ngIf]="this.isEdit === true" [ngIfElse]="editCorreo">
-              <input type="text" id="correoEmpleado" pInputText formControlName="correoEmpleado" placeholder="correo" />
-            </ng-template>
-          </div>
-        </div>
-      </form>
+    </form>
+  </div>
+  <div>&nbsp;</div>
+  <div class="card section">
+    <div class="subTitle">
+      Empleado
     </div>
-    <hr />
-    <div>
-      <div class="flex card-container green-container p-0">
-        <div class="flex-1">
+    <div>&nbsp;</div>
+    <form [formGroup]="form" autocomplete="off">
+      <div class="formgrid grid">
+        <div class="field firstType">
+          <label for="rutTrabajador">Rut</label>
+          <ng-template [ngIf]="this.isEdit === true" [ngIfElse]="editName">
+            <input type="text" id="rutTrabajador" pInputText formControlName="rutTrabajador" disabled/>
+          </ng-template>
         </div>
-        <div class="flex-1">
+        <div class="field firstType">
+          <label for="empleadoNombre">Nombre</label>
+          <ng-template [ngIf]="this.isEdit === true" [ngIfElse]="editRut">
+            <input type="text" id="empleadoNombre" pInputText formControlName="empleadoNombre" placeholder="" disabled/>
+          </ng-template>
+        </div>
+        <div class="field firstType">
+          <label for="numeroContactoEmnpleado">Numero de contacto</label>
+          <ng-template [ngIf]="this.isEdit === true" [ngIfElse]="editCellphone">
+            <input type="text" id="numeroContactoEmnpleado" pInputText formControlName="numeroContactoEmnpleado"
+              placeholder="Numero Telefonico" disabled/>
+          </ng-template>
+        </div>
+        <div class="field firstType">
+          <label for="correoEmpleado">Correo</label>
+          <ng-template [ngIf]="this.isEdit === true" [ngIfElse]="editCorreo">
+            <input type="text" id="correoEmpleado" pInputText formControlName="correoEmpleado" placeholder="correo" disabled/>
+          </ng-template>
         </div>
       </div>
+    </form>
+  </div>
+  <div>&nbsp;</div>
+  <div class="card section">
+    <div class="subTitle">
+      Accidente
     </div>
-  </p-card>
+    <div>&nbsp;</div>
+    <form [formGroup]="form" autocomplete="off">
+      <div class="formgrid grid">
+        <div class="field firstType">
+          <label for="title">Tipo de accidente</label>
+          <ng-template [ngIf]="this.isEdit === true" [ngIfElse]="editName">
+            <input type="text" id="tipoaccidente" pInputText formControlName="tipoaccidente" disabled/>
+          </ng-template>
+        </div>
+        <div class="field firstType">
+          <label for="title">Gravedad</label>
+          <ng-template [ngIf]="this.isEdit === true" [ngIfElse]="editRut">
+            <input type="text" id="gravedad" pInputText formControlName="gravedad" placeholder="Rut" disabled/>
+          </ng-template>
+        </div>
+        <div class="field firstType">
+          <label for="fechaaccidente">Fecha Accidente</label>
+          <ng-template [ngIf]="this.isEdit === true" [ngIfElse]="editCellphone">
+            <input type="text" id="fechaaccidente" pInputText formControlName="fechaaccidente"
+              placeholder="Numero Telefonico" disabled/>
+          </ng-template>
+        </div>
+        <div class="field firstType">
+          <label for="descripcion">Descripcion</label>
+          <ng-template [ngIf]="this.isEdit === true" [ngIfElse]="editCorreo">
+            <input type="text" id="descripcion" pInputText formControlName="descripcion" placeholder="correo" disabled/>
+          </ng-template>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div>&nbsp;</div>
+  <div class="card section">
+    <div class="subTitle">
+      Profesional A Cargo
+    </div>
+    <div>&nbsp;</div>
+    <form [formGroup]="form" autocomplete="off">
+      <div class="formgrid grid">
+        <div class="field firstType">
+          <label for="nombreProfesional">Nombre</label>
+          <ng-template [ngIf]="this.isEdit === true" [ngIfElse]="editName">
+            <input type="text" id="nombreProfesional" pInputText formControlName="nombreProfesional" disabled/>
+          </ng-template>
+        </div>
+        <div class="field firstType">
+          <label for="apellidofesional">Apellido</label>
+          <ng-template [ngIf]="this.isEdit === true" [ngIfElse]="editRut">
+            <input type="text" id="apellidofesional" pInputText formControlName="apellidofesional" placeholder="Rut" disabled/>
+          </ng-template>
+        </div>
+        <div class="field firstType">
+          <label for="rutProfesional">Rut</label>
+          <ng-template [ngIf]="this.isEdit === true" [ngIfElse]="editCellphone">
+            <input type="text" id="rutProfesional" pInputText formControlName="rutProfesional"
+              placeholder="Numero Telefonico" disabled/>
+          </ng-template>
+        </div>
+        <div class="field firstType">
+          <label for="celProfesional">Cel</label>
+          <ng-template [ngIf]="this.isEdit === true" [ngIfElse]="editCorreo">
+            <input type="text" id="celProfesional" pInputText formControlName="celProfesional" placeholder="correo" disabled/>
+          </ng-template>
+        </div>
+      </div>
+    </form>
+  </div>
+  <hr />
+  <div>
+    <div class="flex card-container green-container p-0">
+      <div class="flex-1">
+      </div>
+      <div class="flex-1">
+      </div>
+    </div>
+  </div>
+</p-card>
