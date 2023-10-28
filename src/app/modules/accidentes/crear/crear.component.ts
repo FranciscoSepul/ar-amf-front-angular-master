@@ -20,7 +20,6 @@ export class CrearComponent implements OnInit {
       empresa: [null, [Validators.required]],
       nombreProfesional: [null, [Validators.required]],
       gravedad: [null, [Validators.required]],
-      
       fechaaccidente: [null, [Validators.required]],
       fono_emergencia: [null, [Validators.required]],
       empresaRut: [null, [Validators.required]],
@@ -32,46 +31,96 @@ export class CrearComponent implements OnInit {
       celProfesional: [null, [Validators.required]],
       rutProfesional: [null, [Validators.required]],
       apellidofesional: [null, [Validators.required]],
-
       rutTrabajador: [null, [Validators.required]],
       empleadoNombre: [null, [Validators.required]],
       numeroContactoEmnpleado: [null, [Validators.required]],
-      correoEmpleado: [null, [Validators.required]]
+      correoEmpleado: [null, [Validators.required]],
+      direccionTrabajador: [null, [Validators.required]],
+      comunaTrabajador: [null, [Validators.required]],
+      nacionalidad: [null, [Validators.required]],
+      sexo: [null, [Validators.required]],
+      edad: [null, [Validators.required]],
+      fechaNacimiento: [null, [Validators.required]],
+      puebloOriginario: [null, [Validators.required]],
+      profesionTrabajador: [null, [Validators.required]],
+      antiguedad: [null, [Validators.required]],
+      tipoDeContratoTrabajador: [null, [Validators.required]],
+      categoriaOcupacional: [null, [Validators.required]],
+      tipoDeIngreso: [null, [Validators.required]],
+      horaAccidente: [null, [Validators.required]],
+      horaIngresoAlTrabajo: [null, [Validators.required]],
+      horaSalidaTrabajo: [null, [Validators.required]],
+      tipoDeAccidente: [null, [Validators.required]],
+      medioDePrueba: [null, [Validators.required]],
+      numeroTelefonico: [null, [Validators.required]],
+      actividadEconomica: [null, [Validators.required]],
+      idPropiedadEmpresa: [null, [Validators.required]],
+      idTipoDeEmpresa: [null, [Validators.required]],
+      trabajadoresHombres: [null, [Validators.required]],
+      trabajadoresMujeres: [null, [Validators.required]],
+      clasificacionDenunciante: [null, [Validators.required]]
     });
   }
 
   ngOnInit(): void {
-    console.log('en el conmp de crear ');
     this.loadAlert();
   }
 
-  loadAlert() {
-    console.log('h ' + this.idUser.id);
-    this.form.setValue({
-      tipoaccidente: this.idUser.tipoaccidente,
-      descripcion: this.idUser.descripcion,
-      empresa: this.idUser.empresa,
-
-      empresaRut: this.idUser.empresaRut,
-      empresaDvRut: this.idUser.empresaDvRut,
-      correoEmpresa: this.idUser.correoEmpresa,
-      regionEmpresa: this.idUser.regionEmpresa,
-      comunaEmpresa: this.idUser.comunaEmpresa,
-      direccionEmpresa: this.idUser.direccionEmpresa,
-      celProfesional: this.idUser.celProfesional,
-      rutProfesional: this.idUser.rutProfesional,
-      nombreProfesional: this.idUser.nombreProfesional,
-      apellidofesional: this.idUser.apellidofesional,
-
-      gravedad: this.idUser.gravedad,
-      rutTrabajador: this.idUser.rutTrabajador,
-      fechaaccidente: this.idUser.fechaaccidente,
-      fono_emergencia: this.idUser.fono_emergencia,
-
-      empleadoNombre: this.idUser.empleadoNombre,
-      numeroContactoEmnpleado: this.idUser.numeroContactoEmnpleado,
-      correoEmpleado: this.idUser.correoEmpleado
-
-    });
+  async loadAlert() {
+    (await this.AccidentsService.GetAccidentById(this.idUser.id)).subscribe({
+      next: data => {
+        this.form.setValue({
+          tipoaccidente: data.tipoaccidente,
+          descripcion: data.descripcion,
+          empresa: data.empresa,
+          numeroTelefonico: data.numeroTelefonico,
+          actividadEconomica: data.actividadEconomica,
+          idPropiedadEmpresa: data.idPropiedadEmpresa,
+          idTipoDeEmpresa: data.idTipoDeEmpresa,
+          trabajadoresHombres: data.trabajadoresHombres,
+          trabajadoresMujeres: data.trabajadoresMujeres,
+          empresaRut: data.empresaRut,
+          empresaDvRut: data.empresaDvRut,
+          correoEmpresa: data.correoEmpresa,
+          regionEmpresa: data.regionEmpresa,
+          comunaEmpresa: data.comunaEmpresa,
+          direccionEmpresa: data.direccionEmpresa,
+          celProfesional: data.celProfesional,
+          rutProfesional: data.rutProfesional,
+          nombreProfesional: data.nombreProfesional,
+          apellidofesional: data.apellidofesional,
+          gravedad: data.gravedad,
+          rutTrabajador: data.rutTrabajador,
+          fechaaccidente: data.fechaaccidente,
+          fono_emergencia: data.fono_emergencia,
+          empleadoNombre: data.empleadoNombre,
+          numeroContactoEmnpleado: data.numeroContactoEmnpleado,
+          correoEmpleado: data.correoEmpleado,
+          direccionTrabajador: data.direccionTrabajador,
+          comunaTrabajador: data.comunaTrabajador,
+          nacionalidad: data.nacionalidad,
+          sexo: data.sexo,
+          edad: data.edad,
+          fechaNacimiento: data.fechaNacimiento,
+          puebloOriginario: data.puebloOriginario,
+          profesionTrabajador: data.profesionTrabajador,
+          antiguedad: data.antiguedad,
+          tipoDeContratoTrabajador: data.tipoDeContratoTrabajador,
+          categoriaOcupacional: data.categoriaOcupacional,
+          tipoDeIngreso: data.tipoDeIngreso,
+          horaAccidente: data.horaAccidente,
+          horaIngresoAlTrabajo:data.horaIngresoAlTrabajo,
+          horaSalidaTrabajo: data.horaSalidaTrabajo,
+          tipoDeAccidente: data.tipoDeAccidente,
+          medioDePrueba: data.medioDePrueba,
+          clasificacionDenunciante:data.clasificacionDenunciante
+    
+        });
+      },
+      error(e) {
+        this.helpers.checkPermission(this.messageService, e);
+      }
+    })
+   
   }
 }
