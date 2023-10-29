@@ -28,9 +28,20 @@ export class CrearComponent implements OnInit {
   msgs1: Message[];
   region;
   comuna;
+  startDate: Date;
+  endDate: Date;
+  costoTotal;
+  costoTotalAccidente;
+  costoTotalCharla;
+  costoTotalVisita;
+  costoTotalAsesoria;
+  costoTotalAsesoriaEspecial;
+  costoTotalPersonasExtra;
 
-  constructor(private formbuilder: FormBuilder, private DirectionService: DirectionService,private CompanyService : CompanyService ) {
+  constructor(private formbuilder: FormBuilder, private DirectionService: DirectionService, private CompanyService: CompanyService) {
+
     this.form = this.formbuilder.group({
+
       nom_empresa: [null, [Validators.required]],
       rut: [null, [Validators.required]],
       fechaCreacion: [null, [Validators.required]],
@@ -39,7 +50,32 @@ export class CrearComponent implements OnInit {
       direccion: [null, [Validators.required]],
       comuna: [null, [Validators.required]],
       region: [null, [Validators.required]],
-      id_empresa:[null,[Validators.required]],
+      id_empresa: [null, [Validators.required]],
+      numeroTelefonico: [null, [Validators.required]],
+      actividadEconomica: [null, [Validators.required]],
+      idPropiedadEmpresa: [null, [Validators.required]],
+      idTipoDeEmpresa: [null, [Validators.required]],
+      trabajadoresHombres: [null, [Validators.required]],
+      trabajadoresMujeres: [null, [Validators.required]],
+      //costos
+      costoporaccidente: [null, [Validators.required]],
+      costoporcharla: [null, [Validators.required]],
+      costoporvisita: [null, [Validators.required]],
+      costobase: [null, [Validators.required]],
+      costoporasesoria: [null, [Validators.required]],
+      costoporasesoriaespecial: [null, [Validators.required]],
+      costoporpersonaextra: [null, [Validators.required]],
+      cantidadDeEmpleadosPorContrato: [null, [Validators.required]],
+      startDate: [new Date(), [Validators.required]],
+      endDate: [new Date(), [Validators.required]],
+      //Factura
+      costoTotal: [0, [Validators.required]],
+      costoTotalAccidente: [0, [Validators.required]],
+      costoTotalCharla: [0, [Validators.required]],
+      costoTotalVisita: [0, [Validators.required]],
+      costoTotalAsesoria: [0, [Validators.required]],
+      costoTotalAsesoriaEspecial: [0, [Validators.required]],
+      costoTotalPersonasExtra: [0, [Validators.required]]
     });
   }
 
@@ -83,19 +119,71 @@ export class CrearComponent implements OnInit {
       }
     })
   }
-  loadCompany() {
-    this.form.setValue({
-      nom_empresa: this.idUser.nom_empresa,
-      rut: this.idUser.rut + '-' + this.idUser.dvRut,
-      fechaCreacion: this.idUser.fechaCreacion,
-      fechaFinContrato: new Date(this.idUser.fechaFinContrato),
-      correo: this.idUser.correo,
-      direccion: this.idUser.direccion,
-      comuna: this.idUser.comuna,
-      region: this.idUser.region,
-      id_empresa:this.idUser.id_empresa
-    });
+
+  async checkDates() {
+    if (this.startDate && this.endDate && this.startDate < this.endDate) {
+      (await this.CompanyService.GetFacturaCompany(this.idUser.id_empresa, this.startDate, this.endDate)).subscribe({
+        next: data => {
+          this.costoTotal = data.costoTotal,
+          this.costoTotalAccidente = data.costoTotalAccidente,
+          this.costoTotalCharla = data.costoTotalCharla,
+          this.costoTotalVisita = data.costoTotalVisita,
+          this.costoTotalAsesoria = data.costoTotalAsesoria,
+          this.costoTotalAsesoriaEspecial = data.costoTotalAsesoriaEspecial,
+          this.costoTotalPersonasExtra =data.costoTotalPersonasExtra
+        }
+      })
+    }
   }
+
+  async loadCompany() {
+    (await this.CompanyService.GetCompanyById(this.idUser.id_empresa)).subscribe({
+      next: data => {
+        this.form.setValue({
+
+          nom_empresa: data.nom_empresa,
+          rut: data.rut + '-' + data.dvRut,
+          fechaCreacion: data.fechaCreacion,
+          fechaFinContrato: new Date(data.fechaFinContrato),
+          correo: data.correo,
+          direccion: data.direccion,
+          comuna: data.comuna,
+          region: data.region,
+          id_empresa: data.id_empresa,
+          numeroTelefonico: data.numeroTelefonico,
+          actividadEconomica: data.actividadEconomica,
+          idPropiedadEmpresa: data.idPropiedadEmpresa,
+          idTipoDeEmpresa: data.idTipoDeEmpresa,
+          trabajadoresHombres: data.trabajadoresHombres,
+          trabajadoresMujeres: data.trabajadoresMujeres,
+          //Costos
+          costoporaccidente: data.costoporaccidente,
+          costoporcharla: data.costoporcharla,
+          costoporvisita: data.costoporvisita,
+          costobase: data.costobase,
+          costoporasesoria: data.costoporasesoria,
+          costoporasesoriaespecial: data.costoporasesoriaespecial,
+          costoporpersonaextra: data.costoporpersonaextra,
+          cantidadDeEmpleadosPorContrato: data.cantidadDeEmpleadosPorContrato,
+          startDate: new Date(),
+          endDate: new Date(),
+          //Factura
+          costoTotal: 0,
+          costoTotalAccidente: 0,
+          costoTotalCharla: 0,
+          costoTotalVisita: 0,
+          costoTotalAsesoria: 0,
+          costoTotalAsesoriaEspecial: 0,
+          costoTotalPersonasExtra: 0
+
+        });
+      },
+      error(e) {
+        this.helpers.checkPermission(this.messageService, e);
+      }
+    })
+  }
+
 
   backToTable() {
     this.backTable.emit();
@@ -111,16 +199,16 @@ export class CrearComponent implements OnInit {
       console.log('data ' + data.nom_empresa);
       (await this.CompanyService.CompanyUpdate(data)).subscribe({
         next: () => {
-        this.backTable.emit();
-       }
+          this.backTable.emit();
+        }
       });
-      } else {
-       (await this.CompanyService.CompanyCreate(data))
+    } else {
+      (await this.CompanyService.CompanyCreate(data))
         .subscribe({
           next: () => {
-           this.backTable.emit();
-         }
-      })
+            this.backTable.emit();
+          }
+        })
     }
   }
 
