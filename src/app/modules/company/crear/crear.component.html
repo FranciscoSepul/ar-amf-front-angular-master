@@ -18,9 +18,7 @@
         </div>
         <div class="field firstType">
           <label for="rut">Rut</label>
-          <ng-template [ngIf]="this.isEdit === true" [ngIfElse]="editRut">
-            <input type="text" id="rut" pInputText formControlName="rut" placeholder="Rut"/>
-          </ng-template>
+            <input type="text" id="rut" pInputText formControlName="rut" />
         </div>
         <div class="field firstType">
           <label for="fechaFinContrato">Fecha Fin Contrato</label>
@@ -47,29 +45,24 @@
         <div class="field firstType">
           <label for="numeroTelefonico">Número Teléfono</label>
           <input type="text" id="numeroTelefonico" pInputText formControlName="numeroTelefonico"
-            placeholder="Numero Telefonico" />
+           />
         </div>
         <div class="field firstType">
           <label for="actividadEconomica">Actividad Económica</label>
-          <ng-template [ngIf]="this.isEdit === true" [ngIfElse]="editCellphone">
             <input type="text" id="actividadEconomica" pInputText formControlName="actividadEconomica"
-              placeholder="Numero Telefonico" />
-          </ng-template>
+             />
         </div>
         <div class="field firstType">
           <label for="idPropiedadEmpresa">Propiedad de la Empresa</label>
-          <ng-template [ngIf]="this.isEdit === true" [ngIfElse]="editCellphone">
             <input type="text" id="idPropiedadEmpresa" pInputText formControlName="idPropiedadEmpresa"
-              placeholder="Numero Telefonico" />
-          </ng-template>
+             />
         </div>
         <div class="field firstType">
           <label for="idTipoDeEmpresa">Tipo de empresa</label>
-          <ng-template [ngIf]="this.isEdit === true" [ngIfElse]="editCellphone">
             <input type="text" id="idTipoDeEmpresa" pInputText formControlName="idTipoDeEmpresa"
-              placeholder="Numero Telefonico" />
-          </ng-template>
+             />
         </div>
+        <ng-template [ngIf]="this.isEdit === true" [ngIfElse]="editName">
         <div>
           <div class="a">
             <label for="correoEmpresa">N° Trabajadores</label>
@@ -78,21 +71,85 @@
             <label style="margin-right: 10px;">Hombres</label>
             <label>Mujeres</label>
             <div class="b">
-              <ng-template [ngIf]="this.isEdit === true" [ngIfElse]="editName">
                 <input class="Cantidad" style="margin-right: 35px;" type="text" id="trabajadoresHombres" pInputText
                   formControlName="trabajadoresHombres" disabled />
-              </ng-template>
-
-              <ng-template [ngIf]="this.isEdit === true" [ngIfElse]="editName">
+              
                 <input class="Cantidad" type="text" id="trabajadoresMujeres" pInputText
                   formControlName="trabajadoresMujeres" disabled />
-              </ng-template>
             </div>
           </div>
         </div>
+      </ng-template>
         <div class="field firstType">
           <label for="correo">Correo Electronico</label>
           <input type="text" id="correo" pInputText formControlName="correo" placeholder="correo" />
+        </div>
+      </div>
+    </form>
+  </div>
+  <div>&nbsp;</div>
+  <div class="card section">
+    <div class="subTitle">
+      Calcular Operaciones Realizadas
+    </div>
+    <div>&nbsp;</div>
+    <form [formGroup]="form" autocomplete="off">
+      <div class="formgrid grid">
+        <div class="field firstType">
+          <label for="opstartDate">Fecha Desde</label>
+          <p-calendar [(ngModel)]="opstartDate" (ngModelChange)="checkDatesOperation()" dateFormat="dd/mm/yy" id="opstartDate" pInputText formControlName="opstartDate"
+            placeholder="fecha Facturar">
+          </p-calendar>
+        </div>
+        <div class="field firstType">
+          <label for="opendDate">Fecha Hasta</label>
+          <p-calendar [(ngModel)]="opendDate" (ngModelChange)="checkDatesOperation()" dateFormat="dd/mm/yy" id="opendDate" pInputText formControlName="opendDate"
+            placeholder="fecha Facturar">
+          </p-calendar>
+        </div>
+        <div>&nbsp;</div>
+        <div>&nbsp;</div>
+        <div>&nbsp;</div>
+        <div class="field firstType">
+          <label for="TotalAccidente">Cantidad de Accidentes</label>
+          <ng-template [ngIf]="this.isEdit === true" [ngIfElse]="editCellphone">
+            <input type="text" [(ngModel)]="TotalAccidente" id="TotalAccidente" pInputText formControlName="TotalAccidente"
+             />
+          </ng-template>
+        </div>
+        <div class="field firstType">
+          <label for="TotalCharla">Cantidad de Charla</label>
+          <ng-template [ngIf]="this.isEdit === true" [ngIfElse]="editCellphone">
+            <input type="text" [(ngModel)]="TotalCharla" id="TotalCharla" pInputText formControlName="TotalCharla"
+             />
+          </ng-template>
+        </div>
+        <div class="field firstType">
+          <label for="TotalVisita">Cantidad de Visitas</label>
+          <ng-template [ngIf]="this.isEdit === true" [ngIfElse]="editCellphone">
+            <input type="text" [(ngModel)]="TotalVisita" id="TotalVisita" pInputText formControlName="TotalVisita"
+             />
+          </ng-template>
+        </div>
+        <div class="field firstType">
+          <label for="TotalAsesoria">Cantidad de  Asesorias</label>
+          <ng-template [ngIf]="this.isEdit === true" [ngIfElse]="editCellphone">
+            <input type="text" [(ngModel)]="TotalAsesoria" id="TotalAsesoria" pInputText formControlName="TotalAsesoria"
+             />
+          </ng-template>
+        </div>
+        <div class="field firstType">
+          <label for="TotalAsesoriaEspecial">Cantidad de Asesorias especiales</label>
+          <ng-template [ngIf]="this.isEdit === true" [ngIfElse]="editCellphone">
+            <input type="text" [(ngModel)]="TotalAsesoriaEspecial" id="TotalAsesoriaEspecial" pInputText formControlName="TotalAsesoriaEspecial"
+             />
+          </ng-template>
+        </div>
+        <div class="field firstType">
+          <label for="TotalPersonasExtra">Cantidad de Personas extras</label>
+          <ng-template [ngIf]="this.isEdit === true" [ngIfElse]="editRut">
+            <input type="text" [(ngModel)]="TotalPersonasExtra" id="TotalPersonasExtra" pInputText formControlName="TotalPersonasExtra"  />
+          </ng-template>
         </div>
       </div>
     </form>
@@ -109,48 +166,48 @@
           <label for="costobase">Costo Base</label>
           <ng-template [ngIf]="this.isEdit === true" [ngIfElse]="editCellphone">
             <input type="text" id="costobase" pInputText formControlName="costobase"
-              placeholder="Numero Telefonico" />
+             />
           </ng-template>
         </div>
         <div class="field firstType">
           <label for="costoporaccidente">Costo por Accidente</label>
           <ng-template [ngIf]="this.isEdit === true" [ngIfElse]="editCellphone">
             <input type="text" id="costoporaccidente" pInputText formControlName="costoporaccidente"
-              placeholder="Numero Telefonico" />
+             />
           </ng-template>
         </div>
         <div class="field firstType">
           <label for="costoporcharla">Costo por Charla</label>
           <ng-template [ngIf]="this.isEdit === true" [ngIfElse]="editCellphone">
             <input type="text" id="costoporcharla" pInputText formControlName="costoporcharla"
-              placeholder="Numero Telefonico" />
+             />
           </ng-template>
         </div>
         <div class="field firstType">
           <label for="costoporvisita">Costo por Visita</label>
           <ng-template [ngIf]="this.isEdit === true" [ngIfElse]="editCellphone">
             <input type="text" id="costoporvisita" pInputText formControlName="costoporvisita"
-              placeholder="Numero Telefonico" />
+             />
           </ng-template>
         </div>
         <div class="field firstType">
           <label for="costoporasesoria">Costo por Asesoria</label>
           <ng-template [ngIf]="this.isEdit === true" [ngIfElse]="editCellphone">
             <input type="text" id="costoporasesoria" pInputText formControlName="costoporasesoria"
-              placeholder="Numero Telefonico" />
+             />
           </ng-template>
         </div>
         <div class="field firstType">
-          <label for="costoporasesoriaespecial">Costo Por Asesoriaespecial</label>
+          <label for="costoporasesoriaespecial">Costo Por Asesoria Especial</label>
           <ng-template [ngIf]="this.isEdit === true" [ngIfElse]="editCellphone">
             <input type="text" id="costoporasesoriaespecial" pInputText formControlName="costoporasesoriaespecial"
-              placeholder="Numero Telefonico" />
+             />
           </ng-template>
         </div>
         <div class="field firstType">
-          <label for="costoporpersonaextra">Costo por Personaextra</label>
+          <label for="costoporpersonaextra">Costo por Persona Extra</label>
           <ng-template [ngIf]="this.isEdit === true" [ngIfElse]="editRut">
-            <input type="text" id="costoporpersonaextra" pInputText formControlName="costoporpersonaextra" placeholder="Rut" />
+            <input type="text" id="costoporpersonaextra" pInputText formControlName="costoporpersonaextra"  />
           </ng-template>
         </div>
         <div class="field firstType">
@@ -189,48 +246,48 @@
           <label for="costoTotal">Costo Total</label>
           <ng-template [ngIf]="this.isEdit === true" [ngIfElse]="editCellphone">
             <input type="text" [(ngModel)]="costoTotal" id="costoTotal" pInputText formControlName="costoTotal"
-              placeholder="Numero Telefonico" />
+             />
           </ng-template>
         </div>
         <div class="field firstType">
           <label for="costoTotalAccidente">Costo Total Accidente</label>
           <ng-template [ngIf]="this.isEdit === true" [ngIfElse]="editCellphone">
             <input type="text" [(ngModel)]="costoTotalAccidente" id="costoTotalAccidente" pInputText formControlName="costoTotalAccidente"
-              placeholder="Numero Telefonico" />
+             />
           </ng-template>
         </div>
         <div class="field firstType">
           <label for="costoTotalCharla">Costo Total Charla</label>
           <ng-template [ngIf]="this.isEdit === true" [ngIfElse]="editCellphone">
             <input type="text" [(ngModel)]="costoTotalCharla" id="costoTotalCharla" pInputText formControlName="costoTotalCharla"
-              placeholder="Numero Telefonico" />
+             />
           </ng-template>
         </div>
         <div class="field firstType">
           <label for="costoTotalVisita">Costo Total Visita</label>
           <ng-template [ngIf]="this.isEdit === true" [ngIfElse]="editCellphone">
             <input type="text" [(ngModel)]="costoTotalVisita" id="costoTotalVisita" pInputText formControlName="costoTotalVisita"
-              placeholder="Numero Telefonico" />
+             />
           </ng-template>
         </div>
         <div class="field firstType">
           <label for="costoTotalAsesoria">Costo Total Asesoria</label>
           <ng-template [ngIf]="this.isEdit === true" [ngIfElse]="editCellphone">
             <input type="text" [(ngModel)]="costoTotalAsesoria" id="costoTotalAsesoria" pInputText formControlName="costoTotalAsesoria"
-              placeholder="Numero Telefonico" />
+             />
           </ng-template>
         </div>
         <div class="field firstType">
-          <label for="costoTotalAsesoriaEspecial">Costo Total Asesoriaespecial</label>
+          <label for="costoTotalAsesoriaEspecial">Costo Total Asesoria Especial</label>
           <ng-template [ngIf]="this.isEdit === true" [ngIfElse]="editCellphone">
             <input type="text" [(ngModel)]="costoTotalAsesoriaEspecial" id="costoTotalAsesoriaEspecial" pInputText formControlName="costoTotalAsesoriaEspecial"
-              placeholder="Numero Telefonico" />
+             />
           </ng-template>
         </div>
         <div class="field firstType">
-          <label for="costoTotalPersonasExtra">Costo Total Personaextra</label>
+          <label for="costoTotalPersonasExtra">Costo Total Persona Extra</label>
           <ng-template [ngIf]="this.isEdit === true" [ngIfElse]="editRut">
-            <input type="text" [(ngModel)]="costoTotalPersonasExtra" id="costoTotalPersonasExtra" pInputText formControlName="costoTotalPersonasExtra" placeholder="Rut" />
+            <input type="text" [(ngModel)]="costoTotalPersonasExtra" id="costoTotalPersonasExtra" pInputText formControlName="costoTotalPersonasExtra"  />
           </ng-template>
         </div>
       </div>

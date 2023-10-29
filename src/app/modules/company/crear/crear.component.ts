@@ -30,6 +30,8 @@ export class CrearComponent implements OnInit {
   comuna;
   startDate: Date;
   endDate: Date;
+  opstartDate: Date;
+  opendDate: Date;
   costoTotal;
   costoTotalAccidente;
   costoTotalCharla;
@@ -37,6 +39,12 @@ export class CrearComponent implements OnInit {
   costoTotalAsesoria;
   costoTotalAsesoriaEspecial;
   costoTotalPersonasExtra;
+  totalAccidente;
+  totalCharla;
+  totalVisita;
+  totalAsesoria;
+  totalAsesoriaEspecial;
+  totalPersonasExtra;
 
   constructor(private formbuilder: FormBuilder, private DirectionService: DirectionService, private CompanyService: CompanyService) {
 
@@ -68,6 +76,8 @@ export class CrearComponent implements OnInit {
       cantidadDeEmpleadosPorContrato: [null, [Validators.required]],
       startDate: [new Date(), [Validators.required]],
       endDate: [new Date(), [Validators.required]],
+      opstartDate: [new Date(), [Validators.required]],
+      opendDate: [new Date(), [Validators.required]],
       //Factura
       costoTotal: [0, [Validators.required]],
       costoTotalAccidente: [0, [Validators.required]],
@@ -75,7 +85,14 @@ export class CrearComponent implements OnInit {
       costoTotalVisita: [0, [Validators.required]],
       costoTotalAsesoria: [0, [Validators.required]],
       costoTotalAsesoriaEspecial: [0, [Validators.required]],
-      costoTotalPersonasExtra: [0, [Validators.required]]
+      costoTotalPersonasExtra: [0, [Validators.required]],
+      //Operaciones
+      totalAccidente: [0, [Validators.required]],
+      totalCharla: [0, [Validators.required]],
+      totalVisita: [0, [Validators.required]],
+      totalAsesoria: [0, [Validators.required]],
+      totalAsesoriaEspecial: [0, [Validators.required]],
+      totalPersonasExtra: [0, [Validators.required]]
     });
   }
 
@@ -120,17 +137,32 @@ export class CrearComponent implements OnInit {
     })
   }
 
+  async checkDatesOperation() {
+    if (this.opstartDate && this.opendDate && this.opstartDate < this.opendDate) {
+      (await this.CompanyService.GetOperacionesCompany(this.idUser.id_empresa, this.opstartDate, this.opendDate)).subscribe({
+        next: data => {
+          this.totalAccidente=data.totalAccidente,
+          this.totalCharla=data.totalCharla,
+          this.totalVisita=data.totalVisita,
+          this.totalAsesoria=data.totalAsesoria,
+          this.totalAsesoriaEspecial=data.totalAsesoriaEspecial,
+          this.totalPersonasExtra=data.totalPersonasExtra
+        }
+      })
+    }
+  }
+
   async checkDates() {
     if (this.startDate && this.endDate && this.startDate < this.endDate) {
       (await this.CompanyService.GetFacturaCompany(this.idUser.id_empresa, this.startDate, this.endDate)).subscribe({
         next: data => {
           this.costoTotal = data.costoTotal,
-          this.costoTotalAccidente = data.costoTotalAccidente,
-          this.costoTotalCharla = data.costoTotalCharla,
-          this.costoTotalVisita = data.costoTotalVisita,
-          this.costoTotalAsesoria = data.costoTotalAsesoria,
-          this.costoTotalAsesoriaEspecial = data.costoTotalAsesoriaEspecial,
-          this.costoTotalPersonasExtra =data.costoTotalPersonasExtra
+            this.costoTotalAccidente = data.costoTotalAccidente,
+            this.costoTotalCharla = data.costoTotalCharla,
+            this.costoTotalVisita = data.costoTotalVisita,
+            this.costoTotalAsesoria = data.costoTotalAsesoria,
+            this.costoTotalAsesoriaEspecial = data.costoTotalAsesoriaEspecial,
+            this.costoTotalPersonasExtra = data.costoTotalPersonasExtra
         }
       })
     }
@@ -167,6 +199,8 @@ export class CrearComponent implements OnInit {
           cantidadDeEmpleadosPorContrato: data.cantidadDeEmpleadosPorContrato,
           startDate: new Date(),
           endDate: new Date(),
+          opstartDate: new Date(),
+          opendDate: new Date(),
           //Factura
           costoTotal: 0,
           costoTotalAccidente: 0,
@@ -174,7 +208,15 @@ export class CrearComponent implements OnInit {
           costoTotalVisita: 0,
           costoTotalAsesoria: 0,
           costoTotalAsesoriaEspecial: 0,
-          costoTotalPersonasExtra: 0
+          costoTotalPersonasExtra: 0,
+          //Operaciones
+          totalAccidente: 0,
+          totalCharla: 0,
+          totalVisita: 0,
+          totalAsesoria: 0,
+          totalAsesoriaEspecial: 0,
+          totalPersonasExtra: 0
+
 
         });
       },

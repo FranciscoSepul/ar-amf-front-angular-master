@@ -20,6 +20,10 @@ export class CompanyService {
     let url = `http://localhost:5006/api/Company/GetCompanyFactura?id=${id}&desde=${Desde}&hasta=${Hasta}`
     return this.httpService.getJson<any>(url);
   }
+  public async GetOperacionesCompany(id,Desde,Hasta) {
+    let url = `http://localhost:5006/api/Company/GetCompanyOperaciones?id=${id}&desde=${Desde}&hasta=${Hasta}`
+    return this.httpService.getJson<any>(url);
+  }
   public async CompanyListNotDisable(){
     let url = `https://backsecurity.azurewebsites.net/api/Company/GetAllCompanyNotDisable`
     return this.httpService.getJson<any>(url);
@@ -29,7 +33,7 @@ export class CompanyService {
     return this.httpService.postJson<any>(url, data);
   }
   public async CompanyUpdate(data: any) {
-    let url = `https://backsecurity.azurewebsites.net/api/Company/Update`
+    let url = `http://localhost:5006/api/Company/Update`
     return this.httpService.putJson<any>(url, data);
   }
   public async CompanyDisable(data: any) {
