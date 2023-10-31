@@ -31,6 +31,7 @@ export class CrearComponent implements OnInit {
   compania;
   trabajadores;
   notificacion;
+  date:Date;
 
   constructor(private formbuilder: FormBuilder, private UserServiceService: UserServiceService, private DirectionService: DirectionService, private CompanyService: CompanyService) {
     this.form = this.formbuilder.group({

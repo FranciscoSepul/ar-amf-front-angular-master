@@ -26,8 +26,7 @@ import { CalendarModule } from 'primeng/calendar';
     ListarComponent,
     EditarComponent,
     CrearComponent,
-    CompanyComponent,
-    DateComponent
+    CompanyComponent
   ],
   imports: [
     CommonModule,
@@ -46,7 +45,8 @@ import { CalendarModule } from 'primeng/calendar';
     InputSwitchModule,
     MatInputModule,
     MatFormFieldModule,
-    CalendarModule
+    CalendarModule,
+    DateComponent
   ]
 })
 export class CompanyModule { }

@@ -26,8 +26,7 @@ import { MessageModule } from 'primeng/message';
     UsuarioComponent,
     EditarComponent,
     CrearComponent,
-    ListarComponent,
-    DateComponent
+    ListarComponent
   ],
   imports: [
     CommonModule,
@@ -45,7 +44,8 @@ import { MessageModule } from 'primeng/message';
     ConfirmDialogModule,
     InputSwitchModule,
     MatInputModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    DateComponent
   ]
 })
 export class UsuarioModule { }

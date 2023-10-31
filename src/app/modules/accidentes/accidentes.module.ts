@@ -7,7 +7,7 @@ import { EditarComponent } from './editar/editar.component';
 import { CrearComponent } from './crear/crear.component';
 import { ListarComponent } from './listar/listar.component';
 
-import { DateComponent} from '../../shared/date/date.component';
+import { DateComponent} from  '../../shared/date/date.component';
 import { CardModule } from 'primeng/card';
 import { TableModule } from 'primeng/table';
 import { DropdownModule } from 'primeng/dropdown';
@@ -27,8 +27,7 @@ import { MessageModule } from 'primeng/message';
     AccidentesComponent,
     EditarComponent,
     CrearComponent,
-    ListarComponent,
-    DateComponent
+    ListarComponent
   ],
   imports: [
     CommonModule,
@@ -46,7 +45,8 @@ import { MessageModule } from 'primeng/message';
     InputSwitchModule,
     MatInputModule,
     MatFormFieldModule,
-    AccidentesRoutingModule
+    AccidentesRoutingModule,
+    DateComponent
   ]
 })
 export class AccidentesModule { }

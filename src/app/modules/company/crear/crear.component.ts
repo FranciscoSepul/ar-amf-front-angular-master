@@ -45,6 +45,7 @@ export class CrearComponent implements OnInit {
   totalAsesoria;
   totalAsesoriaEspecial;
   totalPersonasExtra;
+  date:Date;
 
   constructor(private formbuilder: FormBuilder, private DirectionService: DirectionService, private CompanyService: CompanyService) {
 

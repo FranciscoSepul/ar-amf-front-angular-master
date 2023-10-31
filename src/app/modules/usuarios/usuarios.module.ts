@@ -23,8 +23,8 @@ import { MatFormFieldModule } from "@angular/material/form-field";
     UsuariosComponent,
     ListarComponent,
     CrearComponent,
-    EditarComponent,
-    DateComponent
+    EditarComponent
+    
   ],
   imports: [
     CommonModule,
@@ -42,7 +42,8 @@ import { MatFormFieldModule } from "@angular/material/form-field";
     ConfirmDialogModule,
     InputSwitchModule,
     MatInputModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    DateComponent
   ]
 })
 export class UsuariosModule {

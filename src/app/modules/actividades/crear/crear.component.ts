@@ -31,6 +31,7 @@ export class CrearComponent implements OnInit {
   usuarios;
   trabajador;
   implementos;
+  date:Date;
 
   constructor(private formbuilder: FormBuilder, private ActivityService: ActivityService,private CompanyService : CompanyService,private UserServiceService:UserServiceService ) {
     this.form = this.formbuilder.group({

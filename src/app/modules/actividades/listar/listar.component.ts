@@ -43,9 +43,9 @@ export class ListarComponent implements OnInit {
       }
     })
   }
-  // confirmAction(id, name, isDisabled) {
+   confirmAction(id, name, isDisabled) {
   //   this.active(id, !isDisabled);
-  // }
+   }
 
   //  async active(id: number, activation: boolean) {
   //  try {

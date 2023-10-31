@@ -1,13 +1,15 @@
-import { Component } from '@angular/core';
+import { Component,NgModule } from '@angular/core';
 
-@Component({
-    selector: 'app-date',
-    templateUrl: './date.component.html',
-    styleUrls: ['./date.component.css']
+@NgModule({
+// selector: 'app-date',
+  //  templateUrl: './date.component.html',
+   // styleUrls: ['./date.component.css']
 })
+
 export class DateComponent {
 
     fecha;
+
     constructor() {
         const dateTemp = new Date();
         let fechaText = this.dayToText(dateTemp.getDay()) + ", ";
