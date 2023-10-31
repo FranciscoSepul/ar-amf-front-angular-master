@@ -13,7 +13,7 @@ export class UserServiceService {
     return this.httpService.getJson<any>(url);
   }
   public async ProfesionalList(id){
-    let url = `http://localhost:5006/api/User/ProfesionalList?id=${id}`
+    let url = `https://backsecurity.azurewebsites.net/api/User/ProfesionalList?id=${id}`
     return this.httpService.getJson<any>(url);
   }
   public async CompanyList(){
@@ -53,11 +53,11 @@ export class UserServiceService {
     return this.httpService.putJson<any>(url,data);
   }
   public async GetJobByCompany(id) {
-    let url = `http://localhost:5006/api/Accidentes/GetJobByCompany?id=${id}`
+    let url = `https://backsecurity.azurewebsites.net/api/Accidentes/GetJobByCompany?id=${id}`
     return this.httpService.getJson<any>(url);
   }
   public async GetTrabajadoresByCompany(id) {
-    let url = `http://localhost:5006/api/User/TrabajadoresList?id=${id}`
+    let url = `https://backsecurity.azurewebsites.net/api/User/TrabajadoresList?id=${id}`
     return this.httpService.getJson<any>(url);
   }
 }

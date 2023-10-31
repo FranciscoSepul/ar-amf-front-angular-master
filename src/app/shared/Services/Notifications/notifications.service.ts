@@ -9,7 +9,7 @@ export class NotificationsService {
   constructor(private httpService: HttpService) { }
 
   public async List(){
-    let url = `http://localhost:5006/api/Notificaciones/GetAllNotification`
+    let url = `https://backsecurity.azurewebsites.net/api/Notificaciones/GetAllNotification`
     return this.httpService.getJson<any>(url);
   }
   

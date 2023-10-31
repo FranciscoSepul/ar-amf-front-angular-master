@@ -13,15 +13,15 @@ export class CompanyService {
     return this.httpService.getJson<any>(url);
   }
   public async GetCompanyById(id) {
-    let url = `http://localhost:5006/api/Company/GetCompanyById?id=${id}`
+    let url = `https://backsecurity.azurewebsites.net/api/Company/GetCompanyById?id=${id}`
     return this.httpService.getJson<any>(url);
   }
   public async GetFacturaCompany(id,Desde,Hasta) {
-    let url = `http://localhost:5006/api/Company/GetCompanyFactura?id=${id}&desde=${Desde}&hasta=${Hasta}`
+    let url = `https://backsecurity.azurewebsites.net/api/Company/GetCompanyFactura?id=${id}&desde=${Desde}&hasta=${Hasta}`
     return this.httpService.getJson<any>(url);
   }
   public async GetOperacionesCompany(id,Desde,Hasta) {
-    let url = `http://localhost:5006/api/Company/GetCompanyOperaciones?id=${id}&desde=${Desde}&hasta=${Hasta}`
+    let url = `https://backsecurity.azurewebsites.net/api/Company/GetCompanyOperaciones?id=${id}&desde=${Desde}&hasta=${Hasta}`
     return this.httpService.getJson<any>(url);
   }
   public async CompanyListNotDisable(){
@@ -33,7 +33,7 @@ export class CompanyService {
     return this.httpService.postJson<any>(url, data);
   }
   public async CompanyUpdate(data: any) {
-    let url = `http://localhost:5006/api/Company/Update`
+    let url = `https://backsecurity.azurewebsites.net/api/Company/Update`
     return this.httpService.putJson<any>(url, data);
   }
   public async CompanyDisable(data: any) {
@@ -42,11 +42,11 @@ export class CompanyService {
   }
   //
   public async NotificationCreate(data: any) {
-  let url = `http://localhost:5006/api/Notificaciones/Create`
+  let url = `https://backsecurity.azurewebsites.net/api/Notificaciones/Create`
   return this.httpService.postJson<any>(url, data);
   }
   public async ListTipoNotificacion(){
-    let url = `http://localhost:5006/api/Notificaciones/GetAllTipoNotification`
+    let url = `https://backsecurity.azurewebsites.net/api/Notificaciones/GetAllTipoNotification`
     return this.httpService.getJson<any>(url);
   }
 }
