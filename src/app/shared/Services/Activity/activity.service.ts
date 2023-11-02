@@ -12,6 +12,10 @@ export class ActivityService {
     let url = `https://backsecurity.azurewebsites.net/api/Actividades/GetAllActivity`
     return this.httpService.getJson<any>(url);
   }
+  public async GetActivityById(id) {
+    let url = `https://backsecurity.azurewebsites.net/api/Actividades/GetActivityById?id=${id}`
+    return this.httpService.getJson<any>(url);
+  }
   public async ListTema(){
     let url = `https://backsecurity.azurewebsites.net/api/Actividades/GetAllTemas`
     return this.httpService.getJson<any>(url);

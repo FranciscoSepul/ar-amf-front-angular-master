@@ -13,7 +13,7 @@ import { Dropdown } from 'primeng/dropdown';
 })
 export class CrearComponent implements OnInit {
 
- 
+
   @Output() backTable: EventEmitter<any> = new EventEmitter();
   @ViewChild('dropContract') dropContract: Dropdown;
   @ViewChild('dropFunction') dropFunction: Dropdown;
@@ -31,9 +31,9 @@ export class CrearComponent implements OnInit {
   usuarios;
   trabajador;
   implementos;
-  date:Date;
+  date: Date;
 
-  constructor(private formbuilder: FormBuilder, private ActivityService: ActivityService,private CompanyService : CompanyService,private UserServiceService:UserServiceService ) {
+  constructor(private formbuilder: FormBuilder, private ActivityService: ActivityService, private CompanyService: CompanyService, private UserServiceService: UserServiceService) {
     this.form = this.formbuilder.group({
       descripcion: [null, [Validators.required]],
       fechaprogramacion: [null, [Validators.required]],
@@ -41,8 +41,8 @@ export class CrearComponent implements OnInit {
       idcompany: [null, [Validators.required]],
       idprofesionalacargo: [null, [Validators.required]],
       tema: [null, [Validators.required]],
-      idtrabajador:[null,[Validators.required]],
-      idimplementos :[null,[Validators.required]]
+      idtrabajador: [null, [Validators.required]],
+      idimplementos: [null, [Validators.required]]
     });
   }
 
@@ -54,6 +54,38 @@ export class CrearComponent implements OnInit {
     this.tema();
     this.loadCompanys();
     this.Implementos();
+    console.log('edit '+this.isEdit);
+    if (this.isEdit) {
+      this.CargarEditar();
+    }
+  }
+
+  CargarEditar() {
+    this.loadActivity();
+  }
+
+  async loadActivity() {
+    console.log('22 id des ' + this.idUser.id);
+    (await this.ActivityService.GetActivityById(this.idUser.id)).subscribe({
+      next: data => {
+        console.log(' des ' + data.idimplementos);
+        this.TrabajadoresByCompany(data.idcompany);
+        this.form.setValue({
+          descripcion: data.descripcion,
+          fechaprogramacion: data.fechaprogramacion,
+          horaprogramacion: data.horaprogramacion,
+          idcompany: data.idcompany,
+          idprofesionalacargo: data.idprofesionalacargo,
+          tema: data.tema,
+          idtrabajador: data.idtrabajador,
+          idimplementos: data.idimplementos
+        });
+
+      },
+      error(e) {
+        this.helpers.checkPermission(this.messageService, e);
+      }
+    })
   }
 
   async Implementos() {
@@ -83,10 +115,22 @@ export class CrearComponent implements OnInit {
     (await this.CompanyService.CompanyListNotDisable()).subscribe({
       next: data => {
         this.companys = data;
-        
+
       }
     })
   }
+  async TrabajadoresByCompany(id){
+    (await this.UserServiceService.ProfesionalList(id)).subscribe({
+      next: data => {
+        this.usuarios = data;
+        this.UserByCompany(id);
+      },
+      error(e) {
+        this.helpers.checkPermission(this.messageService, e);
+      }
+    })
+  }
+  
   async getAllUsersByCompany(event) {
     console.log('en get all');
     (await this.UserServiceService.ProfesionalList(event.value)).subscribe({
@@ -115,16 +159,16 @@ export class CrearComponent implements OnInit {
       console.log('data ' + data.nom_empresa);
       (await this.ActivityService.Update(data)).subscribe({
         next: () => {
-        this.backTable.emit();
-       }
+          this.backTable.emit();
+        }
       });
-      } else {
-       (await this.ActivityService.Create(data))
+    } else {
+      (await this.ActivityService.Create(data))
         .subscribe({
           next: () => {
-           this.backTable.emit();
-         }
-      })
+            this.backTable.emit();
+          }
+        })
     }
   }
 }
