@@ -65,10 +65,8 @@ export class CrearComponent implements OnInit {
   }
 
   async loadActivity() {
-    console.log('22 id des ' + this.idUser.id);
     (await this.ActivityService.GetActivityById(this.idUser.id)).subscribe({
       next: data => {
-        console.log(' des ' + data.idimplementos);
         this.TrabajadoresByCompany(data.idcompany);
         this.form.setValue({
           descripcion: data.descripcion,
