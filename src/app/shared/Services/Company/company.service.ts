@@ -17,7 +17,7 @@ export class CompanyService {
     return this.httpService.getJson<any>(url);
   }
   public async GetFacturaCompany(id,Desde) {
-    let url = `http://localhost:5006/api/Company/GetCompanyFactura?id=${id}&desde=${Desde}`
+    let url = `https://backsecurity.azurewebsites.net/api/Company/GetCompanyFactura?id=${id}&desde=${Desde}`
     return this.httpService.getJson<any>(url);
   }
   public async GetAllFacturas(){
@@ -25,7 +25,7 @@ export class CompanyService {
     return this.httpService.getJson<any>(url);
   }  
   public async GetOperacionesCompany(id,Desde) {
-    let url = `http://localhost:5006/api/Company/GetCompanyOperaciones?id=${id}&desde=${Desde}`
+    let url = `https://backsecurity.azurewebsites.net/api/Company/GetCompanyOperaciones?id=${id}&desde=${Desde}`
     return this.httpService.getJson<any>(url);
   }
   public async CompanyListNotDisable(){
