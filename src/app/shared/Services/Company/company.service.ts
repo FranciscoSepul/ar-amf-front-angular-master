@@ -20,6 +20,10 @@ export class CompanyService {
     let url = `http://localhost:5006/api/Company/GetCompanyFactura?id=${id}&desde=${Desde}`
     return this.httpService.getJson<any>(url);
   }
+  public async GetAllFacturas(){
+    let url = `https://backsecurity.azurewebsites.net/api/Company/GetAllFacturas`
+    return this.httpService.getJson<any>(url);
+  }  
   public async GetOperacionesCompany(id,Desde) {
     let url = `http://localhost:5006/api/Company/GetCompanyOperaciones?id=${id}&desde=${Desde}`
     return this.httpService.getJson<any>(url);

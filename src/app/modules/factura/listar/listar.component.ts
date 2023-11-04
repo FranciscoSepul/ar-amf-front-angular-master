@@ -31,7 +31,7 @@ export class ListarComponent implements OnInit {
     this.getAllUsers();
   }
   async getAllUsers() {
-    (await this.CompanyService.CompanyList()).subscribe({
+    (await this.CompanyService.GetAllFacturas()).subscribe({
       next: data => {
         this.company = data;
         this.showLoader = true;
