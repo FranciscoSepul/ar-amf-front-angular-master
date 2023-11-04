@@ -45,7 +45,8 @@ export class CrearComponent implements OnInit {
   totalAsesoria;
   totalAsesoriaEspecial;
   totalPersonasExtra;
-  date:Date;
+  date: Date;
+  meses;
 
   constructor(private formbuilder: FormBuilder, private DirectionService: DirectionService, private CompanyService: CompanyService) {
 
@@ -120,6 +121,13 @@ export class CrearComponent implements OnInit {
       }
     })
   }
+  async Meses() {
+    (await this.DirectionService.Meses()).subscribe({
+      next: data => {
+        this.meses = data
+      }
+    })
+  }
 
   async ComunaByRegion(id) {
     (await this.DirectionService.GetComunaByRegion(id)).subscribe({
@@ -138,42 +146,39 @@ export class CrearComponent implements OnInit {
     })
   }
 
-  async checkDatesOperation() {
-    if (this.opstartDate && this.opendDate && this.opstartDate < this.opendDate) {
-      (await this.CompanyService.GetOperacionesCompany(this.idUser.id_empresa, this.opstartDate, this.opendDate)).subscribe({
-        next: data => {
-          this.totalAccidente=data.totalAccidente,
-          this.totalCharla=data.totalCharla,
-          this.totalVisita=data.totalVisita,
-          this.totalAsesoria=data.totalAsesoria,
-          this.totalAsesoriaEspecial=data.totalAsesoriaEspecial,
-          this.totalPersonasExtra=data.totalPersonasExtra
-        }
-      })
-    }
+  async checkDatesOperation(event) {
+    console.log(event.value);
+    (await this.CompanyService.GetOperacionesCompany(this.idUser.id_empresa, event.value)).subscribe({
+      next: data => {
+        this.totalAccidente = data.totalAccidente,
+          this.totalCharla = data.totalCharla,
+          this.totalVisita = data.totalVisita,
+          this.totalAsesoria = data.totalAsesoria,
+          this.totalAsesoriaEspecial = data.totalAsesoriaEspecial,
+          this.totalPersonasExtra = data.totalPersonasExtra
+      }
+    })
   }
 
-  async checkDates() {
-    if (this.startDate && this.endDate && this.startDate < this.endDate) {
-      (await this.CompanyService.GetFacturaCompany(this.idUser.id_empresa, this.startDate, this.endDate)).subscribe({
-        next: data => {
-          this.costoTotal = data.costoTotal,
-            this.costoTotalAccidente = data.costoTotalAccidente,
-            this.costoTotalCharla = data.costoTotalCharla,
-            this.costoTotalVisita = data.costoTotalVisita,
-            this.costoTotalAsesoria = data.costoTotalAsesoria,
-            this.costoTotalAsesoriaEspecial = data.costoTotalAsesoriaEspecial,
-            this.costoTotalPersonasExtra = data.costoTotalPersonasExtra
-        }
-      })
-    }
+  async checkDates(event) {
+    (await this.CompanyService.GetFacturaCompany(this.idUser.id_empresa, event.value)).subscribe({
+      next: data => {
+        this.costoTotal = data.costoTotal,
+          this.costoTotalAccidente = data.costoTotalAccidente,
+          this.costoTotalCharla = data.costoTotalCharla,
+          this.costoTotalVisita = data.costoTotalVisita,
+          this.costoTotalAsesoria = data.costoTotalAsesoria,
+          this.costoTotalAsesoriaEspecial = data.costoTotalAsesoriaEspecial,
+          this.costoTotalPersonasExtra = data.costoTotalPersonasExtra
+      }
+    })
   }
 
   async loadCompany() {
+    this.Meses();
     (await this.CompanyService.GetCompanyById(this.idUser.id_empresa)).subscribe({
       next: data => {
         this.form.setValue({
-
           nom_empresa: data.nom_empresa,
           rut: data.rut + '-' + data.dvRut,
           fechaCreacion: data.fechaCreacion,

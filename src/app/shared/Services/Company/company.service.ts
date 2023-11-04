@@ -16,12 +16,12 @@ export class CompanyService {
     let url = `https://backsecurity.azurewebsites.net/api/Company/GetCompanyById?id=${id}`
     return this.httpService.getJson<any>(url);
   }
-  public async GetFacturaCompany(id,Desde,Hasta) {
-    let url = `https://backsecurity.azurewebsites.net/api/Company/GetCompanyFactura?id=${id}&desde=${Desde}&hasta=${Hasta}`
+  public async GetFacturaCompany(id,Desde) {
+    let url = `http://localhost:5006/api/Company/GetCompanyFactura?id=${id}&desde=${Desde}`
     return this.httpService.getJson<any>(url);
   }
-  public async GetOperacionesCompany(id,Desde,Hasta) {
-    let url = `https://backsecurity.azurewebsites.net/api/Company/GetCompanyOperaciones?id=${id}&desde=${Desde}&hasta=${Hasta}`
+  public async GetOperacionesCompany(id,Desde) {
+    let url = `http://localhost:5006/api/Company/GetCompanyOperaciones?id=${id}&desde=${Desde}`
     return this.httpService.getJson<any>(url);
   }
   public async CompanyListNotDisable(){

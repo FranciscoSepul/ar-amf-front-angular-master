@@ -87,22 +87,16 @@
   <div>&nbsp;</div>
   <div class="card section">
     <div class="subTitle">
-      Calcular Operaciones Realizadas
+      Calcular Operaciones Realizadas por Mes
     </div>
     <div>&nbsp;</div>
     <form [formGroup]="form" autocomplete="off">
       <div class="formgrid grid">
         <div class="field firstType">
-          <label for="opstartDate">Fecha Desde</label>
-          <p-calendar [(ngModel)]="opstartDate" (ngModelChange)="checkDatesOperation()" dateFormat="dd/mm/yy"
-            id="opstartDate" pInputText formControlName="opstartDate" placeholder="fecha Facturar">
-          </p-calendar>
-        </div>
-        <div class="field firstType">
-          <label for="opendDate">Fecha Hasta</label>
-          <p-calendar [(ngModel)]="opendDate" (ngModelChange)="checkDatesOperation()" dateFormat="dd/mm/yy"
-            id="opendDate" pInputText formControlName="opendDate" placeholder="fecha Facturar">
-          </p-calendar>
+          <label for="mes">Fecha Desde</label>
+          <p-dropdown (onChange)="checkDatesOperation($event)" #dropFunction [options]="meses" formControlName="opstartDate"
+            optionLabel="mes" optionValue="id" [placeholder]="'SELECCIONE'"
+            emptyMessage="No existen funciones disponibles"></p-dropdown>
         </div>
         <div>&nbsp;</div>
         <div>&nbsp;</div>
@@ -215,16 +209,10 @@
     <form [formGroup]="form" autocomplete="off">
       <div class="formgrid grid">
         <div class="field firstType">
-          <label for="startDate">Fecha Desde</label>
-          <p-calendar [(ngModel)]="startDate" (ngModelChange)="checkDates()" dateFormat="dd/mm/yy" id="startDate"
-            pInputText formControlName="startDate" placeholder="fecha Facturar">
-          </p-calendar>
-        </div>
-        <div class="field firstType">
-          <label for="endDate">Fecha Hasta</label>
-          <p-calendar [(ngModel)]="endDate" (ngModelChange)="checkDates()" dateFormat="dd/mm/yy" id="endDate" pInputText
-            formControlName="endDate" placeholder="fecha Facturar">
-          </p-calendar>
+          <label for="mes">Mes</label>
+          <p-dropdown (onChange)="checkDates($event)" #dropFunction [options]="meses" formControlName="startDate"
+            optionLabel="mes" optionValue="id" [placeholder]="'SELECCIONE'"
+            emptyMessage="No existen funciones disponibles"></p-dropdown>
         </div>
         <div>&nbsp;</div>
         <div>&nbsp;</div>

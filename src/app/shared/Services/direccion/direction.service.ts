@@ -12,6 +12,10 @@ export class DirectionService {
     let url = `https://backsecurity.azurewebsites.net/api/Direccion/GetAllRegion`
     return this.httpService.getJson<any>(url);
   }
+  public async Meses() {
+    let url = `https://backsecurity.azurewebsites.net/api/Direccion/GetAllMeses`
+    return this.httpService.getJson<any>(url);
+  }
 
   public async GetComunaByRegion(id) {
     let url = `https://backsecurity.azurewebsites.net/api/Direccion/GetComunaByRegion?id=${id}`
