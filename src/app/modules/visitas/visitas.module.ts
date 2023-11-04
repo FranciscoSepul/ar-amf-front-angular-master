@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { VisitasRoutingModule } from './visitas-routing.module';
+import {VisitasComponent} from './visitas.component';
 import { ListarComponent } from './listar/listar.component';
 import { CrearComponent } from './crear/crear.component';
 import { EditarComponent } from './editar/editar.component';
@@ -24,7 +25,8 @@ import { MessageModule } from 'primeng/message';
   declarations: [
     ListarComponent,
     CrearComponent,
-    EditarComponent
+    EditarComponent,
+    VisitasComponent
   ],
   imports: [
     CommonModule,

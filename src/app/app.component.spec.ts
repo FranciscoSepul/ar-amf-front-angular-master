@@ -18,10 +18,10 @@ describe("AppComponent", () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'Arquetipo'`, () => {
+  it(`should have as title 'No mas Accidentes'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.debugElement.componentInstance;
-    expect(app.title).toEqual("Arquetipo");
+    expect(app.title).toEqual("No mas Accidentes");
   });
 
   it("should render title", () => {
@@ -29,7 +29,7 @@ describe("AppComponent", () => {
     fixture.detectChanges();
     const compiled = fixture.debugElement.nativeElement;
     expect(compiled.querySelector(".content span").textContent).toContain(
-      "Arquetipo app is running!"
+      "No mas Accidentes app is running!"
     );
   });
 });
