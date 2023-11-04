@@ -7,36 +7,35 @@
 <!--<div class="appDate">
       <app-date></app-date>
     </div>-->
-<p-card> 
-    
+<p-card>
+
     <div class="card section">
         <form [formGroup]="form" autocomplete="off">
             <div class="formgrid grid">
                 <div class="field firstTypeRut">
                     <label for="id_empresa" class="block fw-title mg-bt-label">Empresa </label>
-                    <p-dropdown (onChange)="getAllUsersByCompany($event)" #dropFunction [options]="companys" formControlName="idcompany" optionLabel="nom_empresa"
-                        optionValue="id_empresa" [placeholder]="'SELECCIONE'"
-                        emptyMessage="No existen empresas disponibles"></p-dropdown>
+                    <p-dropdown (onChange)="getAllUsersByCompany($event)" #dropFunction [options]="companys"
+                        formControlName="idcompany" optionLabel="nom_empresa" optionValue="id_empresa"
+                        [placeholder]="'SELECCIONE'" emptyMessage="No existen empresas disponibles"></p-dropdown>
                 </div>
+
                 <div class="field firstTypeRut">
                     <label for="id" class="block fw-title mg-bt-label">Asistentes</label>
-                    <p-dropdown  #dropFunction [options]="trabajador" formControlName="idtrabajador" optionLabel="run"
-                        optionValue="id" [placeholder]="'SELECCIONE'"
-                        emptyMessage="No existen empresas disponibles"></p-dropdown>
+                    <p-multiSelect [options]="trabajador" formControlName="idtrabajador" optionValue="id"
+                        optionLabel="nombre" placeholder="SELECCIONE"></p-multiSelect>
                 </div>
                 <div class="field firstTypeRut">
                     <label for="id_usuario" class="block fw-title mg-bt-label">Profesional </label>
-                    <p-dropdown #dropFunction [options]="usuarios" formControlName="idprofesionalacargo" optionLabel="nom_usuario"
-                        optionValue="id_usuario" [placeholder]="'SELECCIONE'"
+                    <p-dropdown #dropFunction [options]="usuarios" formControlName="idprofesionalacargo"
+                        optionLabel="nom_usuario" optionValue="id_usuario" [placeholder]="'SELECCIONE'"
                         emptyMessage="No existen profesionales disponibles para la empresa seleccionada"></p-dropdown>
                 </div>
             </div>
             <div class="formgrid grid">
                 <div class="field firstTypeRut">
-                    <label for="id" class="block fw-title mg-bt-label">Implementos </label>
-                    <p-dropdown #dropFunction [options]="implementos" formControlName="idimplementos" optionLabel="nombre"
-                        optionValue="id" [placeholder]="'SELECCIONE'"
-                        emptyMessage="No existen implementos disponibles"></p-dropdown>
+                    <label for="id" class="block fw-title mg-bt-label">Implementos</label>
+                    <p-multiSelect [options]="implementos" formControlName="idimplementos" optionValue="id"
+                        optionLabel="nombre" placeholder="SELECCIONE"></p-multiSelect>
                 </div>
                 <div class="field firstTypeDate">
                     <label for="fechaprogramacion">Fecha Capacitación</label>
@@ -46,19 +45,21 @@
                 </div>
                 <div class="field firstTypeRut">
                     <label for="title">Hora de Programacion</label>
-                    <input type="time" id="horaprogramacion" pInputText formControlName="horaprogramacion" placeholder="hh:mm" />
+                    <input type="time" id="horaprogramacion" pInputText formControlName="horaprogramacion"
+                        placeholder="hh:mm" />
                 </div>
                 <div class="field firstTypeRut">
                     <label for="idcapacitacion" class="block fw-title mg-bt-label">Tema </label>
-                    <p-dropdown #dropFunction [options]="temas"
-                        formControlName="tema" optionLabel="capacitacion" optionValue="idcapacitacion"
-                        [placeholder]="'SELECCIONE'" emptyMessage="No existen temas disponibles"></p-dropdown>
+                    <p-dropdown #dropFunction [options]="temas" formControlName="tema" optionLabel="capacitacion"
+                        optionValue="idcapacitacion" [placeholder]="'SELECCIONE'"
+                        emptyMessage="No existen temas disponibles"></p-dropdown>
                 </div>
             </div>
             <div class="formgrid">
                 <div class="field firstTypeCorreo">
                     <label for="descripcion">Descripcion</label>
-                    <input class="firstTypeCorreoLabel" type="text" id="descripcion" pInputText formControlName="descripcion" placeholder="" />
+                    <input class="firstTypeCorreoLabel" type="text" id="descripcion" pInputText
+                        formControlName="descripcion" placeholder="" />
                 </div>
             </div>
         </form>
@@ -70,9 +71,11 @@
             </div>
             <div class="flex-1">
             </div>
-            <div class="flex-1 buttonContainer">
-                <button pButton class="redButton" (click)="backToTable()">Cancelar</button>
-                <button pButton class="blueButton" (click)="sendFormulario()">Guardar</button>
+            <div class="flex-1 buttonContainer" >
+                <ng-template [ngIf]="this.isEdit === false" >
+                    <button pButton class="blueButton" (click)="sendFormulario()">Guardar</button>
+                </ng-template>
+                <button pButton class="redButton" (click)="backToTable()">Cancelar</button>                
             </div>
         </div>
     </div>

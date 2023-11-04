@@ -21,6 +21,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from "@angular/material/form-field";
 import { MessageModule } from 'primeng/message';
 import { CalendarModule } from 'primeng/calendar';
+import { MultiSelectModule } from 'primeng/multiselect';
 
 @NgModule({
   declarations: [
@@ -47,7 +48,8 @@ import { CalendarModule } from 'primeng/calendar';
     MatInputModule,
     MatFormFieldModule,
     CalendarModule,
-    DateComponent
+    DateComponent,
+    MultiSelectModule
   ]
 })
 export class ActividadesModule { }
