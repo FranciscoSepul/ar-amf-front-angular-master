@@ -20,6 +20,7 @@ const routes: Routes = [
         { path: 'Notificaciones', loadChildren: () => import('./modules/notificaciones/notificaciones.module').then(m => m.NotificacionesModule) },
         { path: 'Visitas', loadChildren: () => import('./modules/visitas/visitas.module').then(m => m.VisitasModule) },
         { path: 'Usuario', loadChildren: () => import('./modules/usuario/usuario.module').then(m => m.UsuarioModule) },
+        { path: 'Factura', loadChildren: () => import('./modules/factura/factura.module').then(m => m.FacturaModule) },
     ]
   },
 
