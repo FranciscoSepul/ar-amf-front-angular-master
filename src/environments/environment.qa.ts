@@ -5,7 +5,7 @@
 export const environment = {
     production: true,
     authUrl: '',
-    developerURL: 'https://backsecurity.azurewebsites.net/api'
+    developerURL: 'https://backsecurity20231116221243.azurewebsites.net/api'
 };
 
 /*

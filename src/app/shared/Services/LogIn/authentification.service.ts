@@ -20,7 +20,7 @@ export class AuthentificationService {
         sessionStorage.setItem('User', usuario);
         sessionStorage.setItem('IdTipoCuenta',  data.idtipocuenta);
         sessionStorage.setItem('IsLogin', 'true');
-        this.http.get<any>(`https://backsecurity.azurewebsites.net/api/User?user=${usuario}&pass=${password}`).subscribe(data => {
+        this.http.get<any>(`https://backsecurity20231116221243.azurewebsites.net/api/User?user=${usuario}&pass=${password}`).subscribe(data => {
         sessionStorage.setItem('Token', data.token);
         });
       },

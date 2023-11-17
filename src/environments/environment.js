@@ -7,7 +7,7 @@ exports.environment = void 0;
 exports.environment = {
     production: false,
     authUrl: '',
-    developerURL: 'https://backsecurity.azurewebsites.net/api',
+    developerURL: 'https://backsecurity20231116221243.azurewebsites.net/api',
     version: '0.1.2'
 };
 /*

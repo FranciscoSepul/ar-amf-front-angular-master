@@ -7,7 +7,7 @@ exports.environment = void 0;
 exports.environment = {
     production: true,
     authUrl: '',
-    developerURL: 'https://backsecurity.azurewebsites.net/api'
+    developerURL: 'https://backsecurity20231116221243.azurewebsites.net/api'
 };
 /*
  * In development mode, to ignore zone related error stack frames such as
