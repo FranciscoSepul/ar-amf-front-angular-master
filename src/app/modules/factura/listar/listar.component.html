@@ -43,14 +43,9 @@
           <td style="text-align: left !important; padding-left: 5px;">{{men.idcompany}}</td>
           <td style="text-align: left !important; padding-left: 5px;">{{men.fechacobro}}</td>
           <td style="text-align: left !important; padding-left: 5px;">{{men.fechaemision}}</td>
-          <td class="text-align">
-            <div [ngStyle]="{'background-color':men.haxColor} " class="inasistencia"><span
-                class="stateTextP">No Facturado</span></div>
-          </td>
+          <td style="text-align: left !important; padding-left: 5px;">{{men.ESTADO}}</td>
           <td style="text-align: center !important;">
-            <p-inputSwitch [(ngModel)]="!men.estado"
-              (click)="confirmAction(men.idcompany, men.idcompany, men.estado)">
-            </p-inputSwitch>
+            <button pButton class="blueButton" (click)="confirmAction(men.id, men.idcompany)">Facturado</button>
           </td>
         </tr>
       </ng-template>

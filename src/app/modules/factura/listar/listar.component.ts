@@ -28,9 +28,9 @@ export class ListarComponent implements OnInit {
   ngOnInit(): void {
     this.showLoader = false;
     this.sortOptions = [...sortOptions];
-    this.getAllUsers();
+    this.getAllFactura();
   }
-  async getAllUsers() {
+  async getAllFactura() {
     (await this.CompanyService.GetAllFacturas()).subscribe({
       next: data => {
         this.company = data;
