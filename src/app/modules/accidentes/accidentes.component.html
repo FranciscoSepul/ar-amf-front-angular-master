@@ -1,0 +1,5 @@
+<div [ngSwitch]="screen">
+    <div *ngSwitchCase="'Listar'"><app-listar (crearAccidente)="crearAccidente()"  (detailAccident)="detailAccident($event)"></app-listar></div>
+    <div *ngSwitchCase="'Crear'"><app-crear  [isEdit]="isEdit" [idUser]="idUser" (detailAccident)="detailAccident($event)" (backTable)="backTable()"></app-crear></div>
+    <div *ngSwitchCase="'Detail'"><app-editar [id]="idUser" (backTable)="backTable()" (detailAccident)="detailAccident($event)"></app-editar></div>
+  </div>

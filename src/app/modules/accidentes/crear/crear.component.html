@@ -1,0 +1,281 @@
+<ng-template [ngIf]="this.isEdit === false" [ngIfElse]="editComponent">
+  <p class="title">USUARIO</p>
+</ng-template>
+<ng-template #editComponent>
+  <p class="title">Detalle Accidente</p>
+</ng-template>
+<!--<div class="appDate">
+      <app-date></app-date>
+    </div>-->
+<p-card>
+  <div class="card section">
+    <div class="subTitle">
+      Identificacion del Empleador
+    </div>
+    <div>&nbsp;</div>
+    <form [formGroup]="form" autocomplete="off">
+      <div class="formgrid grid">
+        <div class="field firstType">
+          <label for="empresa">Nombre</label>
+          <input type="text" id="empresa" pInputText formControlName="empresa" disabled/>
+        </div>
+        <div class="field firstType">
+          <label for="empresaRut">Rut</label>
+            <input type="text" id="empresaRut" pInputText formControlName="empresaRut" placeholder="Rut" disabled/>
+        </div>
+
+        <div class="field firstType">
+          <label for="direccionEmpresa">Dirección</label>
+            <input type="text" id="direccionEmpresa" pInputText formControlName="direccionEmpresa" placeholder="Rut" disabled/>
+        </div>
+        <div class="field firstType">
+          <label for="comunaEmpresa">Comuna</label>
+            <input type="text" id="comunaEmpresa" pInputText formControlName="comunaEmpresa" disabled/>
+        </div>
+        <div class="field firstType">
+          <label for="regionEmpresa">Region</label>
+            <input type="text" id="regionEmpresa" pInputText formControlName="regionEmpresa" placeholder="correo" disabled/>
+        </div>
+        <div class="field firstType">
+          <label for="numeroTelefonico">Número Teléfono</label>
+           <input type="text" id="numeroTelefonico" pInputText formControlName="numeroTelefonico"
+              placeholder="Numero Telefonico" disabled/>
+        </div>
+        <div class="field firstType">
+          <label for="correoEmpresa">Correo Empresa</label>
+            <input type="text" id="correoEmpresa" pInputText formControlName="correoEmpresa"
+              placeholder="Numero Telefonico" disabled/>
+        </div>
+        <div class="field firstType">
+          <label for="actividadEconomica">Actividad Económica</label>
+            <input type="text" id="actividadEconomica" pInputText formControlName="actividadEconomica"
+              placeholder="Numero Telefonico" disabled/>
+        </div>
+        <div class="field firstType">
+          <label for="idPropiedadEmpresa">Propiedad de la Empresa</label>
+            <input type="text" id="idPropiedadEmpresa" pInputText formControlName="idPropiedadEmpresa"
+              placeholder="Numero Telefonico" disabled/>
+        </div>
+        <div class="field firstType">
+          <label for="idTipoDeEmpresa">Tipo de empresa</label>
+            <input type="text" id="idTipoDeEmpresa" pInputText formControlName="idTipoDeEmpresa"
+              placeholder="Numero Telefonico" disabled/>
+        </div>
+        <div>
+          <div class="a">
+            <label for="correoEmpresa">N° Trabajadores</label>
+          </div>
+          <div class="b">
+            <label  style="margin-right: 10px;">Hombres</label>
+            <label >Mujeres</label>
+            <div class="b">
+                <input class="Cantidad" style="margin-right: 35px;" type="text" id="trabajadoresHombres" pInputText formControlName="trabajadoresHombres" disabled/>
+              
+                <input class="Cantidad" type="text" id="trabajadoresMujeres" pInputText formControlName="trabajadoresMujeres" disabled/>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+    </form>
+  </div>
+  <div>&nbsp;</div>
+  <div class="card section">
+    <div class="subTitle">
+     Identificación del Trabajador/a
+    </div>
+    <div>&nbsp;</div>
+    <form [formGroup]="form" autocomplete="off">
+      <div class="formgrid grid">
+        <div class="field firstType">
+          <label for="empleadoNombre">Nombre</label>
+            <input type="text" id="empleadoNombre" pInputText formControlName="empleadoNombre" placeholder="" disabled/>
+        </div>
+        <div class="field firstType">
+          <label for="rutTrabajador">Rut</label>
+            <input type="text" id="rutTrabajador" pInputText formControlName="rutTrabajador" disabled/>
+        </div>
+        <div class="field firstType">
+          <label for="direccionTrabajador">Direccion</label>
+            <input type="text" id="direccionTrabajador" pInputText formControlName="direccionTrabajador" disabled/>
+        </div>
+        <div class="field firstType">
+          <label for="comunaTrabajador">Comuna</label>
+            <input type="text" id="comunaTrabajador" pInputText formControlName="comunaTrabajador" disabled/>
+        </div>
+        <div class="field firstType">
+          <label for="numeroContactoEmnpleado">Numero de Teléfono</label>
+            <input type="text" id="numeroContactoEmnpleado" pInputText formControlName="numeroContactoEmnpleado"
+              placeholder="Numero Telefonico" disabled/>
+        </div>
+        <div class="field firstType">
+          <label for="correoEmpleado">Correo</label>
+            <input type="text" id="correoEmpleado" pInputText formControlName="correoEmpleado" placeholder="correo" disabled/>
+        </div>
+        <div class="field firstType">
+          <label for="sexo">Sexo</label>
+            <input type="text" id="sexo" pInputText formControlName="sexo" disabled/>
+        </div>
+        <div class="field firstType">
+          <label for="edad">Edad</label>
+            <input type="text" id="edad" pInputText formControlName="edad" disabled/>
+        </div>
+        <div class="field firstType">
+          <label for="fechaNacimiento">Fecha de Nacimiento</label>
+            <input type="text" id="fechaNacimiento" pInputText formControlName="fechaNacimiento" disabled/>
+        </div>
+        <div class="field firstType">
+          <label for="puebloOriginario">Pueblo originario</label>
+            <input type="text" id="puebloOriginario" pInputText formControlName="puebloOriginario" disabled/>
+        </div>
+        <div class="field firstType">
+          <label for="nacionalidad">Nacionalidad</label>
+            <input type="text" id="nacionalidad" pInputText formControlName="nacionalidad" disabled/>
+        </div>
+        <div class="field firstType">
+          <label for="profesionTrabajador">Profesion u Oficio</label>
+            <input type="text" id="profesionTrabajador" pInputText formControlName="profesionTrabajador" disabled/>
+        </div>
+        <div class="field firstType">
+          <label for="antiguedad">Antiguedad en la Empresa</label>
+            <input type="text" id="antiguedad" pInputText formControlName="antiguedad" disabled/>
+        </div>
+        <div class="field firstType">
+          <label for="tipoDeContratoTrabajador">Tipo de Contrato</label>
+            <input type="text" id="tipoDeContratoTrabajador" pInputText formControlName="tipoDeContratoTrabajador" disabled/>
+        </div>
+        <div class="field firstType">
+          <label for="categoriaOcupacional">Categoria Ocupacional</label>
+            <input type="text" id="categoriaOcupacional" pInputText formControlName="categoriaOcupacional" disabled/>
+        </div>
+        <div class="field firstType">
+          <label for="tipoDeIngreso">Tipo de Ingreso</label>
+            <input type="text" id="tipoDeIngreso" pInputText formControlName="tipoDeIngreso" disabled/>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div>&nbsp;</div>
+  <div class="card section">
+    <div class="subTitle">
+      Datos del Accidente
+    </div>
+    <div>&nbsp;</div>
+    <form [formGroup]="form" autocomplete="off">
+      <div class="formgrid grid">
+        <div class="field firstType">
+          <label for="fechaaccidente">Fecha del Accidente</label>
+            <input type="text" id="fechaaccidente" pInputText formControlName="fechaaccidente"
+              placeholder="Numero Telefonico" disabled/>
+        </div>
+        <div class="field firstType">
+          <label for="horaAccidente">Hora Accidente</label>
+            <input type="text" id="horaAccidente" pInputText formControlName="horaAccidente"
+              placeholder="Numero Telefonico" disabled/>
+        </div>
+        <div class="field firstType">
+          <label for="horaIngresoAlTrabajo">Hora Ingreso al Trabajo</label>
+            <input type="text" id="horaIngresoAlTrabajo" pInputText formControlName="horaIngresoAlTrabajo"
+              placeholder="Numero Telefonico" disabled/>
+        </div>
+        <div class="field firstType">
+          <label for="horaSalidaTrabajo">Hora Salida del Trabajo</label>
+            <input type="text" id="horaSalidaTrabajo" pInputText formControlName="horaSalidaTrabajo"
+              placeholder="Numero Telefonico" disabled/>
+        </div>
+        <div class="field firstType">
+          <label for="direccionEmpresa">Dirección</label>
+            <input type="text" id="direccionEmpresa" pInputText formControlName="direccionEmpresa"
+              placeholder="Numero Telefonico" disabled/>
+        </div>
+        <div class="field firstType">
+          <label for="comunaEmpresa">Comuna</label>
+            <input type="text" id="comunaEmpresa" pInputText formControlName="comunaEmpresa"
+              placeholder="Numero Telefonico" disabled/>
+        </div>
+        <div class="field firstType">
+          <label for="title">Clasificación del Accidente</label>
+          <label for="title">(Articulo 76 - ley 16.744)</label>
+            <input type="text" id="gravedad" pInputText formControlName="gravedad" placeholder="Rut" disabled/>
+        </div>
+        <div class="field firstType">
+          <label for="tipoDeAccidente">Tipo de accidente</label>
+            <input type="text" id="tipoDeAccidente" pInputText formControlName="tipoDeAccidente" disabled/>
+        </div>
+        <div class="field firstType">
+          <label for="title">Medio De Prueba</label>
+            <input type="text" id="medioDePrueba" pInputText formControlName="medioDePrueba" disabled/>
+        </div>
+        <div class="field firstType">
+          <label for="descripcion">Descripcion</label>
+            <input type="text" id="descripcion" pInputText formControlName="descripcion" placeholder="correo" disabled/>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div>&nbsp;</div>
+  <div class="card section">
+    <div class="subTitle">
+      Identificación del Denunciante
+    </div>
+    <div>&nbsp;</div>
+    <form [formGroup]="form" autocomplete="off">
+      <div class="formgrid grid">
+        <div class="field firstType">
+          <label for="empresa">Nombre</label>
+            <input type="text" id="empresa" pInputText formControlName="empresa" disabled/>
+        </div>
+        <div class="field firstType">
+          <label for="empresaRut">Rut</label>
+            <input type="text" id="empresaRut" pInputText formControlName="empresaRut"
+              placeholder="Numero Telefonico" disabled/>
+        </div>
+        <div class="field firstType">
+          <label for="numeroTelefonico">Número de teléfono</label>
+            <input type="text" id="numeroTelefonico" pInputText formControlName="numeroTelefonico" placeholder="correo" disabled/>
+        </div>
+        <div class="field firstType">
+          <label for="clasificacionDenunciante">Clasificacion del Denuncianteno</label>
+            <input type="text" id="clasificacionDenunciante" pInputText formControlName="clasificacionDenunciante" placeholder="clasificacionDenunciante" disabled/>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div>&nbsp;</div>
+  <div class="card section">
+    <div class="subTitle">
+      Profesional A Cargo
+    </div>
+    <div>&nbsp;</div>
+    <form [formGroup]="form" autocomplete="off">
+      <div class="formgrid grid">
+        <div class="field firstType">
+          <label for="nombreProfesional">Nombre</label>
+            <input type="text" id="nombreProfesional" pInputText formControlName="nombreProfesional" disabled/>
+        </div>
+        <div class="field firstType">
+          <label for="apellidofesional">Apellido</label>
+            <input type="text" id="apellidofesional" pInputText formControlName="apellidofesional" placeholder="Rut" disabled/>
+        </div>
+        <div class="field firstType">
+          <label for="rutProfesional">Rut</label>
+            <input type="text" id="rutProfesional" pInputText formControlName="rutProfesional"
+              placeholder="Numero Telefonico" disabled/>
+        </div>
+        <div class="field firstType">
+          <label for="celProfesional">Cel</label>
+            <input type="text" id="celProfesional" pInputText formControlName="celProfesional" placeholder="correo" disabled/>
+        </div>
+      </div>
+    </form>
+  </div>
+  <hr />
+  <div>
+    <div class="flex card-container green-container p-0">
+      <div class="flex-1">
+      </div>
+      <div class="flex-1">
+      </div>
+    </div>
+  </div>
+</p-card>
