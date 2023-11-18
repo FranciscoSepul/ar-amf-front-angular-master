@@ -1,0 +1,25 @@
+<div class="bacGroundCollor" id="sidebar-wrapper">
+  <div id="logo-header-container">
+    <img src="" width="200vh">
+  </div>
+
+
+  <ul class="list-group list-group-flush">
+    <ng-template ngFor let-item [ngForOf]="menuArray"  >
+      <div *ngIf="item.submenu; else elseBlock">
+        <div>
+          <button collapsible type="button" class="collapsible list-group-item-action bg-light">
+            <img src='../../../assets/images/{{item.icon}}' alt="{{item.text}}"  title="{{item.text}}" />
+          </button>
+        </div>
+      </div>
+      <ng-template #elseBlock class="ImageSize" >
+        <li *ngIf="item.user!=2"  class=" list-group-item list-group-item-action bg-light nav-item" routerLink={{item.link}}
+          routerLinkActive="active" role="item" (click)="selectedItem =item.text; "
+          [ngClass]="{'active': selectedItem === item.text}">
+          <img src='../../../assets/images/{{item.icon}}' alt="{{item.text}}" title="{{item.text}}" />
+        </li>
+      </ng-template>
+    </ng-template>
+  </ul>
+</div>
