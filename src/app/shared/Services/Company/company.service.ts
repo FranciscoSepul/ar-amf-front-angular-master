@@ -16,6 +16,10 @@ export class CompanyService {
     let url = `https://backsecurity20231116221243.azurewebsites.net/api/Company/GetCompanyById?id=${id}`
     return this.httpService.getJson<any>(url);
   }
+  public async FactureByCompanyById(id) {
+    let url = `https://backsecurity20231116221243.azurewebsites.net/api/Company/FactureByCompany?id=${id}`
+    return this.httpService.getJson<any>(url);
+  }
   public async GetFacturaCompany(id,Desde) {
     let url = `https://backsecurity20231116221243.azurewebsites.net/api/Company/GetCompanyFactura?id=${id}&desde=${Desde}`
     return this.httpService.getJson<any>(url);

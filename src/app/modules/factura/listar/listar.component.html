@@ -6,7 +6,7 @@
 <p-card>
   <div class="flex card-container green-container p-0 cardHead">
     <div class="flex-1 ">
-      Facturas de Empresas CREADAS
+      Facturas de Empresas
     </div>
     <div class="row">
       <div class="flex-1 buttonContainer">
@@ -32,8 +32,9 @@
           <th id="name" style="text-align: left !important;">Empresa</th>
           <th id="contract" style="text-align: left !important;">F/H Cobro</th>
           <th id="contract" style="text-align: left !important;">F/H Emision</th>
+          <th id="contract" style="text-align: left !important;">Total Facturado</th>
           <th id="instance" style="text-align: left !important;">ESTADO</th>
-          <th id="instance" style="text-align: left !important;">Vigente para pago</th>
+          <th id="instance" style="text-align: left !important;">Facturar</th>
         </tr>
       </ng-template>
       <ng-template pTemplate="body" let-men>
@@ -43,9 +44,10 @@
           <td style="text-align: left !important; padding-left: 5px;">{{men.nombreCompany}}</td>
           <td style="text-align: left !important; padding-left: 5px;">{{men.fechacobro}}</td>
           <td style="text-align: left !important; padding-left: 5px;">{{men.fechaemision}}</td>
+          <td style="text-align: left !important; padding-left: 5px;">{{men.iddetallefactura}}</td>
           <td style="text-align: left !important; padding-left: 5px;">{{men.estadoFactura}}</td>
           <td style="text-align: center !important;">
-            <button pButton class="blueButton" (click)="confirmAction(men.id)">Facturado</button>
+            <button pButton class="blueButton" style="color: '{{men.hexBtn}}';" (click)="confirmAction(men.id)">{{men.btnText}}</button>
           </td>
         </tr>
       </ng-template>

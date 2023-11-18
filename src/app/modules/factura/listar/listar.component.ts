@@ -45,8 +45,19 @@ export class ListarComponent implements OnInit {
     this.crearCompany.emit();
   }
 
-  confirmAction(id, name, isDisabled) {
-    this.active(id, !isDisabled);
+  confirmAction(id) {
+    this.Facture(id);
+  }
+
+  async Facture(id:number){
+    (await this.CompanyService.FactureByCompanyById(id)).subscribe({
+      next: data => {
+        this.getAllFactura();
+      },
+      error(e) {
+        this.helpers.checkPermission(this.messageService, e);
+      }
+    })
   }
 
   async active(id: number, activation: boolean) {
