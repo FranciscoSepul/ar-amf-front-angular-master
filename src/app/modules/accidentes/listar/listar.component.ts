@@ -14,7 +14,7 @@ export class ListarComponent implements OnInit {
 
   Accidentes: any[];
   rows = 5;
-  showLoader = false;
+  showLoader :boolean;
   isDisabled = false;
   details: any;
   sortOptions: SelectItem[];
@@ -25,7 +25,7 @@ export class ListarComponent implements OnInit {
     (private AccidentsService: AccidentsService, private router: Router) { }
 
   ngOnInit(): void {
-    this.showLoader = true;
+    this.showLoader = false;
     this.sortOptions = [...sortOptions];
     this.getAllUsers();
   }
@@ -37,6 +37,7 @@ export class ListarComponent implements OnInit {
     (await this.AccidentsService.List()).subscribe({
       next: data => {
         this.Accidentes = data;
+        this.showLoader = true;
       },
       error(e) {
         this.helpers.checkPermission(this.messageService, e);
