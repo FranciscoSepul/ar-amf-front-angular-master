@@ -7,11 +7,11 @@ import { ListarComponent } from './listar/listar.component';
 import { CrearComponent } from './crear/crear.component';
 import { EditarComponent } from './editar/editar.component';
 
+import { ProgressBarModule} from 'primeng/progressbar';
 import { DateComponent} from '../../shared/date/date.component';
 import { CardModule } from 'primeng/card';
 import { TableModule } from 'primeng/table';
 import { DropdownModule } from 'primeng/dropdown';
-import { ProgressBarModule} from 'primeng/progressbar';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { MessagesModule } from 'primeng/messages';
 import { InputNumberModule } from "primeng/inputnumber";

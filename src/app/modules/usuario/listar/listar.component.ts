@@ -14,7 +14,7 @@ export class ListarComponent implements OnInit {
 
   usuarios: any[];
   rows = 5;
-  showLoader = false;
+  showLoader : boolean;
   isDisabled = false;
   details: any;
   sortOptions: SelectItem[];
@@ -25,7 +25,7 @@ export class ListarComponent implements OnInit {
     (private UserServiceService: UserServiceService, private router: Router) { }
 
   ngOnInit(): void {
-    this.showLoader = true;
+    this.showLoader = false;
     this.sortOptions = [...sortOptions];
     this.getAllUsers();
   }
@@ -33,10 +33,12 @@ export class ListarComponent implements OnInit {
   Crear() {
     this.crearUsuario.emit();
   }
+  
   async getAllUsers() {
     (await this.UserServiceService.UserList()).subscribe({
       next: data => {
         this.usuarios = data;
+        this.showLoader=true;
       },
       error(e) {
         this.helpers.checkPermission(this.messageService, e);

@@ -14,7 +14,7 @@ export class ListarComponent implements OnInit {
 
   activity: any[];
   rows = 5;
-  showLoader = false;
+  showLoader : boolean;
   isDisabled = false;
   details: any;
   sortOptions: SelectItem[];
@@ -25,7 +25,7 @@ export class ListarComponent implements OnInit {
     (private ActivityService: ActivityService, private router: Router) { }
 
   ngOnInit(): void {
-    this.showLoader = true;
+    this.showLoader = false;
     this.sortOptions = [...sortOptions];
     this.getAll();
   }
@@ -37,6 +37,7 @@ export class ListarComponent implements OnInit {
     (await this.ActivityService.List()).subscribe({
       next: data => {
         this.activity = data;
+        this.showLoader = true;
       },
       error(e) {
         this.helpers.checkPermission(this.messageService, e);
