@@ -16,7 +16,6 @@ export class FacturaComponent {
     this.isEdit = false;
   }
   Listar() {
-   console.log('listar fact ');
     this.screen = "Listar";
   }
   detailCompany(idUser) {

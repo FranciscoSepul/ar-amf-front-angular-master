@@ -81,7 +81,7 @@ export class ListarComponent implements OnInit {
   }
 
   async seeEditar(id) {
-    this.details = this.company.filter(x => x.nom_empresa == id);
+    this.details = this.company.filter(x => x.id == id);
     this.detailCompany.emit(this.details[0]);
   }
 }
