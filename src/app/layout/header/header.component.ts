@@ -1,5 +1,6 @@
 import { Component } from "@angular/core";
 import { UserServiceService } from '../../shared/Services/Usuarios/user-service.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: "app-header",
@@ -29,5 +30,10 @@ export class HeaderComponent {
   }
   ngOnInit(): void {
     this.getUser();
+  }
+  logout(): void {
+    localStorage.removeItem('accessToken');
+    localStorage.removeItem('token');
+    sessionStorage.clear();
   }
 }
