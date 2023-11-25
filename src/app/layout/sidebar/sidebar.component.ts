@@ -54,7 +54,7 @@ export class SidebarComponent implements OnInit {
         text: 'Empresas',
         link: '/Company',
         icon: 'building-solid.svg',
-        user: ((this.Usuarios == "1") ? 1 : 2)
+        user:  1
       },
       {
         text: 'Factura',
