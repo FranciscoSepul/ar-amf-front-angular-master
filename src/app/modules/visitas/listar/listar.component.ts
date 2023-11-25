@@ -1,8 +1,8 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { SelectItem} from 'primeng/api';
-import { UserServiceService } from '../../../shared/Services/Usuarios/user-service.service';
 import { sortOptions } from '../../../core/common/constants';
+import { VisitasService } from '@shared/Services/Visitas/visitas.service';
 
 
 @Component({
@@ -22,7 +22,7 @@ export class ListarComponent implements OnInit {
   @Output() detailUser: EventEmitter<any> = new EventEmitter();
 
   constructor
-    (private UserServiceService: UserServiceService, private router: Router) { }
+    (private VisitasService: VisitasService, private router: Router) { }
 
   ngOnInit(): void {
     this.showLoader = false;
@@ -34,7 +34,7 @@ export class ListarComponent implements OnInit {
     this.crearUsuario.emit();
   }
   async getAllUsers() {
-    (await this.UserServiceService.UserList()).subscribe({
+    (await this.VisitasService.List()).subscribe({
       next: data => {
         this.usuarios = data;
         this.showLoader = true;
@@ -53,7 +53,7 @@ export class ListarComponent implements OnInit {
       let alert = this.usuarios.find(x => x.run_usuario == id)
       if (alert) {
         alert.isdelete = 1
-          ; (await this.UserServiceService.UserDisable(alert)).subscribe({
+          ; (await this.VisitasService.UserDisable(alert)).subscribe({
             next: () => {
               this.ngOnInit()
             }
