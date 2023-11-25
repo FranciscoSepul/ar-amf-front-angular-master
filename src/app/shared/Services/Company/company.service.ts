@@ -9,15 +9,15 @@ export class CompanyService {
   constructor(private httpService: HttpService) { }
   
   public async CompanyList(){
-    let url = `http://localhost:5006/api/Company/GetAllCompany`
+    let url = `https://backsecurity20231116221243.azurewebsites.net/api/Company/GetAllCompany`
     return this.httpService.getJson<any>(url);
   }
   public async GetCompanyById(id) {
-    let url = `http://localhost:5006/api/Company/GetCompanyById?id=${id}`
+    let url = `https://backsecurity20231116221243.azurewebsites.net/api/Company/GetCompanyById?id=${id}`
     return this.httpService.getJson<any>(url);
   }
   public async GetFacturaById(id) {
-    let url = `http://localhost:5006/api/Company/GetFacturaById?id=${id}`
+    let url = `https://backsecurity20231116221243.azurewebsites.net/api/Company/GetFacturaById?id=${id}`
     return this.httpService.getJson<any>(url);
   }
   public async FactureByCompanyById(id) {
@@ -41,11 +41,11 @@ export class CompanyService {
     return this.httpService.getJson<any>(url);
   }
   public async CompanyCreate(data: any) {
-    let url = `http://localhost:5006/api/Company/Create`
+    let url = `https://backsecurity20231116221243.azurewebsites.net/api/Company/Create`
     return this.httpService.postJson<any>(url, data);
   }
   public async CompanyUpdate(data: any) {
-    let url = `http://localhost:5006/api/Company/Update`
+    let url = `https://backsecurity20231116221243.azurewebsites.net/api/Company/Update`
     return this.httpService.putJson<any>(url, data);
   }
   public async CompanyDisable(data: any) {
@@ -63,11 +63,11 @@ export class CompanyService {
   }
 
   public async PropiedadEmpresaList(){
-    let url = `http://localhost:5006/api/Company/ListPropiedadEmpresa`
+    let url = `https://backsecurity20231116221243.azurewebsites.net/api/Company/ListPropiedadEmpresa`
     return this.httpService.getJson<any>(url);
   }
   public async TipoEmpresaList(){
-    let url = `http://localhost:5006/api/Company/ListTipoEmpresa`
+    let url = `https://backsecurity20231116221243.azurewebsites.net/api/Company/ListTipoEmpresa`
     return this.httpService.getJson<any>(url);
   }
 }
