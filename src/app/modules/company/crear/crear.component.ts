@@ -27,6 +27,8 @@ export class CrearComponent implements OnInit {
   branchOfficeId;
   msgs1: Message[];
   region;
+  propiedad;
+  tipoE;
   comuna;
   startDate: Date;
   endDate: Date;
@@ -104,6 +106,8 @@ export class CrearComponent implements OnInit {
 
   loadOpcions() {
     this.Region();
+    this.Propiedad();
+    this.TipoE();
     if (this.isEdit) {
       this.ComunaByRegion(this.idUser.region);
 
@@ -121,6 +125,23 @@ export class CrearComponent implements OnInit {
       }
     })
   }
+
+  async Propiedad() {
+    (await this.CompanyService.PropiedadEmpresaList()).subscribe({
+      next: data => {
+        this.propiedad = data
+      }
+    })
+  }
+
+  async TipoE() {
+    (await this.CompanyService.TipoEmpresaList()).subscribe({
+      next: data => {
+        this.tipoE = data
+      }
+    })
+  }
+
   async Meses() {
     (await this.DirectionService.Meses()).subscribe({
       next: data => {
