@@ -3,7 +3,8 @@ import { Router } from '@angular/router';
 import { SelectItem } from 'primeng/api';
 import { sortOptions } from '../../../core/common/constants';
 import { CompanyService } from '../../../shared/Services/Company/company.service';
-
+import { PopupComponent } from '../popup/popup.component';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-listar',
@@ -17,12 +18,12 @@ export class ListarComponent implements OnInit {
   company: any[];
   details: any;
   rows = 5;
+  id;
 
   @Output() crearCompany: EventEmitter<any> = new EventEmitter();
   @Output() detailCompany: EventEmitter<any> = new EventEmitter();
-
   constructor
-    (private CompanyService: CompanyService, private router: Router) { }
+    (private CompanyService: CompanyService, private router: Router, private modalService: NgbModal) { }
 
 
   ngOnInit(): void {
@@ -46,23 +47,13 @@ export class ListarComponent implements OnInit {
   }
 
   confirmAction(id) {
-    this.Facture(id);
-  }
-
-  async Facture(id:number){
-    (await this.CompanyService.FactureByCompanyById(id)).subscribe({
-      next: data => {
-        this.getAllFactura();
-      },
-      error(e) {
-        this.helpers.checkPermission(this.messageService, e);
-      }
-    })
+    const modalRef = this.modalService.open(PopupComponent);
+    modalRef.componentInstance.itemId = id;
   }
 
   async active(id: number, activation: boolean) {
     try {
-      console.log('id '+id);
+      console.log('id ' + id);
       let alert = this.company.find(x => x.id_empresa == id)
       if (alert) {
         alert.isdelete = 1
@@ -84,4 +75,5 @@ export class ListarComponent implements OnInit {
     this.details = this.company.filter(x => x.id == id);
     this.detailCompany.emit(this.details[0]);
   }
+
 }

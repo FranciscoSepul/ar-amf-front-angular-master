@@ -50,8 +50,8 @@ export class CreateComponent implements OnInit {
   meses;
 
   constructor(private formbuilder: FormBuilder, private DirectionService: DirectionService, private CompanyService: CompanyService) {
+    
     this.form = this.formbuilder.group({
-
       nom_empresa: [null, [Validators.required]],
       rut: [null, [Validators.required]],
       fechaCreacion: [null, [Validators.required]],

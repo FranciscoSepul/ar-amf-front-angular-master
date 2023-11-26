@@ -21,15 +21,16 @@ import { InputSwitchModule } from 'primeng/inputswitch';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from "@angular/material/form-field";
 import { CalendarModule } from 'primeng/calendar';
-
-
+import { PopupComponent } from './popup/popup.component';
+import { BrowserModule } from '@angular/platform-browser';
 
 @NgModule({
   declarations: [
     FacturaComponent,
     CreateComponent,
     EditarComponent,
-    ListarComponent
+    ListarComponent,
+    PopupComponent
 
   ],
   imports: [
@@ -49,7 +50,9 @@ import { CalendarModule } from 'primeng/calendar';
     MatInputModule,
     MatFormFieldModule,
     CalendarModule,
-    DateComponent, FacturaRoutingModule
+    DateComponent,
+    FacturaRoutingModule
+    
   ]
 })
 export class FacturaModule { }
