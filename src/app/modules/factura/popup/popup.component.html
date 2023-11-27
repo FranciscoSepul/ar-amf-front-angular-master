@@ -6,23 +6,52 @@
         </div>
         <div class="popup-body">
             <form [formGroup]="formb" autocomplete="off">
-                <div class="formgrid grid">
+                <div class="form-group">
                     <div class="field firstType">
-                        <label for="title">Id Transaccion</label>
-                        <input type="text" id="idTransaccion" pInputText formControlName="idTransaccion"
-                            placeholder="idTransaccion" />
+                        <label for="title"> Id Transaccion </label>
+                        <input class="label-input-spacing" type="text" id="idTransaccion" pInputText
+                            formControlName="idTransaccion" placeholder="idTransaccion" />
                     </div>
-                    <div class="field firstType">
-                        <label for="title">Detalle</label>
-                        <input type="text" id="Detalle" pInputText formControlName="Detalle" placeholder="Detalle" />
-                    </div>
-                    <div class="field firstType">
-                        <label for="title">Monto</label>
-                        <input type="text" id="Monto" pInputText formControlName="Monto" placeholder="Monto" />
-                    </div>
-                    <button class="action-button" (click)="confirmAction()">Facturar</button>
                 </div>
+                <div class="form-group">
+                    <div class="field firstType">
+                        <label for="title"> Detalle </label>
+                        <input class="label-input-spacing" type="text" id="Detalle" pInputText formControlName="Detalle"
+                            placeholder="Detalle" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="field firstType">
+                        <label for="title"> Monto </label>
+                        <input class="label-input-spacing" type="text" id="Monto" pInputText formControlName="Monto"
+                            placeholder="Monto" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="cardNumber">Número de Tarjeta:</label>
+                    <input class="label-input-spacing" type="text" id="cardNumber" name="cardNumber" placeholder="1234 5678 9012 3456" required>
+                </div>
+                <div class="form-group">
+                    <label for="expiryDate">Fecha de Expiración:</label>
+                    <input class="label-input-spacing" type="text" id="expiryDate" name="expiryDate" placeholder="MM/YY" required>
+                </div>
+                <div class="form-group">
+                    <label for="cvv">CVV:</label>
+                    <input class="label-input-spacing" type="text" id="cvv" name="cvv" placeholder="123" required>
+                </div>
+                <button class="action-button" (click)="confirmAction()">Facturar</button>
             </form>
         </div>
+    </div>
+</div>
+
+<div class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Detalles de Pago</h2>
+        <form class="payment-form">
+
+            <button type="submit" class="btn-pay">Pagar</button>
+        </form>
     </div>
 </div>

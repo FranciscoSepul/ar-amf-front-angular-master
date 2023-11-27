@@ -36,7 +36,7 @@ export class PopupComponent {
         this.formb.setValue({
           idTransaccion: this.itemId,
           Monto: data.iddetallefactura,
-          Detalle: 'Pago Factura Empresa' + data.nom_empresa,
+          Detalle: 'Pago Factura ' + data.nom_empresa,
           //rut: data.rut + '-' + data.dvRut,
           //fechaCreacion: data.fechaCreacion,
           //fechaFinContrato: new Date(data.fechaFinContrato),
