@@ -2,7 +2,7 @@
     <div class="popup-content">
         <div class="popup-header">
             <h2>Metodo De Pago</h2>
-            <button class="close-button" (click)="close()">Cerrar</button>
+            <button class="close-button" aria-label="Close alert" (click)="close()">x</button>
         </div>
         <div class="popup-body">
             <form [formGroup]="formb" autocomplete="off">
@@ -10,21 +10,21 @@
                     <div class="field firstType">
                         <label for="title"> Id Transaccion </label>
                         <input class="label-input-spacing" type="text" id="idTransaccion" pInputText
-                            formControlName="idTransaccion" placeholder="idTransaccion" />
+                            formControlName="idTransaccion" placeholder="idTransaccion" disabled/>
                     </div>
                 </div>
                 <div class="form-group">
                     <div class="field firstType">
                         <label for="title"> Detalle </label>
                         <input class="label-input-spacing" type="text" id="Detalle" pInputText formControlName="Detalle"
-                            placeholder="Detalle" />
+                            placeholder="Detalle" disabled/>
                     </div>
                 </div>
                 <div class="form-group">
                     <div class="field firstType">
                         <label for="title"> Monto </label>
                         <input class="label-input-spacing" type="text" id="Monto" pInputText formControlName="Monto"
-                            placeholder="Monto" />
+                            placeholder="Monto" disabled/>
                     </div>
                 </div>
                 <div class="form-group">

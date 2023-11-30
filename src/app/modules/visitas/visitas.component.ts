@@ -12,6 +12,7 @@ export class VisitasComponent {
   isEdit = false;
 
   crearUsuario() {
+    console.log('Here create');
     this.screen = "Crear";
     this.isEdit = false;
   }

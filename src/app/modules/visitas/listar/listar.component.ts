@@ -31,6 +31,7 @@ export class ListarComponent implements OnInit {
   }
 
   Crear() {
+    console.log('en crear ');
     this.crearUsuario.emit();
   }
   async getAllUsers() {
