@@ -211,8 +211,8 @@ export class CrearComponent implements OnInit {
           id_empresa: data.id_empresa,
           numeroTelefonico: data.numeroTelefonico,
           actividadEconomica: data.actividadEconomica,
-          idPropiedadEmpresa: data.idPropiedadEmpresa,
-          idTipoDeEmpresa: data.idTipoDeEmpresa,
+          propiedad: data.idPropiedadEmpresa,
+          tipoE: data.idTipoDeEmpresa,
           trabajadoresHombres: data.trabajadoresHombres,
           trabajadoresMujeres: data.trabajadoresMujeres,
           //Costos

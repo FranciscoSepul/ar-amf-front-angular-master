@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AccidentsService } from '../../../shared/Services/Accidents/accidents.service';
+import { CompanyService } from '../../../shared/Services/Company/company.service';
 
 @Component({
   selector: 'app-crear',
@@ -12,8 +13,10 @@ export class CrearComponent implements OnInit {
   @Input() isEdit: boolean;
   @Input() idUser: any;
   form: FormGroup;
+  propiedad;
+  tipoE;
 
-  constructor(private formbuilder: FormBuilder, private AccidentsService: AccidentsService) {
+  constructor(private formbuilder: FormBuilder, private CompanyService: CompanyService, private AccidentsService: AccidentsService) {
     this.form = this.formbuilder.group({
       tipoaccidente: [null, [Validators.required]],
       descripcion: [null, [Validators.required]],
@@ -54,8 +57,8 @@ export class CrearComponent implements OnInit {
       medioDePrueba: [null, [Validators.required]],
       numeroTelefonico: [null, [Validators.required]],
       actividadEconomica: [null, [Validators.required]],
-      idPropiedadEmpresa: [null, [Validators.required]],
-      idTipoDeEmpresa: [null, [Validators.required]],
+      propiedad: [null, [Validators.required]],
+      tipoE: [null, [Validators.required]],
       trabajadoresHombres: [null, [Validators.required]],
       trabajadoresMujeres: [null, [Validators.required]],
       clasificacionDenunciante: [null, [Validators.required]]
@@ -66,6 +69,21 @@ export class CrearComponent implements OnInit {
     this.loadAlert();
   }
 
+  async Propiedad() {
+    (await this.CompanyService.PropiedadEmpresaList()).subscribe({
+      next: data => {
+        this.propiedad = data
+      }
+    })
+  }
+
+  async TipoE() {
+    (await this.CompanyService.TipoEmpresaList()).subscribe({
+      next: data => {
+        this.tipoE = data
+      }
+    })
+  }
   async loadAlert() {
     (await this.AccidentsService.GetAccidentById(this.idUser.id)).subscribe({
       next: data => {
@@ -75,8 +93,8 @@ export class CrearComponent implements OnInit {
           empresa: data.empresa,
           numeroTelefonico: data.numeroTelefonico,
           actividadEconomica: data.actividadEconomica,
-          idPropiedadEmpresa: data.idPropiedadEmpresa,
-          idTipoDeEmpresa: data.idTipoDeEmpresa,
+          propiedad: data.idPropiedadEmpresa,
+          tipoE: data.idTipoDeEmpresa,
           trabajadoresHombres: data.trabajadoresHombres,
           trabajadoresMujeres: data.trabajadoresMujeres,
           empresaRut: data.empresaRut,
