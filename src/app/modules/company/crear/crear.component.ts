@@ -200,6 +200,7 @@ export class CrearComponent implements OnInit {
     (await this.CompanyService.GetCompanyById(this.idUser.id_empresa)).subscribe({
       next: data => {
         console.log('e '+data.region);
+        console.log('e2 '+data.idPropiedadEmpresa);
         this.form.setValue({
           nom_empresa: data.nom_empresa,
           rut: data.rut + '-' + data.dvRut,
