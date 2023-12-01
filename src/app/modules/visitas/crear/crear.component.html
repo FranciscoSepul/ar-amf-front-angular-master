@@ -18,27 +18,16 @@
                         formControlName="idcompany" optionLabel="nom_empresa" optionValue="id_empresa"
                         [placeholder]="'SELECCIONE'" emptyMessage="No existen empresas disponibles"></p-dropdown>
                 </div>
-
                 <div class="field firstTypeRut">
-                    <label for="id" class="block fw-title mg-bt-label">Asistentes</label>
-                    <p-multiSelect [options]="trabajador" formControlName="idtrabajador" optionValue="id"
-                        optionLabel="nombre" placeholder="SELECCIONE"></p-multiSelect>
-                </div>
-                <div class="field firstTypeRut">
-                    <label for="id_usuario" class="block fw-title mg-bt-label">Profesional </label>
+                    <label for="id_usuario" class="block fw-title mg-bt-label">Profesional a Cargo </label>
                     <p-dropdown #dropFunction [options]="usuarios" formControlName="idprofesionalacargo"
                         optionLabel="nom_usuario" optionValue="id_usuario" [placeholder]="'SELECCIONE'"
                         emptyMessage="No existen profesionales disponibles para la empresa seleccionada"></p-dropdown>
                 </div>
             </div>
             <div class="formgrid grid">
-                <div class="field firstTypeRut">
-                    <label for="id" class="block fw-title mg-bt-label">Implementos</label>
-                    <p-multiSelect [options]="implementos" formControlName="idimplementos" optionValue="id"
-                        optionLabel="nombre" placeholder="SELECCIONE"></p-multiSelect>
-                </div>
                 <div class="field firstTypeDate">
-                    <label for="fechaprogramacion">Fecha Capacitación</label>
+                    <label for="fechaprogramacion">Fecha Visita</label>
                     <p-calendar [(ngModel)]="date" id="fechaprogramacion" pInputText formControlName="fechaprogramacion"
                         placeholder="fecha Creación">
                     </p-calendar>
@@ -49,15 +38,15 @@
                         placeholder="hh:mm" />
                 </div>
                 <div class="field firstTypeRut">
-                    <label for="idcapacitacion" class="block fw-title mg-bt-label">Tema </label>
-                    <p-dropdown #dropFunction [options]="temas" formControlName="tema" optionLabel="capacitacion"
-                        optionValue="idcapacitacion" [placeholder]="'SELECCIONE'"
+                    <label for="idTipo" class="block fw-title mg-bt-label">Tipo Visita </label>
+                    <p-dropdown #dropFunction [options]="temas" formControlName="idTipo" optionLabel="nombre"
+                        optionValue="id" [placeholder]="'SELECCIONE'"
                         emptyMessage="No existen temas disponibles"></p-dropdown>
                 </div>
             </div>
             <div class="formgrid">
                 <div class="field firstTypeCorreo">
-                    <label for="descripcion">Descripcion</label>
+                    <label for="descripcion">Descripción</label>
                     <input class="firstTypeCorreoLabel" type="text" id="descripcion" pInputText
                         formControlName="descripcion" placeholder="" />
                 </div>

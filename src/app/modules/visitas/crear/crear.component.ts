@@ -42,9 +42,7 @@ export class CrearComponent implements OnInit {
       horaprogramacion: [null, [Validators.required]],
       idcompany: [null, [Validators.required]],
       idprofesionalacargo: [null, [Validators.required]],
-      tema: [null, [Validators.required]],
-      idtrabajador: [null, [Validators.required]],
-      idimplementos: [null, [Validators.required]]
+      idTipo: [null, [Validators.required]],
     });
   }
 
@@ -55,8 +53,6 @@ export class CrearComponent implements OnInit {
   loadOpcions() {
     this.tema();
     this.loadCompanys();
-    this.Implementos();
-    console.log('edit ' + this.isEdit);
     if (this.isEdit) {
       this.CargarEditar();
     }
@@ -76,9 +72,7 @@ export class CrearComponent implements OnInit {
           horaprogramacion: data.horaprogramacion,
           idcompany: data.idcompany,
           idprofesionalacargo: data.idprofesionalacargo,
-          tema: data.tema,
-          idtrabajador: data.idtrabajador,
-          idimplementos: data.idimplementos
+          idTipo: data.tema,
         });
 
       },
@@ -97,7 +91,7 @@ export class CrearComponent implements OnInit {
   }
 
   async tema() {
-    (await this.ActivityService.ListTema()).subscribe({
+    (await this.ActivityService.ListTipoVisita()).subscribe({
       next: data => {
         this.temas = data
       }
@@ -136,7 +130,6 @@ export class CrearComponent implements OnInit {
     (await this.UserServiceService.ProfesionalList(event.value)).subscribe({
       next: data => {
         this.usuarios = data;
-        this.UserByCompany(event.value);
       },
       error(e) {
         this.helpers.checkPermission(this.messageService, e);
@@ -163,7 +156,7 @@ export class CrearComponent implements OnInit {
         }
       });
     } else {
-      (await this.ActivityService.Create(data))
+      (await this.ActivityService.VisitasCreate(data))
         .subscribe({
           next: () => {
             this.backTable.emit();

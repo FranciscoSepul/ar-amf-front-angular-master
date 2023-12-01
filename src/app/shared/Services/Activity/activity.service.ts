@@ -20,6 +20,11 @@ export class ActivityService {
     let url = `https://backsecurity20231116221243.azurewebsites.net/api/Actividades/GetAllTemas`
     return this.httpService.getJson<any>(url);
   }
+  public async ListTipoVisita(){
+    let url = `https://backsecurity20231116221243.azurewebsites.net/api/Visitas/GetAllTipoVisitas`
+    return this.httpService.getJson<any>(url);
+  }
+
   public async Implementos(){
     let url = `https://backsecurity20231116221243.azurewebsites.net/api/Actividades/GetAllImplementos`
     return this.httpService.getJson<any>(url);
@@ -28,6 +33,10 @@ export class ActivityService {
     let url = `https://backsecurity20231116221243.azurewebsites.net/api/Actividades/Create`
     return this.httpService.postJson<any>(url, data);
   }
+  public async VisitasCreate(data: any) {
+    let url = `https://backsecurity20231116221243.azurewebsites.net/api/Visitas/Create`
+    return this.httpService.postJson<any>(url, data);
+  }  
   public async Update(data: any) {
     let url = `https://backsecurity20231116221243.azurewebsites.net/api/Actividades/Create`
     return this.httpService.putJson<any>(url, data);
