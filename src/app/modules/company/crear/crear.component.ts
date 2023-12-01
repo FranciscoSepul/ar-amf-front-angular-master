@@ -65,8 +65,8 @@ export class CrearComponent implements OnInit {
       id_empresa: [null, [Validators.required]],
       numeroTelefonico: [null, [Validators.required]],
       actividadEconomica: [null, [Validators.required]],
-      idPropiedadEmpresa: [null, [Validators.required]],
-      idTipoDeEmpresa: [null, [Validators.required]],
+      propiedad: [null, [Validators.required]],
+      tipoE: [null, [Validators.required]],
       trabajadoresHombres: [null, [Validators.required]],
       trabajadoresMujeres: [null, [Validators.required]],
       //costos
