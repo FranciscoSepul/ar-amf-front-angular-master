@@ -52,16 +52,16 @@
               placeholder="Numero Telefonico" disabled/>
         </div>
         <div class="field firstType">
-          <label for="idPropiedadEmpresa">Propiedad de la Empresa</label>
-          <p-dropdown  #dropFunction [options]="propiedad" formControlName="idPropiedadEmpresa"
-            optionLabel="nombre" optionValue="id" [placeholder]="'SELECCIONE'"
-            emptyMessage="No existen funciones disponibles" disabled></p-dropdown>
+          <label for="id">Propiedad de la Empresa</label>
+          <p-dropdown  #dropFunction [options]="propiedad" formControlName="propiedad" optionLabel="nombre"
+            optionValue="id" [placeholder]="'SELECCIONE'"
+            emptyMessage="No existen funciones disponibles"></p-dropdown>
         </div>
         <div class="field firstType">
-          <label for="idTipoDeEmpresa">Tipo de empresa</label>
-          <p-dropdown  #dropFunction [options]="tipoE" formControlName="idTipoDeEmpresa"
+          <label for="id">Tipo de empresa</label>
+          <p-dropdown  #dropFunction [options]="tipoE" formControlName="tipoE"
             optionLabel="nombre" optionValue="id" [placeholder]="'SELECCIONE'"
-            emptyMessage="No existen funciones disponibles" disabled></p-dropdown>
+            emptyMessage="No existen funciones disponibles"></p-dropdown>
         </div>
         <div>
           <div class="a">

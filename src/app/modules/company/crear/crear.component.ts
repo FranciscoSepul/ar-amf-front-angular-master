@@ -101,13 +101,12 @@ export class CrearComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.loadOpcions();
+    this.Propiedad();
+    this.TipoE();
   }
 
   loadOpcions() {
-    this.Region();
-    this.Propiedad();
-    this.TipoE();
+    this.Region();    
     if (this.isEdit) {
       this.ComunaByRegion(this.idUser.region);
 
@@ -129,7 +128,8 @@ export class CrearComponent implements OnInit {
   async Propiedad() {
     (await this.CompanyService.PropiedadEmpresaList()).subscribe({
       next: data => {
-        this.propiedad = data
+        this.propiedad = data;
+        this.loadOpcions();
       }
     })
   }
@@ -213,8 +213,8 @@ export class CrearComponent implements OnInit {
           id_empresa: data.id_empresa,
           numeroTelefonico: data.numeroTelefonico,
           actividadEconomica: data.actividadEconomica,
-          propiedad: data.idPropiedadEmpresa,
-          tipoE: data.idTipoDeEmpresa,
+          propiedad: Number(data.idPropiedadEmpresa),
+          tipoE: Number(data.idTipoDeEmpresa),
           trabajadoresHombres: data.trabajadoresHombres,
           trabajadoresMujeres: data.trabajadoresMujeres,
           //Costos

@@ -66,6 +66,8 @@ export class CrearComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.Propiedad();
+    this.TipoE();
     this.loadAlert();
   }
 
@@ -93,8 +95,8 @@ export class CrearComponent implements OnInit {
           empresa: data.empresa,
           numeroTelefonico: data.numeroTelefonico,
           actividadEconomica: data.actividadEconomica,
-          propiedad: data.idPropiedadEmpresa,
-          tipoE: data.idTipoDeEmpresa,
+          propiedad: Number(data.idPropiedadEmpresa),
+          tipoE: Number(data.idTipoDeEmpresa),
           trabajadoresHombres: data.trabajadoresHombres,
           trabajadoresMujeres: data.trabajadoresMujeres,
           empresaRut: data.empresaRut,
