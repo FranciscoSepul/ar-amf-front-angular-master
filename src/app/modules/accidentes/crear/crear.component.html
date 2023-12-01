@@ -53,13 +53,15 @@
         </div>
         <div class="field firstType">
           <label for="idPropiedadEmpresa">Propiedad de la Empresa</label>
-            <input type="text" id="idPropiedadEmpresa" pInputText formControlName="idPropiedadEmpresa"
-              placeholder="Numero Telefonico" disabled/>
+          <p-dropdown  #dropFunction [options]="propiedad" formControlName="idPropiedadEmpresa"
+            optionLabel="nombre" optionValue="id" [placeholder]="'SELECCIONE'"
+            emptyMessage="No existen funciones disponibles" disabled></p-dropdown>
         </div>
         <div class="field firstType">
           <label for="idTipoDeEmpresa">Tipo de empresa</label>
-            <input type="text" id="idTipoDeEmpresa" pInputText formControlName="idTipoDeEmpresa"
-              placeholder="Numero Telefonico" disabled/>
+          <p-dropdown  #dropFunction [options]="tipoE" formControlName="idTipoDeEmpresa"
+            optionLabel="nombre" optionValue="id" [placeholder]="'SELECCIONE'"
+            emptyMessage="No existen funciones disponibles" disabled></p-dropdown>
         </div>
         <div>
           <div class="a">
