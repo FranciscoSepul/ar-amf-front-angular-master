@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AccidentsService } from '../../../shared/Services/Accidents/accidents.service';
 import { CompanyService } from '../../../shared/Services/Company/company.service';
@@ -10,6 +10,7 @@ import { CompanyService } from '../../../shared/Services/Company/company.service
 })
 export class CrearComponent implements OnInit {
 
+  @Output() backTable: EventEmitter<any> = new EventEmitter();
   @Input() isEdit: boolean;
   @Input() idUser: any;
   form: FormGroup;
@@ -77,6 +78,9 @@ export class CrearComponent implements OnInit {
         this.propiedad = data
       }
     })
+  }
+  backToTable() {
+    this.backTable.emit();
   }
 
   async TipoE() {
