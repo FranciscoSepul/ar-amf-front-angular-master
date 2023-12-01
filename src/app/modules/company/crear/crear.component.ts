@@ -243,8 +243,6 @@ export class CrearComponent implements OnInit {
           totalAsesoria: 0,
           totalAsesoriaEspecial: 0,
           totalPersonasExtra: 0
-
-
         });
       },
       error(e) {
