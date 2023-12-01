@@ -1,0 +1,145 @@
+<ng-template [ngIf]="this.isEdit === false" [ngIfElse]="editComponent">
+    <p class="title">Detalle Factura</p>
+  </ng-template>
+  <ng-template #editComponent>
+    <p class="title">Detalle Factura</p>
+  </ng-template>
+  
+  <!--<div class="appDate">
+        <app-date></app-date>
+      </div>-->
+  <p-card>
+  
+    <div class="card section">
+        <div class="subTitle">
+            Empresa
+        </div>
+      <form [formGroup]="form" autocomplete="off">
+        <div class="formgrid grid">
+          <div class="field firstType">
+            <label for="title">Nombre</label>
+            <input type="text" id="nom_empresa" pInputText formControlName="nom_empresa" placeholder="Nombre" />
+          </div>
+          <div class="field firstType">
+            <label for="rut">Rut</label>
+            <input type="text" id="rut" pInputText formControlName="rut" />
+          </div>
+          <div class="field firstType">
+            <label for="fechaFinContrato">Fecha Fin Contrato</label>
+            <p-calendar [(ngModel)]="date" dateFormat="dd/mm/yy" id="fechaFinContrato" pInputText
+              formControlName="fechaFinContrato" placeholder="fecha Creación">
+            </p-calendar>
+          </div>
+          <div class="field firstType">
+            <label for="id_region" class="block fw-title mg-bt-label">Region </label>
+            <p-dropdown (onChange)="cambioRegion($event)" #dropFunction [options]="region" formControlName="region"
+              optionLabel="nom_reg" optionValue="id_region" [placeholder]="'SELECCIONE'"
+              emptyMessage="No existen funciones disponibles"></p-dropdown>
+          </div>
+          <div class="field firstType">
+            <label for="id_comuna" class="block fw-title mg-bt-label">Comuna </label>
+            <p-dropdown #dropFunction [options]="comuna" formControlName="comuna" optionLabel="nombre_comuna"
+              optionValue="id_comuna" [placeholder]="'SELECCIONE'"
+              emptyMessage="No existen funciones disponibles"></p-dropdown>
+          </div>
+          <div class="field firstType">
+            <label for="direccion" class="block fw-title mg-bt-label">Direccion</label>
+            <input type="text" id="direccion" pInputText formControlName="direccion" placeholder="direccion" />
+          </div>
+          <div class="field firstType">
+            <label for="numeroTelefonico">Número Teléfono</label>
+            <input type="text" id="numeroTelefonico" pInputText formControlName="numeroTelefonico" />
+          </div>
+          <div class="field firstType">
+            <label for="actividadEconomica">Actividad Económica</label>
+            <input type="text" id="actividadEconomica" pInputText formControlName="actividadEconomica" />
+          </div>
+          <div class="field firstType">
+            <label for="idPropiedadEmpresa">Propiedad de la Empresa</label>
+            <input type="text" id="idPropiedadEmpresa" pInputText formControlName="idPropiedadEmpresa" />
+          </div>
+          <div class="field firstType">
+            <label for="idTipoDeEmpresa">Tipo de empresa</label>
+            <input type="text" id="idTipoDeEmpresa" pInputText formControlName="idTipoDeEmpresa" />
+          </div>  
+          <div class="field firstType">
+            <label for="correo">Correo Electronico</label>
+            <input type="text" id="correo" pInputText formControlName="correo" placeholder="correo" />
+          </div>
+        </div>
+      </form>
+    </div>
+    <div>&nbsp;</div>   
+    <div>&nbsp;</div>
+    <div class="card section">
+      <div class="subTitle">
+        Facturar
+      </div>
+      <div>&nbsp;</div>
+      <form [formGroup]="form" autocomplete="off">
+        <div class="formgrid grid">          
+          <div>&nbsp;</div>
+          <div>&nbsp;</div>
+          <div>&nbsp;</div>
+          <div class="field firstType">
+            <label for="costoTotal">Costo Total</label>
+  
+            <input type="text" [(ngModel)]="costoTotal" id="costoTotal" pInputText formControlName="costoTotal" />
+  
+          </div>
+          <div class="field firstType">
+            <label for="costoTotalAccidente">Costo Total Accidente</label>
+  
+            <input type="text" [(ngModel)]="costoTotalAccidente" id="costoTotalAccidente" pInputText
+              formControlName="costoTotalAccidente" />
+  
+          </div>
+          <div class="field firstType">
+            <label for="costoTotalCharla">Costo Total Charla</label>
+  
+            <input type="text" [(ngModel)]="costoTotalCharla" id="costoTotalCharla" pInputText
+              formControlName="costoTotalCharla" />
+  
+          </div>
+          <div class="field firstType">
+            <label for="costoTotalVisita">Costo Total Visita</label>
+  
+            <input type="text" [(ngModel)]="costoTotalVisita" id="costoTotalVisita" pInputText
+              formControlName="costoTotalVisita" />
+  
+          </div>
+          <div class="field firstType">
+            <label for="costoTotalAsesoria">Costo Total Asesoria</label>
+  
+            <input type="text" [(ngModel)]="costoTotalAsesoria" id="costoTotalAsesoria" pInputText
+              formControlName="costoTotalAsesoria" />
+  
+          </div>
+          <div class="field firstType">
+            <label for="costoTotalAsesoriaEspecial">Costo Total Asesoria Especial</label>
+  
+            <input type="text" [(ngModel)]="costoTotalAsesoriaEspecial" id="costoTotalAsesoriaEspecial" pInputText
+              formControlName="costoTotalAsesoriaEspecial" />
+  
+          </div>
+          <div class="field firstType">
+            <label for="costoTotalPersonasExtra">Costo Total Persona Extra</label>
+            <input type="text" [(ngModel)]="costoTotalPersonasExtra" id="costoTotalPersonasExtra" pInputText
+              formControlName="costoTotalPersonasExtra" />
+          </div>
+        </div>
+      </form>
+    </div>
+    <hr />
+    <div>
+      <div class="flex card-container green-container p-0">
+        <div class="flex-1">
+        </div>
+        <div class="flex-1">
+        </div>
+        <div class="flex-1 buttonContainer">
+          <button pButton class="redButton" (click)="backToTable()">Volver</button>
+        </div>
+      </div>
+    </div>
+  </p-card>

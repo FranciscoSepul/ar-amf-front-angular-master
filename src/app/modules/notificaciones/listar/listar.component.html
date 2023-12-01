@@ -1,0 +1,52 @@
+<p class="title">CONFIGURACIÓN DE NOTIFICACIONES</p>
+<!--<div class="appDate">
+      <app-date></app-date>
+    </div>-->
+<p>&nbsp;</p>
+<p-card>
+  <div class="flex card-container green-container p-0 cardHead">
+    <div class="flex-1 ">
+      NOTIFICACIONES CREADOS
+    </div>
+    <div class="row">
+      <div class="flex-1 buttonContainer">
+        <div class="col">
+          <button pButton class="blueButton" (click)="Crear()">Crear Notificacion</button>
+          <ng-container *ngIf="showLoader">
+            <p-dropdown [options]="sortOptions" placeholder="{{rows}}" (onChange)="onSortChange($event)"
+              styleClass="p-mb-2 p-mb-md-0"></p-dropdown>
+          </ng-container>
+        </div>
+      </div>
+    </div>
+  </div>
+  <P>&nbsp;</P>
+  <ng-container *ngIf="!showLoader">
+    <h4>CARGANDO DATOS...</h4>
+    <p-progressBar mode="indeterminate" [style]="{'height': '16px'}"></p-progressBar>
+  </ng-container>
+  <ng-container>
+    <p-table [value]="usuarios" styleClass="p-datatable-striped" [paginator]="true" [rows]="rows">
+      <ng-template pTemplate="header">
+        <tr>
+          <th id="module" style="text-align: left !important;">Titulo</th>
+          <th id="module" style="text-align: left !important;">Compania</th>
+          <th id="module" style="text-align: left !important;">TipoNotificacion</th>
+          <th id="module" style="text-align: left !important;">Notificacion Dirigida</th>
+          <th id="module" style="text-align: left !important;">Notificacion enviada a </th>
+        </tr>
+      </ng-template>
+
+      <ng-template pTemplate="body" let-men>
+        <tr>
+          <td style="text-align: left !important; padding-left: 5px;">{{men.titulo}}</td>
+          <td style="text-align: left !important; padding-left: 5px;">{{men.company}}</td>
+          <td style="text-align: left !important; padding-left: 5px;">{{men.tiponotificacion}}</td>
+          <td style="text-align: left !important; padding-left: 5px;">{{men.notificaciondirigida}}</td>
+          <td style="text-align: left !important; padding-left: 5px;">{{men.trabajador}}</td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </ng-container>
+</p-card>
+<p>&nbsp;</p>

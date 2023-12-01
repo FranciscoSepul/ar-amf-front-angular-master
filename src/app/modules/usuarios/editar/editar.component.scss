@@ -1,0 +1,215 @@
+.title {
+  font-style: normal;
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 28px;
+  text-transform: uppercase;
+  color: #284773;
+  margin-bottom: 0px;
+}
+
+.appDate {
+  margin-bottom: 8vh;
+}
+
+.subTitle {
+  color: #284773;
+  font-weight: bold;
+}
+
+.date {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 14px;
+  color: #828282;
+  margin-top: 0px;
+}
+
+.separator {
+  margin-bottom: 5vh;
+}
+
+.inactivo {
+  margin: auto;
+  justify-content: center;
+  align-items: center;
+  width: 100px;
+  height: 26px;
+  background: #E0E0E0;
+  border-radius: 3px;
+  color: white;
+  padding-top: 4px;
+}
+
+
+.pendiente {
+  margin: auto;
+  justify-content: center;
+  align-items: center;
+  width: 100px;
+  height: 26px;
+  background: #FFCB21;
+  border-radius: 3px;
+  color: white;
+  padding-top: 4px;
+}
+
+.vigente {
+  margin: auto;
+  justify-content: center;
+  align-items: center;
+  width: 100px;
+  height: 26px;
+  background: #00D749;
+  border-radius: 3px;
+  color: white;
+  padding-top: 4px;
+}
+
+.stateTextP {
+  font-size: small;
+}
+
+.stateTextI {
+  font-size: small;
+}
+
+.stateTextV {
+  font-size: small;
+}
+
+.buttonContainer {
+  text-align: right;
+}
+
+.blueButton {
+  background-color: #284773;
+  border-color: #284773;
+  margin-right: 2vh;
+}
+
+  .blueButton:enabled:hover {
+      background-color: #284773;
+      border-color: #284773;
+  }
+
+.redButton {
+  background-color: #E4002B;
+  border-color: #E4002B;
+  margin-right: 2vh;
+}
+
+  .redButton:enabled:hover {
+      background-color: #E4002B;
+      border-color: #E4002B;
+  }
+
+.info {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 14px;
+  text-transform: uppercase;
+  color: #828282;
+}
+
+.lastButtons{
+  margin-top: 2vh;
+}
+
+.block {
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 14px;
+  color: #284773;
+}
+
+.registro {
+  margin-top: 10vh;
+  height: 8vh !important;
+  position: relative;
+}
+
+.registroSub {
+  margin-top: 10vh;
+  position: relative;
+}
+
+.roundbutton {
+  width: 40px;
+  height: 40px;
+  background: #284773;
+  border-radius: 20px;
+  border-color: #284773;
+}
+  .roundbutton:enabled:hover {
+      background-color: #284773;
+      border-color: #284773;
+  }
+
+.addButton {
+  position: absolute;
+  right: 0;
+  top: 10px;
+}
+
+.editBottom {
+  position: absolute;
+  right: 30px;
+  top: 42px;
+}
+
+hr{
+  color: gray;
+}
+
+.hrEdit {
+  position: absolute;
+  width: 90%;
+}
+
+.hrAddButton {
+  position: absolute;
+  top: 25px;
+  width: 80%;
+}
+
+@media (max-width: 1280px) {
+  .hrAddButton {
+      width: 70%;
+  }
+}
+
+@media (max-width: 970px) {
+  .hrAddButton {
+      width: 60%;
+  }
+}
+
+@media (max-width: 605px) {
+  .hrAddButton {
+      width: 55%;
+  }
+}
+
+
+::ng-deep .p-inputswitch.p-inputswitch-checked .p-inputswitch-slider {
+  background: #00D749 !important;
+}
+
+::ng-deep .p-datatable-wrapper {
+  font-size: 0.8rem;
+}
+
+::ng-deep .p-datatable .p-datatable-thead > tr > th {
+  background: #D5DEEF;
+  text-align: center;
+}
+
+::ng-deep .p-datatable .p-datatable-tbody > tr > td {
+  text-align: center;
+}
+
+::ng-deep .p-datatable .p-datatable-tbody > tr > td:first-of-type {
+  text-align: left;
+}

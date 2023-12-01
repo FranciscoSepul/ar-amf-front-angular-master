@@ -1,0 +1,137 @@
+.title {
+  //   font-style: normal;
+  font-size: 24px;
+  //   line-height: 28px;
+  text-transform: uppercase;
+  //   color: #284773;
+  //  margin-bottom: 0px;
+  //  font-weight: bold;
+}
+
+.appDate {
+  margin-bottom: 8vh;
+}
+.label-input-spacing {
+  margin-right: 10px; 
+  margin-left: 10px;
+}
+.subTitle {
+  color: #284773;
+  font-weight: bold;
+}
+
+.date {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 14px;
+  color: #828282;
+  margin-top: 0px;
+}
+
+.inasistencia {
+  width: 100px;
+  height: 26px;
+  background: white;
+  border-radius: 3px;
+  color: white;
+  padding-top: 0.5vh;
+}
+
+.stateTextP {
+  font-size: small;
+}
+
+.stateTextI {
+  font-size: small;
+}
+
+.stateTextV {
+  font-size: small;
+}
+
+.states {
+  text-align: -webkit-center;
+
+}
+
+.buttonContainer {
+  text-align: right;
+}
+
+.detailLink {
+  cursor: pointer;
+  color: blue;
+  text-decoration: underline;
+}
+
+.blueButton {
+  background-color: #284773;
+  border-color: #284773;
+  margin-right: 2vh;
+}
+
+.blueButton:enabled:hover {
+  background-color: #284773;
+  border-color: #284773;
+}
+
+::ng-deep .p-inputswitch.p-inputswitch-checked .p-inputswitch-slider {
+  background: #00D749 !important;
+}
+
+
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  /* Fondo semi-transparente */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.popup-content {
+  background: #fff;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  max-width: 400px;
+  width: 100%;
+}
+
+.popup-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.popup-header h2 {
+  margin: 0;
+}
+
+.close-button {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.popup-body {
+  text-align: center;
+}
+
+.action-button {
+  padding: 10px 20px;
+  background: #3498db;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-top: 10px;
+}
